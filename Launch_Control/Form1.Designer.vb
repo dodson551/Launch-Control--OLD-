@@ -48,7 +48,7 @@ Partial Class Form1
     Me.Label2 = New System.Windows.Forms.Label()
     Me.txtIP = New System.Windows.Forms.TextBox()
     Me.btnConnect = New AutoScaleButton.AutoScaleButton()
-    Me.AutoScaleButton2 = New AutoScaleButton.AutoScaleButton()
+    Me.btnDisconnect = New AutoScaleButton.AutoScaleButton()
     Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
     Me.dgvEvents = New System.Windows.Forms.DataGridView()
     Me.tlpBackground.SuspendLayout()
@@ -333,7 +333,7 @@ Partial Class Form1
     Me.TableLayoutPanel3.Controls.Add(Me.Label2, 2, 0)
     Me.TableLayoutPanel3.Controls.Add(Me.txtIP, 1, 0)
     Me.TableLayoutPanel3.Controls.Add(Me.btnConnect, 4, 0)
-    Me.TableLayoutPanel3.Controls.Add(Me.AutoScaleButton2, 5, 0)
+    Me.TableLayoutPanel3.Controls.Add(Me.btnDisconnect, 5, 0)
     Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
     Me.TableLayoutPanel3.Location = New System.Drawing.Point(440, 4)
     Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
@@ -357,7 +357,7 @@ Partial Class Form1
     Me.Label1.BackColor = System.Drawing.Color.Black
     Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
     Me.Label1.Font = New System.Drawing.Font("OCR A Extended", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-    Me.Label1.ForeColor = System.Drawing.Color.White
+    Me.Label1.ForeColor = System.Drawing.Color.Lime
     Me.Label1.Location = New System.Drawing.Point(4, 1)
     Me.Label1.Name = "Label1"
     Me.Label1.Size = New System.Drawing.Size(188, 42)
@@ -371,7 +371,7 @@ Partial Class Form1
     Me.Label2.BackColor = System.Drawing.Color.Black
     Me.Label2.Dock = System.Windows.Forms.DockStyle.Fill
     Me.Label2.Font = New System.Drawing.Font("OCR A Extended", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-    Me.Label2.ForeColor = System.Drawing.Color.White
+    Me.Label2.ForeColor = System.Drawing.Color.Lime
     Me.Label2.Location = New System.Drawing.Point(535, 1)
     Me.Label2.Name = "Label2"
     Me.Label2.Size = New System.Drawing.Size(205, 42)
@@ -401,18 +401,18 @@ Partial Class Form1
     Me.btnConnect.TabIndex = 4
     Me.btnConnect.UseVisualStyleBackColor = False
     '
-    'AutoScaleButton2
+    'btnDisconnect
     '
-    Me.AutoScaleButton2.AutoScaleBorder = 0
-    Me.AutoScaleButton2.AutoScaleImage = Global.Launch_Control.My.Resources.Resources.disconnect
-    Me.AutoScaleButton2.BackColor = System.Drawing.SystemColors.ControlLight
-    Me.AutoScaleButton2.Dock = System.Windows.Forms.DockStyle.Fill
-    Me.AutoScaleButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-    Me.AutoScaleButton2.Location = New System.Drawing.Point(1189, 4)
-    Me.AutoScaleButton2.Name = "AutoScaleButton2"
-    Me.AutoScaleButton2.Size = New System.Drawing.Size(261, 36)
-    Me.AutoScaleButton2.TabIndex = 5
-    Me.AutoScaleButton2.UseVisualStyleBackColor = False
+    Me.btnDisconnect.AutoScaleBorder = 0
+    Me.btnDisconnect.AutoScaleImage = Global.Launch_Control.My.Resources.Resources.disconnect
+    Me.btnDisconnect.BackColor = System.Drawing.SystemColors.ControlLight
+    Me.btnDisconnect.Dock = System.Windows.Forms.DockStyle.Fill
+    Me.btnDisconnect.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+    Me.btnDisconnect.Location = New System.Drawing.Point(1189, 4)
+    Me.btnDisconnect.Name = "btnDisconnect"
+    Me.btnDisconnect.Size = New System.Drawing.Size(261, 36)
+    Me.btnDisconnect.TabIndex = 5
+    Me.btnDisconnect.UseVisualStyleBackColor = False
     '
     'TableLayoutPanel4
     '
@@ -504,7 +504,7 @@ Partial Class Form1
   Friend WithEvents Label2 As System.Windows.Forms.Label
   Friend WithEvents txtIP As System.Windows.Forms.TextBox
   Friend WithEvents btnConnect As AutoScaleButton.AutoScaleButton
-  Friend WithEvents AutoScaleButton2 As AutoScaleButton.AutoScaleButton
+  Friend WithEvents btnDisconnect As AutoScaleButton.AutoScaleButton
   Friend WithEvents TableLayoutPanel4 As System.Windows.Forms.TableLayoutPanel
   Friend WithEvents dgvEvents As System.Windows.Forms.DataGridView
 
