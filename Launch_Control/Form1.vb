@@ -132,4 +132,8 @@ Public Class Form1
     dt.Rows.Add(Me.Text, Date.Now)
     adjust_clm_width()
   End Sub
+
+  Private Sub btnsnsrreads_Click(sender As Object, e As EventArgs) Handles btnsnsrreads.Click
+    Send_Rec("9", dgvEvents)
+  End Sub
 End Class

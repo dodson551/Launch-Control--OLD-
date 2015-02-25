@@ -51,6 +51,7 @@ Partial Class Form1
     Me.btnDisconnect = New AutoScaleButton.AutoScaleButton()
     Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
     Me.dgvEvents = New System.Windows.Forms.DataGridView()
+    Me.btnsnsrreads = New AutoScaleButton.AutoScaleButton()
     Me.tlpBackground.SuspendLayout()
     CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
     Me.tlpmain.SuspendLayout()
@@ -421,6 +422,7 @@ Partial Class Form1
     Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75.0!))
     Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
     Me.TableLayoutPanel4.Controls.Add(Me.dgvEvents, 0, 0)
+    Me.TableLayoutPanel4.Controls.Add(Me.btnsnsrreads, 1, 0)
     Me.TableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill
     Me.TableLayoutPanel4.Location = New System.Drawing.Point(440, 55)
     Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
@@ -456,6 +458,18 @@ Partial Class Form1
     Me.dgvEvents.Name = "dgvEvents"
     Me.dgvEvents.Size = New System.Drawing.Size(1082, 812)
     Me.dgvEvents.TabIndex = 0
+    '
+    'btnsnsrreads
+    '
+    Me.btnsnsrreads.AutoScaleBorder = 0
+    Me.btnsnsrreads.AutoScaleImage = Nothing
+    Me.btnsnsrreads.Dock = System.Windows.Forms.DockStyle.Fill
+    Me.btnsnsrreads.Location = New System.Drawing.Point(1093, 4)
+    Me.btnsnsrreads.Name = "btnsnsrreads"
+    Me.btnsnsrreads.Size = New System.Drawing.Size(357, 812)
+    Me.btnsnsrreads.TabIndex = 1
+    Me.btnsnsrreads.Text = "start sensors"
+    Me.btnsnsrreads.UseVisualStyleBackColor = True
     '
     'Form1
     '
@@ -507,5 +521,6 @@ Partial Class Form1
   Friend WithEvents btnDisconnect As AutoScaleButton.AutoScaleButton
   Friend WithEvents TableLayoutPanel4 As System.Windows.Forms.TableLayoutPanel
   Friend WithEvents dgvEvents As System.Windows.Forms.DataGridView
+  Friend WithEvents btnsnsrreads As AutoScaleButton.AutoScaleButton
 
 End Class
