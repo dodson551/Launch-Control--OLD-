@@ -2,7 +2,7 @@
 Imports System.Net.Sockets
 Imports System.Text
 
-Public Class Form1
+Public Class lblMainValves
 
   Dim bSafety As Boolean = True
   Dim dt As New DataTable
@@ -58,7 +58,7 @@ Public Class Form1
     clm2.Width = 520
   End Sub
 
-  Public Function Send_Rec(ByVal sMess As String, ByRef dgv As DataGridView)
+  Public Function Send_Rec_DGV(ByVal sMess As String, ByRef dgv As DataGridView)
     If txtIP.Text = Nothing Then
       MsgBox("Please enter the board IP address and port that you wish to use to connect to.")
     Else
@@ -76,38 +76,55 @@ Public Class Form1
     Return Nothing
   End Function
 
+  Public Function Send_Rec_Label(ByVal sMess As String, ByRef lbl As Label)
+    If txtIP.Text = Nothing Then
+      MsgBox("Please enter the board IP address and port that you wish to use to connect to.")
+    Else
+      If My.Computer.Network.Ping(txtIP.Text) = True Then
+        Dim msg As Byte() = Encoding.ASCII.GetBytes(sMess)
+        Dim bytesSentlbl As Integer = soc.Send(msg)
+        Dim bytesReclbl As Integer = soc.Receive(bytes)
+        lbl.Text = Encoding.ASCII.GetString(bytes, 0, bytesReclbl)
+      Else
+        MsgBox("No board deteced on the network, please check physical connection.")
+      End If
+    End If
+    Return Nothing
+  End Function
+
+
 #Region "Actuation and Initializing"
 
   Private Sub btnIgnOn_Click(sender As Object, e As EventArgs) Handles btnIgnOn.Click
-    Send_Rec("1", dgvEvents)
+    Send_Rec_DGV("1", dgvEvents)
   End Sub
 
   Private Sub btnIgnOff_Click(sender As Object, e As EventArgs) Handles btnIgnOff.Click
-    Send_Rec("2", dgvEvents)
+    Send_Rec_DGV("2", dgvEvents)
   End Sub
 
   Private Sub btnVentOpen_Click(sender As Object, e As EventArgs) Handles btnVentOpen.Click
-    Send_Rec("3", dgvEvents)
+    Send_Rec_DGV("3", dgvEvents)
   End Sub
 
   Private Sub btnVentClose_Click(sender As Object, e As EventArgs) Handles btnVentClose.Click
-    Send_Rec("4", dgvEvents)
+    Send_Rec_DGV("4", dgvEvents)
   End Sub
 
   Private Sub btnMainOpen_Click(sender As Object, e As EventArgs) Handles btnMainOpen.Click
-    Send_Rec("5", dgvEvents)
+    Send_Rec_DGV("5", dgvEvents)
   End Sub
 
   Private Sub btnMainClose_Click(sender As Object, e As EventArgs) Handles btnMainClose.Click
-    Send_Rec("6", dgvEvents)
+    Send_Rec_DGV("6", dgvEvents)
   End Sub
 
   Private Sub btnLaunch_Click(sender As Object, e As EventArgs) Handles btnLaunch.Click
-    Send_Rec("7", dgvEvents)
+    Send_Rec_DGV("7", dgvEvents)
   End Sub
 
   Private Sub btnAbort_Click(sender As Object, e As EventArgs) Handles btnAbort.Click
-    Send_Rec("8", dgvEvents)
+    Send_Rec_DGV("8", dgvEvents)
   End Sub
 
 #End Region
@@ -133,7 +150,40 @@ Public Class Form1
     adjust_clm_width()
   End Sub
 
-  Private Sub btnsnsrreads_Click(sender As Object, e As EventArgs) Handles btnsnsrreads.Click
-    Send_Rec("9", dgvEvents)
+  Private Sub btnSensorReads_Click(sender As Object, e As EventArgs) Handles btnSensorReads.Click
+    If txtIP.Text = Nothing Then
+      MsgBox("Please enter the board IP address and port that you wish to use to connect to.")
+    Else
+      If My.Computer.Network.Ping(txtIP.Text) = True Then
+        Dim bSensor As Boolean = False
+        Timer1.Start()
+        If bSensor = False Then
+          btnSensorReads.AutoScaleImage = My.Resources.reading_sensors
+          btnSensorReads.Enabled = False
+          bSensor = True
+        End If
+      Else
+        MsgBox("No board deteced on the network, please check physical connection.")
+      End If
+    End If
+  End Sub
+
+  Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+    Send_Rec_Label("temp_status", lblThermo)
+    lblThermo.Text = lblThermo.Text + " F"
+    'Threading.Thread.Sleep(100)
+    Send_Rec_Label("bwire_status", lblBwire)
+    'Threading.Thread.Sleep(100)
+    Send_Rec_Label("reed_status", lblKeroValve)
+    'Threading.Thread.Sleep(100)
+  End Sub
+
+  Private Sub btnCameraCtl_Click(sender As Object, e As EventArgs) Handles btnCameraCtl.Click
+    Dim bRec As Boolean = False
+    If bRec = False Then
+      btnCameraCtl.AutoScaleImage = My.Resources.recording
+      btnCameraCtl.Enabled = False
+      bRec = True
+    End If
   End Sub
 End Class

@@ -227,6 +227,60 @@
   <ItemGroup>
     <None Include="Resources\disconnect.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\camera_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\camera_button2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\begin_sensors.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\recording.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reading_sensors.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\he_pressure.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kero_pressure.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LOX_pressure.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kero_valve.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LOX_valve.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Main_valves.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\thermocouple_read.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bwire.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bwire1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\thermocouple_read1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kero_valve1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LOX_valve1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Main_valves1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
