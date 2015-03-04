@@ -281,6 +281,18 @@
   <ItemGroup>
     <None Include="Resources\Main_valves1.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ignitor_two_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ignitor_two_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ignitor_one_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ignitor_one_off.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -127,6 +127,9 @@
   <data name="safety" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\safety.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ignitor_one_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ignitor_one_on.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="camera_button" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\camera_button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -196,14 +199,20 @@
   <data name="Main_valves" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Main_valves.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ignitor_two_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ignitor_two_off.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="LOX_valve" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LOX_valve.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ignitor_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ignitor_on.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="connect" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\connect.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Main_valves1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Main_valves1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ignitor_two_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ignitor_two_on.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="launch22" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\launch22.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -216,6 +225,9 @@
   </data>
   <data name="caution_tape" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\caution_tape.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ignitor_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ignitor_off.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="disconnect" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\disconnect.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -232,8 +244,8 @@
   <data name="vents_opened" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\vents_opened.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ignitor_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ignitor_off.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="connect" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\connect.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="bwire1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bwire1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -277,7 +289,7 @@
   <data name="reading_sensors" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\reading_sensors.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Main_valves1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Main_valves1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ignitor_one_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ignitor_one_off.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
