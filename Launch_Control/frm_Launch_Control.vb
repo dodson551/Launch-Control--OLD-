@@ -37,25 +37,30 @@ Public Class frmMain
   End Sub
 
   Private Sub btnConnect_Click(sender As Object, e As EventArgs) Handles btnConnect.Click
+    ipAddress = ipAddress.Parse(txtIP.Text)
+    port = txtPort.Text
     If txtIP.Text = Nothing Then
-      MsgBox("Please enter the board IP address and port that you wish to use to connect to.")
+      MsgBox("Please enter the board IP address that you wish to use to connect to.")
     ElseIf txtPort.Text = Nothing Then
       MsgBox("Please enter the board port that you wish to use to connect to.")
     Else
-      'define connection parameters 
-      ipAddress = ipAddress.Parse(txtIP.Text)
-      port = txtPort.Text
-      Dim remoteEP As New IPEndPoint(ipAddress, port)
-      'connecting to socket
       If bServer = True Then
-        soc.Connect(remoteEP)
-        Me.Text = "Connected to board: " + soc.RemoteEndPoint.ToString()
-        bConnected = True
-        dgvEvents.DataSource = dt
-        dt.Rows.Add(Me.Text, Date.Now)
-        adjust_clm_width()
-      Else
-        MsgBox("Server is not running on Raspberry Pi. Load Putty and initialize the server before connecting.")
+        Try
+          Dim result = soc.BeginConnect(ipAddress, port, Nothing, Nothing)
+          Dim success = result.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(3))
+    
+        If Not success Then
+          MsgBox("Server is not running on Raspberry Pi. Load Putty and initialize the server before connecting.")
+        Else
+          Me.Text = "Connected to board: " + soc.RemoteEndPoint.ToString()
+          bConnected = True
+          dgvEvents.DataSource = dt
+          dt.Rows.Add(Me.Text, Date.Now)
+          adjust_clm_width()
+          End If
+        Catch ex As Exception
+          MsgBox("Connection needs to be reset. Please restart program to setup new connection.")
+        End Try
       End If
     End If
   End Sub
@@ -65,18 +70,25 @@ Public Class frmMain
     bSensor = True
     btnSensorReads.AutoScaleImage = My.Resources.begin_sensors
     btnSensorReads.Enabled = True
-    soc.Disconnect(False)
-    Me.Text = "Disconnected from board: " + soc.RemoteEndPoint.ToString()
-    bConnected = False
-    bRec = False
-    btnCameraCtl.AutoScaleImage = My.Resources.camera_button2
-    bServer = False
-    cbServer.Checked = False
-    cbServer.Text = "Server Offline"
-    cbServer.ForeColor = Color.Red
-    dgvEvents.DataSource = dt
-    dt.Rows.Add(Me.Text, Date.Now)
-    adjust_clm_width()
+    If bConnected = True Then
+      Dim dis_result = soc.BeginDisconnect(False, Nothing, Nothing)
+      Dim dis_success = dis_result.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(3))
+      If Not dis_success Then
+        MsgBox("Client software was not able to disconnect successfully. Please try again.")
+      Else
+        Me.Text = "Disconnected from board: " + soc.RemoteEndPoint.ToString()
+        bConnected = False
+        bRec = False
+        btnCameraCtl.AutoScaleImage = My.Resources.camera_button2
+        bServer = False
+        cbServer.Checked = False
+        cbServer.Text = "Server Offline"
+        cbServer.ForeColor = Color.Red
+        dgvEvents.DataSource = dt
+        dt.Rows.Add(Me.Text, Date.Now)
+        adjust_clm_width()
+      End If
+    End If
   End Sub
 
   Private Sub cbServer_CheckedChanged(sender As Object, e As EventArgs) Handles cbServer.CheckedChanged
@@ -115,21 +127,21 @@ Public Class frmMain
     End If
 
     If lblKeroValve.Text = "Open" Then
-      lblKeroValve.BackColor = Color.DarkSeaGreen
-    Else
       lblKeroValve.BackColor = Color.LightCoral
+    Else
+      lblKeroValve.BackColor = Color.DarkSeaGreen
     End If
 
     If lblLOXValve.Text = "Open" Then
-      lblLOXValve.BackColor = Color.DarkSeaGreen
-    Else
       lblLOXValve.BackColor = Color.LightCoral
+    Else
+      lblLOXValve.BackColor = Color.DarkSeaGreen
     End If
 
     If lblMainValves.Text = "Open" Then
-      lblMainValves.BackColor = Color.DarkSeaGreen
-    Else
       lblMainValves.BackColor = Color.LightCoral
+    Else
+      lblMainValves.BackColor = Color.DarkSeaGreen
     End If
   End Sub
 
