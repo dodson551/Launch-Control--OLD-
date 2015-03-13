@@ -56,7 +56,6 @@ Partial Class frmMain
     Me.dgvEvents = New System.Windows.Forms.DataGridView()
     Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
     Me.btnSensorReads = New AutoScaleButton.AutoScaleButton()
-    Me.btnCameraCtl = New AutoScaleButton.AutoScaleButton()
     Me.TableLayoutPanel6 = New System.Windows.Forms.TableLayoutPanel()
     Me.lblThermo = New System.Windows.Forms.Label()
     Me.PictureBox11 = New System.Windows.Forms.PictureBox()
@@ -74,6 +73,9 @@ Partial Class frmMain
     Me.lblBwire = New System.Windows.Forms.Label()
     Me.PictureBox8 = New System.Windows.Forms.PictureBox()
     Me.PictureBox4 = New System.Windows.Forms.PictureBox()
+    Me.TableLayoutPanel7 = New System.Windows.Forms.TableLayoutPanel()
+    Me.btnCameraOff = New AutoScaleButton.AutoScaleButton()
+    Me.btnCameraCtl = New AutoScaleButton.AutoScaleButton()
     Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
     Me.tlpBackground.SuspendLayout()
     CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -97,6 +99,7 @@ Partial Class frmMain
     CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
     CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).BeginInit()
     CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
+    Me.TableLayoutPanel7.SuspendLayout()
     Me.SuspendLayout()
     '
     'tlpBackground
@@ -516,8 +519,8 @@ Partial Class frmMain
     Me.TableLayoutPanel5.ColumnCount = 1
     Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
     Me.TableLayoutPanel5.Controls.Add(Me.btnSensorReads, 0, 0)
-    Me.TableLayoutPanel5.Controls.Add(Me.btnCameraCtl, 0, 2)
     Me.TableLayoutPanel5.Controls.Add(Me.TableLayoutPanel6, 0, 1)
+    Me.TableLayoutPanel5.Controls.Add(Me.TableLayoutPanel7, 0, 2)
     Me.TableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill
     Me.TableLayoutPanel5.Location = New System.Drawing.Point(1034, 4)
     Me.TableLayoutPanel5.Name = "TableLayoutPanel5"
@@ -541,20 +544,6 @@ Partial Class frmMain
     Me.btnSensorReads.Size = New System.Drawing.Size(429, 115)
     Me.btnSensorReads.TabIndex = 3
     Me.btnSensorReads.UseVisualStyleBackColor = False
-    '
-    'btnCameraCtl
-    '
-    Me.btnCameraCtl.AutoScaleBorder = 0
-    Me.btnCameraCtl.AutoScaleImage = Global.Launch_Control.My.Resources.Resources.camera_button2
-    Me.btnCameraCtl.BackColor = System.Drawing.SystemColors.ScrollBar
-    Me.btnCameraCtl.Dock = System.Windows.Forms.DockStyle.Fill
-    Me.btnCameraCtl.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-    Me.btnCameraCtl.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-    Me.btnCameraCtl.Location = New System.Drawing.Point(3, 692)
-    Me.btnCameraCtl.Name = "btnCameraCtl"
-    Me.btnCameraCtl.Size = New System.Drawing.Size(429, 117)
-    Me.btnCameraCtl.TabIndex = 4
-    Me.btnCameraCtl.UseVisualStyleBackColor = False
     '
     'TableLayoutPanel6
     '
@@ -779,6 +768,47 @@ Partial Class frmMain
     Me.PictureBox4.TabIndex = 13
     Me.PictureBox4.TabStop = False
     '
+    'TableLayoutPanel7
+    '
+    Me.TableLayoutPanel7.ColumnCount = 2
+    Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+    Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+    Me.TableLayoutPanel7.Controls.Add(Me.btnCameraOff, 1, 0)
+    Me.TableLayoutPanel7.Controls.Add(Me.btnCameraCtl, 0, 0)
+    Me.TableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill
+    Me.TableLayoutPanel7.Location = New System.Drawing.Point(3, 692)
+    Me.TableLayoutPanel7.Name = "TableLayoutPanel7"
+    Me.TableLayoutPanel7.RowCount = 1
+    Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+    Me.TableLayoutPanel7.Size = New System.Drawing.Size(429, 117)
+    Me.TableLayoutPanel7.TabIndex = 6
+    '
+    'btnCameraOff
+    '
+    Me.btnCameraOff.AutoScaleBorder = 0
+    Me.btnCameraOff.AutoScaleImage = Global.Launch_Control.My.Resources.Resources.end_camera_button
+    Me.btnCameraOff.BackColor = System.Drawing.Color.LightGray
+    Me.btnCameraOff.Dock = System.Windows.Forms.DockStyle.Fill
+    Me.btnCameraOff.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+    Me.btnCameraOff.Location = New System.Drawing.Point(217, 3)
+    Me.btnCameraOff.Name = "btnCameraOff"
+    Me.btnCameraOff.Size = New System.Drawing.Size(209, 111)
+    Me.btnCameraOff.TabIndex = 1
+    Me.btnCameraOff.UseVisualStyleBackColor = False
+    '
+    'btnCameraCtl
+    '
+    Me.btnCameraCtl.AutoScaleBorder = 0
+    Me.btnCameraCtl.AutoScaleImage = Global.Launch_Control.My.Resources.Resources.camera_button2
+    Me.btnCameraCtl.BackColor = System.Drawing.Color.LightGray
+    Me.btnCameraCtl.Dock = System.Windows.Forms.DockStyle.Fill
+    Me.btnCameraCtl.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+    Me.btnCameraCtl.Location = New System.Drawing.Point(3, 3)
+    Me.btnCameraCtl.Name = "btnCameraCtl"
+    Me.btnCameraCtl.Size = New System.Drawing.Size(208, 111)
+    Me.btnCameraCtl.TabIndex = 0
+    Me.btnCameraCtl.UseVisualStyleBackColor = False
+    '
     'Timer1
     '
     Me.Timer1.Interval = 500
@@ -818,6 +848,7 @@ Partial Class frmMain
     CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).EndInit()
     CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).EndInit()
     CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
+    Me.TableLayoutPanel7.ResumeLayout(False)
     Me.ResumeLayout(False)
 
   End Sub
@@ -848,7 +879,6 @@ Partial Class frmMain
   Friend WithEvents TableLayoutPanel4 As System.Windows.Forms.TableLayoutPanel
   Friend WithEvents dgvEvents As System.Windows.Forms.DataGridView
   Friend WithEvents TableLayoutPanel5 As System.Windows.Forms.TableLayoutPanel
-  Friend WithEvents btnCameraCtl As AutoScaleButton.AutoScaleButton
   Friend WithEvents btnSensorReads As AutoScaleButton.AutoScaleButton
   Friend WithEvents Timer1 As System.Windows.Forms.Timer
   Friend WithEvents TableLayoutPanel6 As System.Windows.Forms.TableLayoutPanel
@@ -869,5 +899,8 @@ Partial Class frmMain
   Friend WithEvents PictureBox10 As System.Windows.Forms.PictureBox
   Friend WithEvents lblThermo As System.Windows.Forms.Label
   Friend WithEvents cbServer As System.Windows.Forms.CheckBox
+  Friend WithEvents TableLayoutPanel7 As System.Windows.Forms.TableLayoutPanel
+  Friend WithEvents btnCameraOff As AutoScaleButton.AutoScaleButton
+  Friend WithEvents btnCameraCtl As AutoScaleButton.AutoScaleButton
 
 End Class

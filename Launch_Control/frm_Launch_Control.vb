@@ -11,7 +11,7 @@ Public Class frmMain
   Dim bSafety As Boolean = True
   Dim bConnected As Boolean = False
   Dim bServer As Boolean = False
-  Dim bSensor As Boolean = True
+  Dim bSensor As Boolean = False
   Dim bRec As Boolean = False
   Dim dt As New DataTable
   Dim bytes(1024) As Byte
@@ -273,6 +273,23 @@ Public Class frmMain
           btnCameraCtl.Enabled = False
           bRec = True
           Send_Rec_DGV("record", dgvEvents)
+        End If
+      Else
+        MsgBox("Server is not running on Raspberry Pi. Load Putty and initialize the server before connecting.")
+      End If
+    End If
+  End Sub
+
+  Private Sub btnCameraOff_Click(sender As Object, e As EventArgs) Handles btnCameraOff.Click
+    If txtIP.Text = Nothing Then
+      MsgBox("Please enter the board IP address and port that you wish to use to connect to.")
+    Else
+      If bConnected = True Then
+        If bRec = True Then
+          btnCameraCtl.AutoScaleImage = My.Resources.camera_button2
+          btnCameraCtl.Enabled = True
+          bRec = False
+          Send_Rec_DGV("end_video", dgvEvents)
         End If
       Else
         MsgBox("Server is not running on Raspberry Pi. Load Putty and initialize the server before connecting.")

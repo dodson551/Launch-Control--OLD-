@@ -312,6 +312,7 @@
     <None Include="Resources\ignitor_one_off.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\end_camera_button.png" />
     <Content Include="Resources\SDSU_LCS.ico" />
   </ItemGroup>
   <ItemGroup>
