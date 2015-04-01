@@ -7,17 +7,17 @@ Public Class frmMain
   '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
   ' Variable Declaration
   '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+
   Dim client As New TcpClient
   Dim bSafety As Boolean = True
   Dim bConnected As Boolean = False
-  Dim bServer As Boolean = False
   Dim bSensor As Boolean = False
   Dim bRec As Boolean = False
   Dim dt As New DataTable
   Dim bytes(1024) As Byte
   Dim ipAddress As IPAddress = Nothing
   Dim port As Integer = Nothing
-  Dim soc As New Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp)
+  Dim soc As Socket
 
   '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
   ' Page Events / Network Connection and Disconnection
@@ -26,10 +26,7 @@ Public Class frmMain
   Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
     bSafety = True
     bConnected = False
-    bServer = False
     bRec = False
-    cbServer.Text = "Server Offline"
-    cbServer.ForeColor = Color.Red
     Safety_Mode()
     dt.Columns.Add("Events")
     dt.Columns.Add("Timestamp")
@@ -37,18 +34,18 @@ Public Class frmMain
   End Sub
 
   Private Sub btnConnect_Click(sender As Object, e As EventArgs) Handles btnConnect.Click
-    ipAddress = ipAddress.Parse(txtIP.Text)
+    'ipAddress = ipAddress.Parse(txtIP.Text)
+    soc = New Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp)
     port = txtPort.Text
     If txtIP.Text = Nothing Then
       MsgBox("Please enter the board IP address that you wish to use to connect to.")
     ElseIf txtPort.Text = Nothing Then
       MsgBox("Please enter the board port that you wish to use to connect to.")
     Else
-      If bServer = True Then
-        Try
-          Dim result = soc.BeginConnect(ipAddress, port, Nothing, Nothing)
-          Dim success = result.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(3))
-    
+      Try
+        Dim result = soc.BeginConnect(txtIP.Text, port, Nothing, Nothing)
+        Dim success = result.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(3))
+
         If Not success Then
           MsgBox("Server is not running on Raspberry Pi. Load Putty and initialize the server before connecting.")
         Else
@@ -57,11 +54,12 @@ Public Class frmMain
           dgvEvents.DataSource = dt
           dt.Rows.Add(Me.Text, Date.Now)
           adjust_clm_width()
-          End If
-        Catch ex As Exception
-          MsgBox("Connection needs to be reset. Please restart program to setup new connection.")
-        End Try
-      End If
+          btnConnect.Enabled = False
+          btnDisconnect.Enabled = True
+        End If
+      Catch ex As Exception
+        MsgBox(ex.Message)
+      End Try
     End If
   End Sub
 
@@ -71,7 +69,8 @@ Public Class frmMain
     btnSensorReads.AutoScaleImage = My.Resources.begin_sensors
     btnSensorReads.Enabled = True
     If bConnected = True Then
-      Dim dis_result = soc.BeginDisconnect(False, Nothing, Nothing)
+      'soc.Shutdown(SocketShutdown.Both)
+      Dim dis_result = soc.BeginDisconnect(True, Nothing, Nothing)
       Dim dis_success = dis_result.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(3))
       If Not dis_success Then
         MsgBox("Client software was not able to disconnect successfully. Please try again.")
@@ -80,28 +79,15 @@ Public Class frmMain
         bConnected = False
         bRec = False
         btnCameraCtl.AutoScaleImage = My.Resources.camera_button2
-        bServer = False
-        cbServer.Checked = False
-        cbServer.Text = "Server Offline"
-        cbServer.ForeColor = Color.Red
         dgvEvents.DataSource = dt
         dt.Rows.Add(Me.Text, Date.Now)
         adjust_clm_width()
+        btnConnect.Enabled = True
+        btnDisconnect.Enabled = False
       End If
     End If
   End Sub
 
-  Private Sub cbServer_CheckedChanged(sender As Object, e As EventArgs) Handles cbServer.CheckedChanged
-    If cbServer.Checked = False Then
-      bServer = False
-      cbServer.Text = "Server Offline"
-      cbServer.ForeColor = Color.Red
-    Else
-      bServer = True
-      cbServer.Text = "Server Online"
-      cbServer.ForeColor = Color.Lime
-    End If
-  End Sub
 
   Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
     Send_Rec_Label("temp_status", lblThermo)
@@ -200,7 +186,7 @@ Public Class frmMain
         Dim bytesSent As Integer = soc.Send(msg)
         Dim bytesRec As Integer = soc.Receive(bytes)
         dgv.DataSource = dt
-        dt.Rows.Add(Encoding.ASCII.GetString(bytes, 0, bytesRec), Date.Now)
+        dt.Rows.Add(Encoding.ASCII.GetString(bytes, 0, bytesRec), Date.Now) 
         adjust_clm_width()
       Else
         MsgBox("Server is not running on Raspberry Pi. Load Putty and initialize the server before connecting.")
@@ -263,6 +249,14 @@ Public Class frmMain
     Send_Rec_DGV("abort", dgvEvents)
   End Sub
 
+  Private Sub btnPoEOn_Click(sender As Object, e As EventArgs) Handles btnPoEOn.Click
+    Send_Rec_DGV("esb_power", dgvEvents)
+  End Sub
+
+  Private Sub btnPoEOff_Click(sender As Object, e As EventArgs) Handles btnPoEOff.Click
+    Send_Rec_DGV("rocket_power", dgvEvents)
+  End Sub
+
   Private Sub btnCameraCtl_Click(sender As Object, e As EventArgs) Handles btnCameraCtl.Click
     If txtIP.Text = Nothing Then
       MsgBox("Please enter the board IP address and port that you wish to use to connect to.")
@@ -270,26 +264,8 @@ Public Class frmMain
       If bConnected = True Then
         If bRec = False Then
           btnCameraCtl.AutoScaleImage = My.Resources.recording
-          btnCameraCtl.Enabled = False
           bRec = True
-          Send_Rec_DGV("record", dgvEvents)
-        End If
-      Else
-        MsgBox("Server is not running on Raspberry Pi. Load Putty and initialize the server before connecting.")
-      End If
-    End If
-  End Sub
-
-  Private Sub btnCameraOff_Click(sender As Object, e As EventArgs) Handles btnCameraOff.Click
-    If txtIP.Text = Nothing Then
-      MsgBox("Please enter the board IP address and port that you wish to use to connect to.")
-    Else
-      If bConnected = True Then
-        If bRec = True Then
-          btnCameraCtl.AutoScaleImage = My.Resources.camera_button2
-          btnCameraCtl.Enabled = True
-          bRec = False
-          Send_Rec_DGV("end_video", dgvEvents)
+          Send_Rec_DGV("toggle_record", dgvEvents)
         End If
       Else
         MsgBox("Server is not running on Raspberry Pi. Load Putty and initialize the server before connecting.")
