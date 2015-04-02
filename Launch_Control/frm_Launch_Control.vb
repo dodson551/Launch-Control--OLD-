@@ -33,6 +33,27 @@ Public Class frmMain
     Me.Text = "San Diego State Launch Control"
   End Sub
 
+  Private Sub frmMain_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
+    If bConnected = True Then
+      'soc.Shutdown(SocketShutdown.Both)
+      Dim dis_result = soc.BeginDisconnect(True, Nothing, Nothing)
+      Dim dis_success = dis_result.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(3))
+      If Not dis_success Then
+        MsgBox("Client software was not able to disconnect successfully. Please try again.")
+      Else
+        Me.Text = "Disconnected from board: " + soc.RemoteEndPoint.ToString()
+        bConnected = False
+        bRec = False
+        btnCameraCtl.AutoScaleImage = My.Resources.camera_button2
+        dgvEvents.DataSource = dt
+        dt.Rows.Add(Me.Text, Date.Now)
+        adjust_clm_width()
+        btnConnect.Enabled = True
+        btnDisconnect.Enabled = False
+      End If
+    End If
+  End Sub
+
   Private Sub btnConnect_Click(sender As Object, e As EventArgs) Handles btnConnect.Click
     'ipAddress = ipAddress.Parse(txtIP.Text)
     soc = New Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp)
