@@ -163,6 +163,36 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property he_pressure1() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("he_pressure1", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property ignitor_off() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("ignitor_off", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property ignitor_on() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("ignitor_on", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property ignitor_one_off() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("ignitor_one_off", resourceCulture)
@@ -336,6 +366,26 @@ Namespace My.Resources
         Friend ReadOnly Property title_2() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("title_2", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property toggle_video_no_capture() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("toggle_video_no_capture", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property toggle_video_recording() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("toggle_video_recording", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

@@ -312,7 +312,12 @@
     <None Include="Resources\ignitor_one_off.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\toggle_video_recording.png" />
+    <None Include="Resources\toggle_video_no_capture.png" />
     <None Include="Resources\end_camera_button.png" />
+    <None Include="Resources\ignitor_on3.png" />
+    <None Include="Resources\ignitor_off2.png" />
+    <None Include="Resources\he_pressure1.png" />
     <Content Include="Resources\SDSU_LCS.ico" />
   </ItemGroup>
   <ItemGroup>

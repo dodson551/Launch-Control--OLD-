@@ -130,9 +130,6 @@
   <data name="kero_valve1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\kero_valve1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="camera_button2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\camera_button2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="bwire1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bwire1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -151,8 +148,14 @@
   <data name="no_go_for_launch" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\no_go_for_launch.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="toggle_video_recording" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\toggle_video_recording.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="he_pressure" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\he_pressure.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="end_camera_button" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\end_camera_button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ignitor_two_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ignitor_two_off.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -160,8 +163,8 @@
   <data name="Kero_pressure" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Kero_pressure.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="LOX_pressure" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LOX_pressure.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ignitor_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ignitor_on3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ignitor_two_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ignitor_two_on.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -169,11 +172,11 @@
   <data name="abort1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\abort1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="go_for_launch" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\go_for_launch.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="caution_tape" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\caution_tape.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="reading_sensors" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\reading_sensors.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Main_valves1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Main_valves1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -184,14 +187,20 @@
   <data name="ignitor_one_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ignitor_one_off.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="go_for_launch" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\go_for_launch.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="disconnect" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\disconnect.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ignitor_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ignitor_off2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="thermocouple_read1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\thermocouple_read1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="toggle_video_no_capture" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\toggle_video_no_capture.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LOX_pressure" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LOX_pressure.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="disconnect" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\disconnect.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="title_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\title_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -205,7 +214,13 @@
   <data name="begin_sensors" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\begin_sensors.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="end_camera_button" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\end_camera_button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="camera_button2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\camera_button2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="reading_sensors" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\reading_sensors.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="he_pressure1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\he_pressure1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

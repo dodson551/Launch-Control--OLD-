@@ -55,6 +55,18 @@ Launch_Control
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
+</member><member name="P:Launch_Control.My.Resources.Resources.he_pressure1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Launch_Control.My.Resources.Resources.ignitor_off">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Launch_Control.My.Resources.Resources.ignitor_on">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
 </member><member name="P:Launch_Control.My.Resources.Resources.ignitor_one_off">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -124,6 +136,14 @@ Launch_Control
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member><member name="P:Launch_Control.My.Resources.Resources.title_2">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Launch_Control.My.Resources.Resources.toggle_video_no_capture">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Launch_Control.My.Resources.Resources.toggle_video_recording">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>

@@ -27,6 +27,8 @@ Public Class frmMain
     bSafety = True
     bConnected = False
     bRec = False
+    txtIP.Text = My.Settings.IP.ToString
+    txtPort.Text = My.Settings.Port.ToString
     Safety_Mode()
     dt.Columns.Add("Events")
     dt.Columns.Add("Timestamp")
@@ -50,6 +52,8 @@ Public Class frmMain
         adjust_clm_width()
         btnConnect.Enabled = True
         btnDisconnect.Enabled = False
+        Timer1.Stop()
+        Clear_Sensors()
       End If
     End If
   End Sub
@@ -77,6 +81,7 @@ Public Class frmMain
           adjust_clm_width()
           btnConnect.Enabled = False
           btnDisconnect.Enabled = True
+          Timer1.Start()
         End If
       Catch ex As Exception
         MsgBox(ex.Message)
@@ -105,10 +110,34 @@ Public Class frmMain
         adjust_clm_width()
         btnConnect.Enabled = True
         btnDisconnect.Enabled = False
+        Timer1.Stop()
+        Clear_Sensors()
       End If
     End If
   End Sub
 
+  Private Sub Clear_Sensors()
+
+    lblThermo.Text = "--"
+    lblThermo.BackColor = Color.WhiteSmoke
+    lblBwire.Text = "--"
+    lblBwire.BackColor = Color.WhiteSmoke
+
+    lblKeroValve.Text = "--"
+    lblKeroValve.BackColor = Color.WhiteSmoke
+    lblLOXValve.Text = "--"
+    lblLOXValve.BackColor = Color.WhiteSmoke
+    lblMainValves.Text = "--"
+    lblMainValves.BackColor = Color.WhiteSmoke
+
+    lblHePress.Text = "--"
+    lblHePress.BackColor = Color.WhiteSmoke
+    lblLOXPress.Text = "--"
+    lblLOXPress.BackColor = Color.WhiteSmoke
+    lblKeroPress.Text = "--"
+    lblKeroPress.BackColor = Color.WhiteSmoke
+
+  End Sub
 
   Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
     Send_Rec_Label("temp_status", lblThermo)
@@ -173,8 +202,6 @@ Public Class frmMain
     btnAbort.Enabled = True
     btnIgn1On.Enabled = True
     btnIgn1Off.Enabled = True
-    btnIgn2On.Enabled = True
-    btnIgn2Off.Enabled = True
   End Sub
 
   Public Sub Safety_Mode()
@@ -182,8 +209,6 @@ Public Class frmMain
     btnAbort.Enabled = False
     btnIgn1On.Enabled = False
     btnIgn1Off.Enabled = False
-    btnIgn2On.Enabled = False
-    btnIgn2Off.Enabled = False
   End Sub
 
   '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
@@ -254,14 +279,6 @@ Public Class frmMain
     Send_Rec_DGV("vents_close", dgvEvents)
   End Sub
 
-  Private Sub btnMainOpen_Click(sender As Object, e As EventArgs) Handles btnIgn2On.Click
-    Send_Rec_DGV("ign2_on", dgvEvents)
-  End Sub
-
-  Private Sub btnMainClose_Click(sender As Object, e As EventArgs) Handles btnIgn2Off.Click
-    Send_Rec_DGV("ign2_off", dgvEvents)
-  End Sub
-
   Private Sub btnLaunch_Click(sender As Object, e As EventArgs) Handles btnLaunch.Click
     Send_Rec_DGV("launch", dgvEvents)
   End Sub
@@ -284,8 +301,12 @@ Public Class frmMain
     Else
       If bConnected = True Then
         If bRec = False Then
-          btnCameraCtl.AutoScaleImage = My.Resources.recording
+          btnCameraCtl.AutoScaleImage = My.Resources.toggle_video_recording
           bRec = True
+          Send_Rec_DGV("toggle_record", dgvEvents)
+        ElseIf bRec = True Then
+          btnCameraCtl.AutoScaleImage = My.Resources.toggle_video_no_capture
+          bRec = False
           Send_Rec_DGV("toggle_record", dgvEvents)
         End If
       Else
@@ -317,4 +338,16 @@ Public Class frmMain
   ' End of Program
   '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
 
+  Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
+    My.Settings.IP = txtIPSettings.Text
+    My.Settings.Port = txtPortSettings.Text
+    My.Settings.Save()
+    txtIP.Text = My.Settings.IP.ToString
+    txtPort.Text = My.Settings.Port.ToString
+  End Sub
+
+  Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
+    txtIPSettings.Text = ""
+    txtPortSettings.Text = ""
+  End Sub
 End Class
