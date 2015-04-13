@@ -18,6 +18,7 @@ Public Class frmMain
   Dim ipAddress As IPAddress = Nothing
   Dim port As Integer = Nothing
   Dim soc As Socket
+  Dim filename As String
 
   '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
   ' Page Events / Network Connection and Disconnection
@@ -33,6 +34,7 @@ Public Class frmMain
     dt.Columns.Add("Events")
     dt.Columns.Add("Timestamp")
     Me.Text = "San Diego State Launch Control"
+    btnTxtFileSave.Enabled = False
   End Sub
 
   Private Sub frmMain_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
@@ -54,6 +56,7 @@ Public Class frmMain
         btnDisconnect.Enabled = False
         Timer1.Stop()
         Clear_Sensors()
+        btnTxtFileSave.Enabled = False
       End If
     End If
   End Sub
@@ -82,6 +85,9 @@ Public Class frmMain
           btnConnect.Enabled = False
           btnDisconnect.Enabled = True
           Timer1.Start()
+          txtIP.Enabled = False
+          txtPort.Enabled = False
+          btnTxtFileSave.Enabled = True
         End If
       Catch ex As Exception
         MsgBox(ex.Message)
@@ -104,7 +110,7 @@ Public Class frmMain
         Me.Text = "Disconnected from board: " + soc.RemoteEndPoint.ToString()
         bConnected = False
         bRec = False
-        btnCameraCtl.AutoScaleImage = My.Resources.camera_button2
+        btnCameraCtl.AutoScaleImage = My.Resources.toggle_video_no_capture
         dgvEvents.DataSource = dt
         dt.Rows.Add(Me.Text, Date.Now)
         adjust_clm_width()
@@ -112,6 +118,9 @@ Public Class frmMain
         btnDisconnect.Enabled = False
         Timer1.Stop()
         Clear_Sensors()
+        txtIP.Enabled = True
+        txtPort.Enabled = False
+        btnTxtFileSave.Enabled = False
       End If
     End If
   End Sub
@@ -149,9 +158,12 @@ Public Class frmMain
     Dim iThermo As Integer = lblThermo.Text
     If iThermo <= "100" Then
       lblThermo.BackColor = Color.LightCoral
-    ElseIf iThermo <= "200" And lblThermo.Text >= "101" Then
+    ElseIf iThermo <= "150" And lblThermo.Text >= "101" Then
       lblThermo.BackColor = Color.Khaki
-    ElseIf iThermo >= "201" Then
+    ElseIf iThermo >= "151" Then
+      lblThermo.BackColor = Color.DarkSeaGreen
+    ElseIf iThermo = "NaN" Then
+      lblThermo.Text = "1000"
       lblThermo.BackColor = Color.DarkSeaGreen
     End If
     lblThermo.Text = lblThermo.Text + " F"
@@ -271,12 +283,28 @@ Public Class frmMain
     Send_Rec_DGV("ign1_off", dgvEvents)
   End Sub
 
+  Private Sub btnIgn2On_Click(sender As Object, e As EventArgs) Handles btnIgn2On.Click
+    Send_Rec_DGV("ign2_on", dgvEvents)
+  End Sub
+
+  Private Sub btnIgn2Off_Click(sender As Object, e As EventArgs) Handles btnIgn2Off.Click
+    Send_Rec_DGV("ign2_off", dgvEvents)
+  End Sub
+
   Private Sub btnVentOpen_Click(sender As Object, e As EventArgs) Handles btnVentOpen.Click
     Send_Rec_DGV("vents_open", dgvEvents)
   End Sub
 
   Private Sub btnVentClose_Click(sender As Object, e As EventArgs) Handles btnVentClose.Click
     Send_Rec_DGV("vents_close", dgvEvents)
+  End Sub
+
+  Private Sub btnMainOpen_Click(sender As Object, e As EventArgs) Handles btnMainOpen.Click
+    Send_Rec_DGV("main_open", dgvEvents)
+  End Sub
+
+  Private Sub btnMainClose_Click(sender As Object, e As EventArgs) Handles btnMainClose.Click
+    Send_Rec_DGV("main_close", dgvEvents)
   End Sub
 
   Private Sub btnLaunch_Click(sender As Object, e As EventArgs) Handles btnLaunch.Click
@@ -335,7 +363,7 @@ Public Class frmMain
 #End Region
 
   '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
-  ' End of Program
+  ' Settings Page
   '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
 
   Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
@@ -350,4 +378,25 @@ Public Class frmMain
     txtIPSettings.Text = ""
     txtPortSettings.Text = ""
   End Sub
+
+  Private Sub btnTxtFileSave_Click(sender As Object, e As EventArgs) Handles btnTxtFileSave.Click
+    filename = System.IO.Path.Combine(My.Computer.FileSystem.SpecialDirectories.MyDocuments, txtFileLocation.Text)
+    SaveGridData(dgvEvents, filename)
+  End Sub
+
+  Private Sub SaveGridData(ByVal thisgrid As DataGridView, ByVal FileName As String)
+    thisgrid.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableWithoutHeaderText
+    thisgrid.SelectAll()
+    IO.File.WriteAllText(FileName, thisgrid.GetClipboardContent().GetText.TrimEnd)
+    thisgrid.ClearSelection()
+  End Sub
+
+  Private Sub btnTxtFileNameClear_Click(sender As Object, e As EventArgs) Handles btnTxtFileNameClear.Click
+    txtFileLocation.Text = ""
+  End Sub
+
+  '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+  ' End of Program
+  '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+
 End Class
