@@ -30,17 +30,18 @@ Partial Class frmMain
     Me.PictureBox1 = New System.Windows.Forms.PictureBox()
     Me.tlpmain = New System.Windows.Forms.TableLayoutPanel()
     Me.tlpCmd = New System.Windows.Forms.TableLayoutPanel()
-    Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-    Me.btnCameraCtl = New AutoScaleButton.AutoScaleButton()
-    Me.btnAbort = New AutoScaleButton.AutoScaleButton()
-    Me.btnLaunch = New AutoScaleButton.AutoScaleButton()
     Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-    Me.btnIgn1On = New AutoScaleButton.AutoScaleButton()
-    Me.btnIgn1Off = New AutoScaleButton.AutoScaleButton()
     Me.PictureBox2 = New System.Windows.Forms.PictureBox()
     Me.pbSafety = New System.Windows.Forms.PictureBox()
-    Me.btnVentOpen = New AutoScaleButton.AutoScaleButton()
+    Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+    Me.btnAbort = New AutoScaleButton.AutoScaleButton()
+    Me.btnLaunch = New AutoScaleButton.AutoScaleButton()
+    Me.btnCameraCtl = New AutoScaleButton.AutoScaleButton()
+    Me.TableLayoutPanel8 = New System.Windows.Forms.TableLayoutPanel()
+    Me.btnIgn1On = New AutoScaleButton.AutoScaleButton()
+    Me.btnIgn1Off = New AutoScaleButton.AutoScaleButton()
     Me.btnVentClose = New AutoScaleButton.AutoScaleButton()
+    Me.btnVentOpen = New AutoScaleButton.AutoScaleButton()
     Me.PictureBox3 = New System.Windows.Forms.PictureBox()
     Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
     Me.txtPort = New System.Windows.Forms.TextBox()
@@ -96,15 +97,15 @@ Partial Class frmMain
     Me.txtFileLocation = New System.Windows.Forms.TextBox()
     Me.btnTxtFileSave = New AutoScaleButton.AutoScaleButton()
     Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-    Me.TableLayoutPanel8 = New System.Windows.Forms.TableLayoutPanel()
     Me.tlpBackground.SuspendLayout()
     CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
     Me.tlpmain.SuspendLayout()
     Me.tlpCmd.SuspendLayout()
-    Me.TableLayoutPanel1.SuspendLayout()
     Me.TableLayoutPanel2.SuspendLayout()
     CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
     CType(Me.pbSafety, System.ComponentModel.ISupportInitialize).BeginInit()
+    Me.TableLayoutPanel1.SuspendLayout()
+    Me.TableLayoutPanel8.SuspendLayout()
     CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
     Me.TableLayoutPanel3.SuspendLayout()
     Me.TableLayoutPanel4.SuspendLayout()
@@ -125,7 +126,6 @@ Partial Class frmMain
     Me.TableLayoutPanel9.SuspendLayout()
     Me.TableLayoutPanel10.SuspendLayout()
     Me.TableLayoutPanel5.SuspendLayout()
-    Me.TableLayoutPanel8.SuspendLayout()
     Me.SuspendLayout()
     '
     'tlpBackground
@@ -193,12 +193,51 @@ Partial Class frmMain
     Me.tlpCmd.Size = New System.Drawing.Size(410, 820)
     Me.tlpCmd.TabIndex = 0
     '
+    'TableLayoutPanel2
+    '
+    Me.TableLayoutPanel2.BackColor = System.Drawing.Color.Black
+    Me.TableLayoutPanel2.ColumnCount = 2
+    Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+    Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+    Me.TableLayoutPanel2.Controls.Add(Me.PictureBox2, 0, 0)
+    Me.TableLayoutPanel2.Controls.Add(Me.pbSafety, 1, 0)
+    Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
+    Me.TableLayoutPanel2.Location = New System.Drawing.Point(3, 3)
+    Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
+    Me.TableLayoutPanel2.RowCount = 1
+    Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.0!))
+    Me.TableLayoutPanel2.Size = New System.Drawing.Size(404, 117)
+    Me.TableLayoutPanel2.TabIndex = 1
+    '
+    'PictureBox2
+    '
+    Me.PictureBox2.Dock = System.Windows.Forms.DockStyle.Fill
+    Me.PictureBox2.Image = Global.Launch_Control.My.Resources.Resources.safety
+    Me.PictureBox2.Location = New System.Drawing.Point(3, 3)
+    Me.PictureBox2.Name = "PictureBox2"
+    Me.PictureBox2.Size = New System.Drawing.Size(196, 111)
+    Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+    Me.PictureBox2.TabIndex = 6
+    Me.PictureBox2.TabStop = False
+    '
+    'pbSafety
+    '
+    Me.pbSafety.Dock = System.Windows.Forms.DockStyle.Fill
+    Me.pbSafety.Image = Global.Launch_Control.My.Resources.Resources.safety_on2
+    Me.pbSafety.Location = New System.Drawing.Point(205, 3)
+    Me.pbSafety.Name = "pbSafety"
+    Me.pbSafety.Size = New System.Drawing.Size(196, 111)
+    Me.pbSafety.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+    Me.pbSafety.TabIndex = 7
+    Me.pbSafety.TabStop = False
+    '
     'TableLayoutPanel1
     '
     Me.TableLayoutPanel1.ColumnCount = 1
     Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
     Me.TableLayoutPanel1.Controls.Add(Me.btnAbort, 0, 1)
     Me.TableLayoutPanel1.Controls.Add(Me.btnLaunch, 0, 0)
+    Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
     Me.TableLayoutPanel1.Location = New System.Drawing.Point(3, 577)
     Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
     Me.TableLayoutPanel1.RowCount = 2
@@ -207,23 +246,6 @@ Partial Class frmMain
     Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
     Me.TableLayoutPanel1.Size = New System.Drawing.Size(404, 240)
     Me.TableLayoutPanel1.TabIndex = 0
-    '
-    'btnCameraCtl
-    '
-    Me.btnCameraCtl.AutoScaleBorder = 0
-    Me.btnCameraCtl.AutoScaleImage = Global.Launch_Control.My.Resources.Resources.toggle_video_no_capture
-    Me.btnCameraCtl.BackColor = System.Drawing.SystemColors.InactiveCaption
-    Me.btnCameraCtl.Dock = System.Windows.Forms.DockStyle.Fill
-    Me.btnCameraCtl.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue
-    Me.btnCameraCtl.FlatAppearance.BorderSize = 2
-    Me.btnCameraCtl.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightSkyBlue
-    Me.btnCameraCtl.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue
-    Me.btnCameraCtl.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-    Me.btnCameraCtl.Location = New System.Drawing.Point(3, 126)
-    Me.btnCameraCtl.Name = "btnCameraCtl"
-    Me.btnCameraCtl.Size = New System.Drawing.Size(404, 117)
-    Me.btnCameraCtl.TabIndex = 0
-    Me.btnCameraCtl.UseVisualStyleBackColor = False
     '
     'btnAbort
     '
@@ -259,21 +281,40 @@ Partial Class frmMain
     Me.btnLaunch.TabIndex = 0
     Me.btnLaunch.UseVisualStyleBackColor = False
     '
-    'TableLayoutPanel2
+    'btnCameraCtl
     '
-    Me.TableLayoutPanel2.BackColor = System.Drawing.Color.Black
-    Me.TableLayoutPanel2.ColumnCount = 2
-    Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-    Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-    Me.TableLayoutPanel2.Controls.Add(Me.PictureBox2, 0, 0)
-    Me.TableLayoutPanel2.Controls.Add(Me.pbSafety, 1, 0)
-    Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
-    Me.TableLayoutPanel2.Location = New System.Drawing.Point(3, 3)
-    Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
-    Me.TableLayoutPanel2.RowCount = 1
-    Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.0!))
-    Me.TableLayoutPanel2.Size = New System.Drawing.Size(404, 117)
-    Me.TableLayoutPanel2.TabIndex = 1
+    Me.btnCameraCtl.AutoScaleBorder = 0
+    Me.btnCameraCtl.AutoScaleImage = Global.Launch_Control.My.Resources.Resources.toggle_video_no_capture
+    Me.btnCameraCtl.BackColor = System.Drawing.SystemColors.InactiveCaption
+    Me.btnCameraCtl.Dock = System.Windows.Forms.DockStyle.Fill
+    Me.btnCameraCtl.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue
+    Me.btnCameraCtl.FlatAppearance.BorderSize = 2
+    Me.btnCameraCtl.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightSkyBlue
+    Me.btnCameraCtl.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue
+    Me.btnCameraCtl.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+    Me.btnCameraCtl.Location = New System.Drawing.Point(3, 126)
+    Me.btnCameraCtl.Name = "btnCameraCtl"
+    Me.btnCameraCtl.Size = New System.Drawing.Size(404, 117)
+    Me.btnCameraCtl.TabIndex = 0
+    Me.btnCameraCtl.UseVisualStyleBackColor = False
+    '
+    'TableLayoutPanel8
+    '
+    Me.TableLayoutPanel8.ColumnCount = 2
+    Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+    Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+    Me.TableLayoutPanel8.Controls.Add(Me.btnIgn1On, 0, 1)
+    Me.TableLayoutPanel8.Controls.Add(Me.btnIgn1Off, 1, 1)
+    Me.TableLayoutPanel8.Controls.Add(Me.btnVentClose, 1, 0)
+    Me.TableLayoutPanel8.Controls.Add(Me.btnVentOpen, 0, 0)
+    Me.TableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill
+    Me.TableLayoutPanel8.Location = New System.Drawing.Point(3, 249)
+    Me.TableLayoutPanel8.Name = "TableLayoutPanel8"
+    Me.TableLayoutPanel8.RowCount = 2
+    Me.TableLayoutPanel8.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+    Me.TableLayoutPanel8.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+    Me.TableLayoutPanel8.Size = New System.Drawing.Size(404, 322)
+    Me.TableLayoutPanel8.TabIndex = 2
     '
     'btnIgn1On
     '
@@ -309,27 +350,22 @@ Partial Class frmMain
     Me.btnIgn1Off.TabIndex = 3
     Me.btnIgn1Off.UseVisualStyleBackColor = False
     '
-    'PictureBox2
+    'btnVentClose
     '
-    Me.PictureBox2.Dock = System.Windows.Forms.DockStyle.Fill
-    Me.PictureBox2.Image = Global.Launch_Control.My.Resources.Resources.safety
-    Me.PictureBox2.Location = New System.Drawing.Point(3, 3)
-    Me.PictureBox2.Name = "PictureBox2"
-    Me.PictureBox2.Size = New System.Drawing.Size(196, 111)
-    Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-    Me.PictureBox2.TabIndex = 6
-    Me.PictureBox2.TabStop = False
-    '
-    'pbSafety
-    '
-    Me.pbSafety.Dock = System.Windows.Forms.DockStyle.Fill
-    Me.pbSafety.Image = Global.Launch_Control.My.Resources.Resources.safety_on2
-    Me.pbSafety.Location = New System.Drawing.Point(205, 3)
-    Me.pbSafety.Name = "pbSafety"
-    Me.pbSafety.Size = New System.Drawing.Size(196, 111)
-    Me.pbSafety.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-    Me.pbSafety.TabIndex = 7
-    Me.pbSafety.TabStop = False
+    Me.btnVentClose.AutoScaleBorder = 0
+    Me.btnVentClose.AutoScaleImage = Global.Launch_Control.My.Resources.Resources.vents_closed1
+    Me.btnVentClose.BackColor = System.Drawing.Color.Gainsboro
+    Me.btnVentClose.Dock = System.Windows.Forms.DockStyle.Fill
+    Me.btnVentClose.FlatAppearance.BorderColor = System.Drawing.Color.Red
+    Me.btnVentClose.FlatAppearance.BorderSize = 2
+    Me.btnVentClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+    Me.btnVentClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+    Me.btnVentClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+    Me.btnVentClose.Location = New System.Drawing.Point(205, 3)
+    Me.btnVentClose.Name = "btnVentClose"
+    Me.btnVentClose.Size = New System.Drawing.Size(196, 155)
+    Me.btnVentClose.TabIndex = 4
+    Me.btnVentClose.UseVisualStyleBackColor = False
     '
     'btnVentOpen
     '
@@ -347,23 +383,6 @@ Partial Class frmMain
     Me.btnVentOpen.Size = New System.Drawing.Size(196, 155)
     Me.btnVentOpen.TabIndex = 1
     Me.btnVentOpen.UseVisualStyleBackColor = False
-    '
-    'btnVentClose
-    '
-    Me.btnVentClose.AutoScaleBorder = 0
-    Me.btnVentClose.AutoScaleImage = Global.Launch_Control.My.Resources.Resources.vents_closed1
-    Me.btnVentClose.BackColor = System.Drawing.Color.Gainsboro
-    Me.btnVentClose.Dock = System.Windows.Forms.DockStyle.Fill
-    Me.btnVentClose.FlatAppearance.BorderColor = System.Drawing.Color.Red
-    Me.btnVentClose.FlatAppearance.BorderSize = 2
-    Me.btnVentClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
-    Me.btnVentClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
-    Me.btnVentClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-    Me.btnVentClose.Location = New System.Drawing.Point(205, 3)
-    Me.btnVentClose.Name = "btnVentClose"
-    Me.btnVentClose.Size = New System.Drawing.Size(196, 155)
-    Me.btnVentClose.TabIndex = 4
-    Me.btnVentClose.UseVisualStyleBackColor = False
     '
     'PictureBox3
     '
@@ -1183,24 +1202,6 @@ Partial Class frmMain
     '
     Me.Timer1.Interval = 250
     '
-    'TableLayoutPanel8
-    '
-    Me.TableLayoutPanel8.ColumnCount = 2
-    Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-    Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-    Me.TableLayoutPanel8.Controls.Add(Me.btnIgn1On, 0, 1)
-    Me.TableLayoutPanel8.Controls.Add(Me.btnIgn1Off, 1, 1)
-    Me.TableLayoutPanel8.Controls.Add(Me.btnVentClose, 1, 0)
-    Me.TableLayoutPanel8.Controls.Add(Me.btnVentOpen, 0, 0)
-    Me.TableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill
-    Me.TableLayoutPanel8.Location = New System.Drawing.Point(3, 249)
-    Me.TableLayoutPanel8.Name = "TableLayoutPanel8"
-    Me.TableLayoutPanel8.RowCount = 2
-    Me.TableLayoutPanel8.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-    Me.TableLayoutPanel8.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-    Me.TableLayoutPanel8.Size = New System.Drawing.Size(404, 322)
-    Me.TableLayoutPanel8.TabIndex = 2
-    '
     'frmMain
     '
     Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1216,10 +1217,11 @@ Partial Class frmMain
     CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
     Me.tlpmain.ResumeLayout(False)
     Me.tlpCmd.ResumeLayout(False)
-    Me.TableLayoutPanel1.ResumeLayout(False)
     Me.TableLayoutPanel2.ResumeLayout(False)
     CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
     CType(Me.pbSafety, System.ComponentModel.ISupportInitialize).EndInit()
+    Me.TableLayoutPanel1.ResumeLayout(False)
+    Me.TableLayoutPanel8.ResumeLayout(False)
     CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
     Me.TableLayoutPanel3.ResumeLayout(False)
     Me.TableLayoutPanel3.PerformLayout()
@@ -1245,7 +1247,6 @@ Partial Class frmMain
     Me.TableLayoutPanel10.PerformLayout()
     Me.TableLayoutPanel5.ResumeLayout(False)
     Me.TableLayoutPanel5.PerformLayout()
-    Me.TableLayoutPanel8.ResumeLayout(False)
     Me.ResumeLayout(False)
 
   End Sub

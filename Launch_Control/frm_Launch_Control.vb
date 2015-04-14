@@ -155,16 +155,18 @@ Public Class frmMain
     Send_Rec_Label("LOX_status", lblLOXValve)
     Send_Rec_Label("main_status", lblMainValves)
 
-    Dim iThermo As Integer = lblThermo.Text
-    If iThermo <= "100" Then
-      lblThermo.BackColor = Color.LightCoral
-    ElseIf iThermo <= "150" And lblThermo.Text >= "101" Then
-      lblThermo.BackColor = Color.Khaki
-    ElseIf iThermo >= "151" Then
-      lblThermo.BackColor = Color.DarkSeaGreen
-    ElseIf iThermo = "NaN" Then
+    If lblThermo.Text = "nan" Then
       lblThermo.Text = "1000"
       lblThermo.BackColor = Color.DarkSeaGreen
+    Else
+      Dim iThermo As Double = lblThermo.Text
+      If iThermo <= "100" Then
+        lblThermo.BackColor = Color.LightCoral
+      ElseIf iThermo <= "150" And lblThermo.Text >= "101" Then
+        lblThermo.BackColor = Color.Khaki
+      ElseIf iThermo >= "151" Then
+        lblThermo.BackColor = Color.DarkSeaGreen
+      End If
     End If
     lblThermo.Text = lblThermo.Text + " F"
 
