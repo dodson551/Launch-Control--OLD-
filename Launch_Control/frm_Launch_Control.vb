@@ -8,16 +8,11 @@ Public Class frmMain
   ' Variable Declaration
   '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
 
-  Dim client As New TcpClient
+  Dim Con As New cTCP_Connection
   Dim bSafety As Boolean = True
-  Dim bConnected As Boolean = False
   Dim bSensor As Boolean = False
   Dim bRec As Boolean = False
   Dim dt As New DataTable
-  Dim bytes(1024) As Byte
-  Dim ipAddress As IPAddress = Nothing
-  Dim port As Integer = Nothing
-  Dim soc As Socket
   Dim filename As String
 
   '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
@@ -25,104 +20,54 @@ Public Class frmMain
   '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
 
   Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-    bSafety = True
-    bConnected = False
-    bRec = False
     txtIP.Text = My.Settings.IP.ToString
     txtPort.Text = My.Settings.Port.ToString
     Safety_Mode()
     dt.Columns.Add("Events")
     dt.Columns.Add("Timestamp")
-    Me.Text = "San Diego State Launch Control"
+    Me.Text = "Waiting to establish server connection..."
     btnTxtFileSave.Enabled = False
   End Sub
 
   Private Sub frmMain_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
-    If bConnected = True Then
-      'soc.Shutdown(SocketShutdown.Both)
-      Dim dis_result = soc.BeginDisconnect(True, Nothing, Nothing)
-      Dim dis_success = dis_result.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(3))
-      If Not dis_success Then
-        MsgBox("Client software was not able to disconnect successfully. Please try again.")
-      Else
-        Me.Text = "Disconnected from board: " + soc.RemoteEndPoint.ToString()
-        bConnected = False
-        bRec = False
-        btnCameraCtl.AutoScaleImage = My.Resources.camera_button2
-        dgvEvents.DataSource = dt
-        dt.Rows.Add(Me.Text, Date.Now)
-        adjust_clm_width()
-        btnConnect.Enabled = True
-        btnDisconnect.Enabled = False
-        Timer1.Stop()
-        Clear_Sensors()
-        btnTxtFileSave.Enabled = False
-      End If
-    End If
+    Timer1.Stop()
+    Clear_Sensors()
+    Con.DisConnect_TCP(txtIP.Text, Me)
   End Sub
 
   Private Sub btnConnect_Click(sender As Object, e As EventArgs) Handles btnConnect.Click
-    'ipAddress = ipAddress.Parse(txtIP.Text)
-    soc = New Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp)
-    port = txtPort.Text
     If txtIP.Text = Nothing Then
       MsgBox("Please enter the board IP address that you wish to use to connect to.")
     ElseIf txtPort.Text = Nothing Then
       MsgBox("Please enter the board port that you wish to use to connect to.")
     Else
-      Try
-        Dim result = soc.BeginConnect(txtIP.Text, port, Nothing, Nothing)
-        Dim success = result.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(3))
-
-        If Not success Then
-          MsgBox("Server is not running on Raspberry Pi. Load Putty and initialize the server before connecting.")
-        Else
-          Me.Text = "Connected to board: " + soc.RemoteEndPoint.ToString()
-          bConnected = True
-          dgvEvents.DataSource = dt
-          dt.Rows.Add(Me.Text, Date.Now)
-          adjust_clm_width()
-          btnConnect.Enabled = False
-          btnDisconnect.Enabled = True
-          Timer1.Start()
-          txtIP.Enabled = False
-          txtPort.Enabled = False
-          btnTxtFileSave.Enabled = True
-        End If
-      Catch ex As Exception
-        MsgBox(ex.Message)
-      End Try
+      Con.Connect_TCP(txtIP.Text, txtPort.Text, Me)
+      dgvEvents.DataSource = dt
+      dt.Rows.Add(Me.Text, Date.Now)
+      adjust_clm_width()
+      btnConnect.Enabled = False
+      btnDisconnect.Enabled = True
+      Timer1.Start()
+      txtIP.Enabled = False
+      txtPort.Enabled = False
+      btnTxtFileSave.Enabled = True
     End If
   End Sub
 
   Private Sub btnDisconnect_Click(sender As Object, e As EventArgs) Handles btnDisconnect.Click
     Timer1.Stop()
-    bSensor = True
-    btnSensorReads.AutoScaleImage = My.Resources.begin_sensors
-    btnSensorReads.Enabled = True
-    If bConnected = True Then
-      'soc.Shutdown(SocketShutdown.Both)
-      Dim dis_result = soc.BeginDisconnect(True, Nothing, Nothing)
-      Dim dis_success = dis_result.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(3))
-      If Not dis_success Then
-        MsgBox("Client software was not able to disconnect successfully. Please try again.")
-      Else
-        Me.Text = "Disconnected from board: " + soc.RemoteEndPoint.ToString()
-        bConnected = False
-        bRec = False
-        btnCameraCtl.AutoScaleImage = My.Resources.toggle_video_no_capture
-        dgvEvents.DataSource = dt
-        dt.Rows.Add(Me.Text, Date.Now)
-        adjust_clm_width()
-        btnConnect.Enabled = True
-        btnDisconnect.Enabled = False
-        Timer1.Stop()
-        Clear_Sensors()
-        txtIP.Enabled = True
-        txtPort.Enabled = False
-        btnTxtFileSave.Enabled = False
-      End If
-    End If
+    Clear_Sensors()
+    Con.DisConnect_TCP(txtIP.Text, Me)
+    bRec = False
+    btnCameraCtl.AutoScaleImage = My.Resources.toggle_video_no_capture
+    dgvEvents.DataSource = dt
+    dt.Rows.Add(Me.Text, Date.Now)
+    adjust_clm_width()
+    btnConnect.Enabled = True
+    btnDisconnect.Enabled = False
+    txtIP.Enabled = True
+    txtPort.Enabled = False
+    btnTxtFileSave.Enabled = False
   End Sub
 
   Private Sub Clear_Sensors()
@@ -149,22 +94,26 @@ Public Class frmMain
   End Sub
 
   Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-    Send_Rec_Label("temp_status", lblThermo)
-    Send_Rec_Label("bwire_status", lblBwire)
-    Send_Rec_Label("kero_status", lblKeroValve)
-    Send_Rec_Label("LOX_status", lblLOXValve)
-    Send_Rec_Label("main_status", lblMainValves)
+    Con.Send_Rec_Label("temp_status", lblThermo, dt)
+    Con.Send_Rec_Label("bwire_status", lblBwire, dt)
+    Con.Send_Rec_Label("kero_status", lblKeroValve, dt)
+    Con.Send_Rec_Label("LOX_status", lblLOXValve, dt)
+    Con.Send_Rec_Label("main_status", lblMainValves, dt)
 
-    Dim iThermo As Integer = lblThermo.Text
-    If iThermo <= "100" Then
-      lblThermo.BackColor = Color.LightCoral
-    ElseIf iThermo <= "150" And lblThermo.Text >= "101" Then
-      lblThermo.BackColor = Color.Khaki
-    ElseIf iThermo >= "151" Then
-      lblThermo.BackColor = Color.DarkSeaGreen
-    ElseIf iThermo = "NaN" Then
-      lblThermo.Text = "1000"
-      lblThermo.BackColor = Color.DarkSeaGreen
+    Dim good As Boolean = True
+    Dim iThermo As Double
+    Try
+      iThermo = Convert.ToDouble(lblThermo.Text)
+    Catch ex As Exception
+      good = False
+    End Try
+
+    If good = True Then
+      If iThermo > 200 Then
+        lblThermo.BackColor = Color.DarkSeaGreen
+      Else
+        lblThermo.BackColor = Color.LightCoral
+      End If
     End If
     lblThermo.Text = lblThermo.Text + " F"
 
@@ -214,6 +163,10 @@ Public Class frmMain
     btnAbort.Enabled = True
     btnIgn1On.Enabled = True
     btnIgn1Off.Enabled = True
+    btnMainOpen.Enabled = True
+    btnMainClose.Enabled = True
+    btnIgn2On.Enabled = True
+    btnIgn2Off.Enabled = True
   End Sub
 
   Public Sub Safety_Mode()
@@ -221,6 +174,10 @@ Public Class frmMain
     btnAbort.Enabled = False
     btnIgn1On.Enabled = False
     btnIgn1Off.Enabled = False
+    btnMainOpen.Enabled = False
+    btnMainClose.Enabled = False
+    btnIgn2On.Enabled = False
+    btnIgn2Off.Enabled = False
   End Sub
 
   '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
@@ -235,40 +192,6 @@ Public Class frmMain
     clm2.Width = tWidth * 0.5
   End Sub
 
-  Public Function Send_Rec_DGV(ByVal sMess As String, ByRef dgv As DataGridView)
-    If txtIP.Text = Nothing Then
-      MsgBox("Please enter the board IP address and port that you wish to use to connect to.")
-    Else
-      If bConnected = True Then
-        Dim msg As Byte() = Encoding.ASCII.GetBytes(sMess)
-        Dim bytesSent As Integer = soc.Send(msg)
-        Dim bytesRec As Integer = soc.Receive(bytes)
-        dgv.DataSource = dt
-        dt.Rows.Add(Encoding.ASCII.GetString(bytes, 0, bytesRec), Date.Now) 
-        adjust_clm_width()
-      Else
-        MsgBox("Server is not running on Raspberry Pi. Load Putty and initialize the server before connecting.")
-      End If
-    End If
-    Return Nothing
-  End Function
-
-  Public Function Send_Rec_Label(ByVal sMess As String, ByRef lbl As Label)
-    If txtIP.Text = Nothing Then
-      MsgBox("Please enter the board IP address and port that you wish to use to connect to.")
-    Else
-      If bConnected = True Then
-        Dim msg As Byte() = Encoding.ASCII.GetBytes(sMess)
-        Dim bytesSentlbl As Integer = soc.Send(msg)
-        Dim bytesReclbl As Integer = soc.Receive(bytes)
-        lbl.Text = Encoding.ASCII.GetString(bytes, 0, bytesReclbl)
-      Else
-        MsgBox("Server is not running on Raspberry Pi. Load Putty and initialize the server before connecting.")
-      End If
-    End If
-    Return Nothing
-  End Function
-
   '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
   ' Actuation and Initialization of Systems
   '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
@@ -276,86 +199,65 @@ Public Class frmMain
 #Region "Actuation and Initializing"
 
   Private Sub btnIgnOn_Click(sender As Object, e As EventArgs) Handles btnIgn1On.Click
-    Send_Rec_DGV("ign1_on", dgvEvents)
+    Con.Send_Rec_DGV("ign1_on", dgvEvents, dt)
   End Sub
 
   Private Sub btnIgnOff_Click(sender As Object, e As EventArgs) Handles btnIgn1Off.Click
-    Send_Rec_DGV("ign1_off", dgvEvents)
+    Con.Send_Rec_DGV("ign1_off", dgvEvents, dt)
   End Sub
 
   Private Sub btnIgn2On_Click(sender As Object, e As EventArgs) Handles btnIgn2On.Click
-    Send_Rec_DGV("ign2_on", dgvEvents)
+    Con.Send_Rec_DGV("ign2_on", dgvEvents, dt)
   End Sub
 
   Private Sub btnIgn2Off_Click(sender As Object, e As EventArgs) Handles btnIgn2Off.Click
-    Send_Rec_DGV("ign2_off", dgvEvents)
+    Con.Send_Rec_DGV("ign2_off", dgvEvents, dt)
   End Sub
 
   Private Sub btnVentOpen_Click(sender As Object, e As EventArgs) Handles btnVentOpen.Click
-    Send_Rec_DGV("vents_open", dgvEvents)
+    Con.Send_Rec_DGV("vents_open", dgvEvents, dt)
   End Sub
 
   Private Sub btnVentClose_Click(sender As Object, e As EventArgs) Handles btnVentClose.Click
-    Send_Rec_DGV("vents_close", dgvEvents)
+    Con.Send_Rec_DGV("vents_close", dgvEvents, dt)
   End Sub
 
   Private Sub btnMainOpen_Click(sender As Object, e As EventArgs) Handles btnMainOpen.Click
-    Send_Rec_DGV("main_open", dgvEvents)
+    Con.Send_Rec_DGV("main_open", dgvEvents, dt)
   End Sub
 
   Private Sub btnMainClose_Click(sender As Object, e As EventArgs) Handles btnMainClose.Click
-    Send_Rec_DGV("main_close", dgvEvents)
+    Con.Send_Rec_DGV("main_close", dgvEvents, dt)
   End Sub
 
   Private Sub btnLaunch_Click(sender As Object, e As EventArgs) Handles btnLaunch.Click
-    Send_Rec_DGV("launch", dgvEvents)
+    Con.Send_Rec_DGV("launch", dgvEvents, dt)
   End Sub
 
   Private Sub btnAbort_Click(sender As Object, e As EventArgs) Handles btnAbort.Click
-    Send_Rec_DGV("abort", dgvEvents)
+    Con.Send_Rec_DGV("abort", dgvEvents, dt)
   End Sub
 
   Private Sub btnPoEOn_Click(sender As Object, e As EventArgs) Handles btnPoEOn.Click
-    Send_Rec_DGV("esb_power", dgvEvents)
+    Con.Send_Rec_DGV("esb_power", dgvEvents, dt)
   End Sub
 
   Private Sub btnPoEOff_Click(sender As Object, e As EventArgs) Handles btnPoEOff.Click
-    Send_Rec_DGV("rocket_power", dgvEvents)
+    Con.Send_Rec_DGV("rocket_power", dgvEvents, dt)
   End Sub
 
   Private Sub btnCameraCtl_Click(sender As Object, e As EventArgs) Handles btnCameraCtl.Click
     If txtIP.Text = Nothing Then
       MsgBox("Please enter the board IP address and port that you wish to use to connect to.")
     Else
-      If bConnected = True Then
-        If bRec = False Then
-          btnCameraCtl.AutoScaleImage = My.Resources.toggle_video_recording
-          bRec = True
-          Send_Rec_DGV("toggle_record", dgvEvents)
-        ElseIf bRec = True Then
-          btnCameraCtl.AutoScaleImage = My.Resources.toggle_video_no_capture
-          bRec = False
-          Send_Rec_DGV("toggle_record", dgvEvents)
-        End If
-      Else
-        MsgBox("Server is not running on Raspberry Pi. Load Putty and initialize the server before connecting.")
-      End If
-    End If
-  End Sub
-
-  Private Sub btnSensorReads_Click(sender As Object, e As EventArgs) Handles btnSensorReads.Click
-    If txtIP.Text = Nothing Then
-      MsgBox("Please enter the board IP address and port that you wish to use to connect to.")
-    Else
-      If bConnected = True Then
-        Timer1.Start()
-        If bSensor = False Then
-          btnSensorReads.AutoScaleImage = My.Resources.reading_sensors
-          btnSensorReads.Enabled = False
-          bSensor = True
-        End If
-      Else
-        MsgBox("Server is not running on Raspberry Pi. Load Putty and initialize the server before connecting.")
+      If bRec = False Then
+        btnCameraCtl.AutoScaleImage = My.Resources.toggle_video_recording
+        bRec = True
+        Con.Send_Rec_DGV("toggle_record", dgvEvents, dt)
+      ElseIf bRec = True Then
+        btnCameraCtl.AutoScaleImage = My.Resources.toggle_video_no_capture
+        bRec = False
+        Con.Send_Rec_DGV("toggle_record", dgvEvents, dt)
       End If
     End If
   End Sub
