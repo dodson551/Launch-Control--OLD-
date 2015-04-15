@@ -94,6 +94,7 @@ Public Class frmMain
   End Sub
 
   Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+<<<<<<< HEAD
     Con.Send_Rec_Label("temp_status", lblThermo, dt)
     Con.Send_Rec_Label("bwire_status", lblBwire, dt)
     Con.Send_Rec_Label("kero_status", lblKeroValve, dt)
@@ -113,6 +114,25 @@ Public Class frmMain
         lblThermo.BackColor = Color.DarkSeaGreen
       Else
         lblThermo.BackColor = Color.LightCoral
+=======
+    Send_Rec_Label("temp_status", lblThermo)
+    Send_Rec_Label("bwire_status", lblBwire)
+    Send_Rec_Label("kero_status", lblKeroValve)
+    Send_Rec_Label("LOX_status", lblLOXValve)
+    Send_Rec_Label("main_status", lblMainValves)
+
+    If lblThermo.Text = "nan" Then
+      lblThermo.Text = "1000"
+      lblThermo.BackColor = Color.DarkSeaGreen
+    Else
+      Dim iThermo As Double = lblThermo.Text
+      If iThermo <= "100" Then
+        lblThermo.BackColor = Color.LightCoral
+      ElseIf iThermo <= "150" And lblThermo.Text >= "101" Then
+        lblThermo.BackColor = Color.Khaki
+      ElseIf iThermo >= "151" Then
+        lblThermo.BackColor = Color.DarkSeaGreen
+>>>>>>> a6bd82fddf28b606eaca65fb6f8e6e5fceaf8f1c
       End If
     End If
     lblThermo.Text = lblThermo.Text + " F"
