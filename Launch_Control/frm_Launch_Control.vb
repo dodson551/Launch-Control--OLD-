@@ -47,22 +47,10 @@ Public Class frmMain
           Me.Text = "Disconnected from board: " & txtIP.Text
           Timer1.Stop()
           Clear_Sensors()
-          bRec = False
-          btnCameraCtl.AutoScaleImage = My.Resources.toggle_video_no_capture
-          dgvEvents.DataSource = dt
-          dt.Rows.Add(Me.Text, Date.Now)
-          adjust_clm_width()
-          btnConnect.Enabled = True
-          btnDisconnect.Enabled = False
-          txtIP.Enabled = True
-          txtPort.Enabled = False
-          btnTxtFileSave.Enabled = False
         End If
       Catch ex As Exception
         MessageBox.Show(ex.Message)
       End Try
-    Else
-      MsgBox("No connection established.")
     End If
   End Sub
 
@@ -73,7 +61,6 @@ Public Class frmMain
       MsgBox("Please enter the board port that you wish to use to connect to.")
     Else
       Try
-        'Con.Connect_TCP(txtIP.Text, txtPort.Text, Me)
         ipAddress = System.Net.IPAddress.Parse(txtIP.Text)
         port = txtPort.Text
         soc = New Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp)
@@ -158,20 +145,11 @@ Public Class frmMain
   End Sub
 
   Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-<<<<<<< HEAD
     Send_Rec_Label("temp_status", lblThermo, dt)
     Send_Rec_Label("bwire_status", lblBwire, dt)
     Send_Rec_Label("kero_status", lblKeroValve, dt)
     Send_Rec_Label("LOX_status", lblLOXValve, dt)
     Send_Rec_Label("main_status", lblMainValves, dt)
-=======
-<<<<<<< HEAD
-    Con.Send_Rec_Label("temp_status", lblThermo, dt)
-    Con.Send_Rec_Label("bwire_status", lblBwire, dt)
-    Con.Send_Rec_Label("kero_status", lblKeroValve, dt)
-    Con.Send_Rec_Label("LOX_status", lblLOXValve, dt)
-    Con.Send_Rec_Label("main_status", lblMainValves, dt)
->>>>>>> e20dc68e1678206e4044e8569af0107911ec1e03
 
     Dim good As Boolean = True
     Dim iThermo As Double
@@ -186,25 +164,6 @@ Public Class frmMain
         lblThermo.BackColor = Color.DarkSeaGreen
       Else
         lblThermo.BackColor = Color.LightCoral
-=======
-    Send_Rec_Label("temp_status", lblThermo)
-    Send_Rec_Label("bwire_status", lblBwire)
-    Send_Rec_Label("kero_status", lblKeroValve)
-    Send_Rec_Label("LOX_status", lblLOXValve)
-    Send_Rec_Label("main_status", lblMainValves)
-
-    If lblThermo.Text = "nan" Then
-      lblThermo.Text = "1000"
-      lblThermo.BackColor = Color.DarkSeaGreen
-    Else
-      Dim iThermo As Double = lblThermo.Text
-      If iThermo <= "100" Then
-        lblThermo.BackColor = Color.LightCoral
-      ElseIf iThermo <= "150" And lblThermo.Text >= "101" Then
-        lblThermo.BackColor = Color.Khaki
-      ElseIf iThermo >= "151" Then
-        lblThermo.BackColor = Color.DarkSeaGreen
->>>>>>> a6bd82fddf28b606eaca65fb6f8e6e5fceaf8f1c
       End If
     End If
     lblThermo.Text = lblThermo.Text + " F"
