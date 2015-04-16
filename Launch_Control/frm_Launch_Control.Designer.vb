@@ -236,6 +236,7 @@ Partial Class frmMain
     Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
     Me.TableLayoutPanel1.Controls.Add(Me.btnAbort, 0, 1)
     Me.TableLayoutPanel1.Controls.Add(Me.btnLaunch, 0, 0)
+    Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
     Me.TableLayoutPanel1.Location = New System.Drawing.Point(3, 577)
     Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
     Me.TableLayoutPanel1.RowCount = 2
