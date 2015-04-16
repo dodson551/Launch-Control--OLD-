@@ -202,10 +202,16 @@ Public Class frmMain
       pbSafety.Image = My.Resources.safety_off
       bSafety = False
       Launch_Mode()
+      dgvEvents.DataSource = dt
+      dt.Rows.Add("Safety Off", Date.Now)
+      adjust_clm_width()
     ElseIf bSafety = False Then
       pbSafety.Image = My.Resources.safety_on2
       bSafety = True
       Safety_Mode()
+      dgvEvents.DataSource = dt
+      dt.Rows.Add("Safety On", Date.Now)
+      adjust_clm_width()
     End If
   End Sub
 
