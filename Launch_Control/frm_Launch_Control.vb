@@ -8,12 +8,17 @@ Public Class frmMain
   ' Variable Declaration
   '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
 
-  Dim Con As New cTCP_Connection
   Dim bSafety As Boolean = True
   Dim bSensor As Boolean = False
   Dim bRec As Boolean = False
   Dim dt As New DataTable
   Dim filename As String
+  Dim bConnection As Boolean = False
+
+  Dim bytes(1024) As Byte
+  Dim ipAddress As IPAddress = Nothing
+  Dim port As Integer = Nothing
+  Dim soc As Socket
 
   '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
   ' Page Events / Network Connection and Disconnection
@@ -30,9 +35,35 @@ Public Class frmMain
   End Sub
 
   Private Sub frmMain_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
-    Timer1.Stop()
-    Clear_Sensors()
-    Con.DisConnect_TCP(txtIP.Text, Me)
+    If bConnection = True Then
+      Try
+        soc.Shutdown(SocketShutdown.Both)
+        Dim dis_result = soc.BeginDisconnect(True, Nothing, Nothing)
+        Dim dis_success = dis_result.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(3))
+        If Not dis_success Then
+          MsgBox("Client software was not able to disconnect successfully. Please try again.")
+        Else
+          bConnection = False
+          Me.Text = "Disconnected from board: " & txtIP.Text
+          Timer1.Stop()
+          Clear_Sensors()
+          bRec = False
+          btnCameraCtl.AutoScaleImage = My.Resources.toggle_video_no_capture
+          dgvEvents.DataSource = dt
+          dt.Rows.Add(Me.Text, Date.Now)
+          adjust_clm_width()
+          btnConnect.Enabled = True
+          btnDisconnect.Enabled = False
+          txtIP.Enabled = True
+          txtPort.Enabled = False
+          btnTxtFileSave.Enabled = False
+        End If
+      Catch ex As Exception
+        MessageBox.Show(ex.Message)
+      End Try
+    Else
+      MsgBox("No connection established.")
+    End If
   End Sub
 
   Private Sub btnConnect_Click(sender As Object, e As EventArgs) Handles btnConnect.Click
@@ -41,33 +72,66 @@ Public Class frmMain
     ElseIf txtPort.Text = Nothing Then
       MsgBox("Please enter the board port that you wish to use to connect to.")
     Else
-      Con.Connect_TCP(txtIP.Text, txtPort.Text, Me)
-      dgvEvents.DataSource = dt
-      dt.Rows.Add(Me.Text, Date.Now)
-      adjust_clm_width()
-      btnConnect.Enabled = False
-      btnDisconnect.Enabled = True
-      Timer1.Start()
-      txtIP.Enabled = False
-      txtPort.Enabled = False
-      btnTxtFileSave.Enabled = True
+      Try
+        'Con.Connect_TCP(txtIP.Text, txtPort.Text, Me)
+        ipAddress = System.Net.IPAddress.Parse(txtIP.Text)
+        port = txtPort.Text
+        soc = New Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp)
+        Dim result = soc.BeginConnect(ipAddress, port, Nothing, Nothing)
+        Dim success = result.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(3))
+        If Not success Then
+          MsgBox("Connection attempt refused. Check IP, Port, and server status are all correct.")
+          bConnection = False
+        Else
+          bConnection = True
+          Me.Text = "Connected to board at: " & ipAddress.ToString
+          dgvEvents.DataSource = dt
+          dt.Rows.Add(Me.Text, Date.Now)
+          adjust_clm_width()
+          btnConnect.Enabled = False
+          btnDisconnect.Enabled = True
+          Timer1.Start()
+          txtIP.Enabled = False
+          txtPort.Enabled = False
+          btnTxtFileSave.Enabled = True
+        End If
+      Catch ex As Exception
+        MessageBox.Show(ex.Message)
+        bConnection = False
+      End Try
     End If
   End Sub
 
   Private Sub btnDisconnect_Click(sender As Object, e As EventArgs) Handles btnDisconnect.Click
-    Timer1.Stop()
-    Clear_Sensors()
-    Con.DisConnect_TCP(txtIP.Text, Me)
-    bRec = False
-    btnCameraCtl.AutoScaleImage = My.Resources.toggle_video_no_capture
-    dgvEvents.DataSource = dt
-    dt.Rows.Add(Me.Text, Date.Now)
-    adjust_clm_width()
-    btnConnect.Enabled = True
-    btnDisconnect.Enabled = False
-    txtIP.Enabled = True
-    txtPort.Enabled = False
-    btnTxtFileSave.Enabled = False
+    If bConnection = True Then
+      Try
+        soc.Shutdown(SocketShutdown.Both)
+        Dim dis_result = soc.BeginDisconnect(True, Nothing, Nothing)
+        Dim dis_success = dis_result.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(3))
+        If Not dis_success Then
+          MsgBox("Client software was not able to disconnect successfully. Please try again.")
+        Else
+          bConnection = False
+          Me.Text = "Disconnected from board: " & txtIP.Text
+          Timer1.Stop()
+          Clear_Sensors()
+          bRec = False
+          btnCameraCtl.AutoScaleImage = My.Resources.toggle_video_no_capture
+          dgvEvents.DataSource = dt
+          dt.Rows.Add(Me.Text, Date.Now)
+          adjust_clm_width()
+          btnConnect.Enabled = True
+          btnDisconnect.Enabled = False
+          txtIP.Enabled = True
+          txtPort.Enabled = False
+          btnTxtFileSave.Enabled = False
+        End If
+      Catch ex As Exception
+        MessageBox.Show(ex.Message)
+      End Try
+    Else
+      MsgBox("No connection established.")
+    End If
   End Sub
 
   Private Sub Clear_Sensors()
@@ -94,11 +158,11 @@ Public Class frmMain
   End Sub
 
   Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-    Con.Send_Rec_Label("temp_status", lblThermo, dt)
-    Con.Send_Rec_Label("bwire_status", lblBwire, dt)
-    Con.Send_Rec_Label("kero_status", lblKeroValve, dt)
-    Con.Send_Rec_Label("LOX_status", lblLOXValve, dt)
-    Con.Send_Rec_Label("main_status", lblMainValves, dt)
+    Send_Rec_Label("temp_status", lblThermo, dt)
+    Send_Rec_Label("bwire_status", lblBwire, dt)
+    Send_Rec_Label("kero_status", lblKeroValve, dt)
+    Send_Rec_Label("LOX_status", lblLOXValve, dt)
+    Send_Rec_Label("main_status", lblMainValves, dt)
 
     Dim good As Boolean = True
     Dim iThermo As Double
@@ -192,6 +256,31 @@ Public Class frmMain
     clm2.Width = tWidth * 0.5
   End Sub
 
+  Public Function Send_Rec_DGV(ByVal sMess As String, ByRef dgv As DataGridView, ByRef dt As DataTable)
+    Try
+      Dim msg As Byte() = Encoding.ASCII.GetBytes(sMess)
+      Dim bytesSent As Integer = soc.Send(msg)
+      Dim bytesRec As Integer = soc.Receive(bytes)
+      dgv.DataSource = dt
+      dt.Rows.Add(Encoding.ASCII.GetString(bytes, 0, bytesRec), Date.Now)
+    Catch ex As Exception
+      MessageBox.Show(ex.Message)
+    End Try
+    Return bConnection
+  End Function
+
+  Public Function Send_Rec_Label(ByVal sMess As String, ByRef lbl As Label, ByRef dt As DataTable)
+    Try
+      Dim msg As Byte() = Encoding.ASCII.GetBytes(sMess)
+      Dim bytesSentlbl As Integer = soc.Send(msg)
+      Dim bytesReclbl As Integer = soc.Receive(bytes)
+      lbl.Text = Encoding.ASCII.GetString(bytes, 0, bytesReclbl)
+    Catch ex As Exception
+      MessageBox.Show(ex.Message)
+    End Try
+    Return bConnection
+  End Function
+
   '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
   ' Actuation and Initialization of Systems
   '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
@@ -199,51 +288,51 @@ Public Class frmMain
 #Region "Actuation and Initializing"
 
   Private Sub btnIgnOn_Click(sender As Object, e As EventArgs) Handles btnIgn1On.Click
-    Con.Send_Rec_DGV("ign1_on", dgvEvents, dt)
+    Send_Rec_DGV("ign1_on", dgvEvents, dt)
   End Sub
 
   Private Sub btnIgnOff_Click(sender As Object, e As EventArgs) Handles btnIgn1Off.Click
-    Con.Send_Rec_DGV("ign1_off", dgvEvents, dt)
+    Send_Rec_DGV("ign1_off", dgvEvents, dt)
   End Sub
 
   Private Sub btnIgn2On_Click(sender As Object, e As EventArgs) Handles btnIgn2On.Click
-    Con.Send_Rec_DGV("ign2_on", dgvEvents, dt)
+    Send_Rec_DGV("ign2_on", dgvEvents, dt)
   End Sub
 
   Private Sub btnIgn2Off_Click(sender As Object, e As EventArgs) Handles btnIgn2Off.Click
-    Con.Send_Rec_DGV("ign2_off", dgvEvents, dt)
+    Send_Rec_DGV("ign2_off", dgvEvents, dt)
   End Sub
 
   Private Sub btnVentOpen_Click(sender As Object, e As EventArgs) Handles btnVentOpen.Click
-    Con.Send_Rec_DGV("vents_open", dgvEvents, dt)
+    Send_Rec_DGV("vents_open", dgvEvents, dt)
   End Sub
 
   Private Sub btnVentClose_Click(sender As Object, e As EventArgs) Handles btnVentClose.Click
-    Con.Send_Rec_DGV("vents_close", dgvEvents, dt)
+    Send_Rec_DGV("vents_close", dgvEvents, dt)
   End Sub
 
   Private Sub btnMainOpen_Click(sender As Object, e As EventArgs) Handles btnMainOpen.Click
-    Con.Send_Rec_DGV("main_open", dgvEvents, dt)
+    Send_Rec_DGV("main_open", dgvEvents, dt)
   End Sub
 
   Private Sub btnMainClose_Click(sender As Object, e As EventArgs) Handles btnMainClose.Click
-    Con.Send_Rec_DGV("main_close", dgvEvents, dt)
+    Send_Rec_DGV("main_close", dgvEvents, dt)
   End Sub
 
   Private Sub btnLaunch_Click(sender As Object, e As EventArgs) Handles btnLaunch.Click
-    Con.Send_Rec_DGV("launch", dgvEvents, dt)
+    Send_Rec_DGV("launch", dgvEvents, dt)
   End Sub
 
   Private Sub btnAbort_Click(sender As Object, e As EventArgs) Handles btnAbort.Click
-    Con.Send_Rec_DGV("abort", dgvEvents, dt)
+    Send_Rec_DGV("abort", dgvEvents, dt)
   End Sub
 
   Private Sub btnPoEOn_Click(sender As Object, e As EventArgs) Handles btnPoEOn.Click
-    Con.Send_Rec_DGV("esb_power", dgvEvents, dt)
+    Send_Rec_DGV("esb_power", dgvEvents, dt)
   End Sub
 
   Private Sub btnPoEOff_Click(sender As Object, e As EventArgs) Handles btnPoEOff.Click
-    Con.Send_Rec_DGV("rocket_power", dgvEvents, dt)
+    Send_Rec_DGV("rocket_power", dgvEvents, dt)
   End Sub
 
   Private Sub btnCameraCtl_Click(sender As Object, e As EventArgs) Handles btnCameraCtl.Click
@@ -253,11 +342,11 @@ Public Class frmMain
       If bRec = False Then
         btnCameraCtl.AutoScaleImage = My.Resources.toggle_video_recording
         bRec = True
-        Con.Send_Rec_DGV("toggle_record", dgvEvents, dt)
+        Send_Rec_DGV("toggle_record", dgvEvents, dt)
       ElseIf bRec = True Then
         btnCameraCtl.AutoScaleImage = My.Resources.toggle_video_no_capture
         bRec = False
-        Con.Send_Rec_DGV("toggle_record", dgvEvents, dt)
+        Send_Rec_DGV("toggle_record", dgvEvents, dt)
       End If
     End If
   End Sub

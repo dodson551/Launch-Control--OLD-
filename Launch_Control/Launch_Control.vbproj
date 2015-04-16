@@ -92,7 +92,6 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="cTCP_Connection.vb" />
     <Compile Include="frm_Launch_Control.vb">
       <SubType>Form</SubType>
     </Compile>
