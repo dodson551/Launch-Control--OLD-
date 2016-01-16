@@ -25,8 +25,18 @@ Partial Class frmLCS
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmLCS))
         Me.tlpMain = New System.Windows.Forms.TableLayoutPanel()
         Me.tlpRightSide = New System.Windows.Forms.TableLayoutPanel()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
+        Me.btnAbort = New System.Windows.Forms.Button()
+        Me.btnLaunch = New System.Windows.Forms.Button()
         Me.Launch = New System.Windows.Forms.GroupBox()
+        Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
+        Me.btnCancel = New System.Windows.Forms.Button()
+        Me.btnIgnite = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
+        Me.btnDisarm = New System.Windows.Forms.Button()
+        Me.btnArm = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
@@ -44,28 +54,18 @@ Partial Class frmLCS
         Me.SaveToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveEventLogToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
-        Me.btnArm = New System.Windows.Forms.Button()
-        Me.btnDisarm = New System.Windows.Forms.Button()
-        Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
-        Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
-        Me.btnLaunch = New System.Windows.Forms.Button()
-        Me.btnAbort = New System.Windows.Forms.Button()
-        Me.btnIgnite = New System.Windows.Forms.Button()
-        Me.btnCancel = New System.Windows.Forms.Button()
         Me.tlpMain.SuspendLayout()
         Me.tlpRightSide.SuspendLayout()
+        Me.GroupBox3.SuspendLayout()
+        Me.TableLayoutPanel5.SuspendLayout()
         Me.Launch.SuspendLayout()
+        Me.TableLayoutPanel4.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        Me.TableLayoutPanel3.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
-        Me.GroupBox3.SuspendLayout()
-        Me.TableLayoutPanel3.SuspendLayout()
-        Me.TableLayoutPanel4.SuspendLayout()
-        Me.TableLayoutPanel5.SuspendLayout()
         Me.SuspendLayout()
         '
         'tlpMain
@@ -102,6 +102,55 @@ Partial Class frmLCS
         Me.tlpRightSide.Size = New System.Drawing.Size(375, 1035)
         Me.tlpRightSide.TabIndex = 0
         '
+        'GroupBox3
+        '
+        Me.GroupBox3.Controls.Add(Me.TableLayoutPanel5)
+        Me.GroupBox3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupBox3.Font = New System.Drawing.Font("Consolas", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox3.Location = New System.Drawing.Point(3, 882)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(369, 150)
+        Me.GroupBox3.TabIndex = 3
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Launch Control"
+        '
+        'TableLayoutPanel5
+        '
+        Me.TableLayoutPanel5.ColumnCount = 2
+        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel5.Controls.Add(Me.btnAbort, 0, 0)
+        Me.TableLayoutPanel5.Controls.Add(Me.btnLaunch, 0, 0)
+        Me.TableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel5.Location = New System.Drawing.Point(3, 28)
+        Me.TableLayoutPanel5.Name = "TableLayoutPanel5"
+        Me.TableLayoutPanel5.RowCount = 1
+        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel5.Size = New System.Drawing.Size(363, 119)
+        Me.TableLayoutPanel5.TabIndex = 1
+        '
+        'btnAbort
+        '
+        Me.btnAbort.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnAbort.Font = New System.Drawing.Font("Consolas", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAbort.Location = New System.Drawing.Point(184, 3)
+        Me.btnAbort.Name = "btnAbort"
+        Me.btnAbort.Size = New System.Drawing.Size(176, 113)
+        Me.btnAbort.TabIndex = 6
+        Me.btnAbort.Text = "ABORT"
+        Me.btnAbort.UseVisualStyleBackColor = True
+        '
+        'btnLaunch
+        '
+        Me.btnLaunch.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnLaunch.Font = New System.Drawing.Font("Consolas", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLaunch.Location = New System.Drawing.Point(3, 3)
+        Me.btnLaunch.Name = "btnLaunch"
+        Me.btnLaunch.Size = New System.Drawing.Size(175, 113)
+        Me.btnLaunch.TabIndex = 5
+        Me.btnLaunch.Text = "LAUNCH"
+        Me.btnLaunch.UseVisualStyleBackColor = True
+        '
         'Launch
         '
         Me.Launch.Controls.Add(Me.TableLayoutPanel4)
@@ -114,6 +163,43 @@ Partial Class frmLCS
         Me.Launch.TabStop = False
         Me.Launch.Text = "Ignition Control"
         '
+        'TableLayoutPanel4
+        '
+        Me.TableLayoutPanel4.ColumnCount = 2
+        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel4.Controls.Add(Me.btnCancel, 0, 0)
+        Me.TableLayoutPanel4.Controls.Add(Me.btnIgnite, 0, 0)
+        Me.TableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel4.Location = New System.Drawing.Point(3, 28)
+        Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
+        Me.TableLayoutPanel4.RowCount = 1
+        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel4.Size = New System.Drawing.Size(363, 118)
+        Me.TableLayoutPanel4.TabIndex = 0
+        '
+        'btnCancel
+        '
+        Me.btnCancel.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnCancel.Font = New System.Drawing.Font("Consolas", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCancel.Location = New System.Drawing.Point(184, 3)
+        Me.btnCancel.Name = "btnCancel"
+        Me.btnCancel.Size = New System.Drawing.Size(176, 112)
+        Me.btnCancel.TabIndex = 7
+        Me.btnCancel.Text = "CANCEL"
+        Me.btnCancel.UseVisualStyleBackColor = True
+        '
+        'btnIgnite
+        '
+        Me.btnIgnite.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnIgnite.Font = New System.Drawing.Font("Consolas", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnIgnite.Location = New System.Drawing.Point(3, 3)
+        Me.btnIgnite.Name = "btnIgnite"
+        Me.btnIgnite.Size = New System.Drawing.Size(175, 112)
+        Me.btnIgnite.TabIndex = 6
+        Me.btnIgnite.Text = "IGNITE"
+        Me.btnIgnite.UseVisualStyleBackColor = True
+        '
         'GroupBox2
         '
         Me.GroupBox2.Controls.Add(Me.TableLayoutPanel3)
@@ -125,6 +211,44 @@ Partial Class frmLCS
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Safety"
+        '
+        'TableLayoutPanel3
+        '
+        Me.TableLayoutPanel3.ColumnCount = 2
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel3.Controls.Add(Me.btnDisarm, 1, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.btnArm, 0, 0)
+        Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel3.Location = New System.Drawing.Point(3, 28)
+        Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
+        Me.TableLayoutPanel3.RowCount = 1
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(363, 66)
+        Me.TableLayoutPanel3.TabIndex = 0
+        '
+        'btnDisarm
+        '
+        Me.btnDisarm.BackColor = System.Drawing.Color.Green
+        Me.btnDisarm.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnDisarm.Location = New System.Drawing.Point(184, 3)
+        Me.btnDisarm.Name = "btnDisarm"
+        Me.btnDisarm.Size = New System.Drawing.Size(176, 60)
+        Me.btnDisarm.TabIndex = 1
+        Me.btnDisarm.Text = "DISARM"
+        Me.btnDisarm.UseVisualStyleBackColor = False
+        '
+        'btnArm
+        '
+        Me.btnArm.BackColor = System.Drawing.Color.Yellow
+        Me.btnArm.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnArm.Enabled = False
+        Me.btnArm.Location = New System.Drawing.Point(3, 3)
+        Me.btnArm.Name = "btnArm"
+        Me.btnArm.Size = New System.Drawing.Size(175, 60)
+        Me.btnArm.TabIndex = 0
+        Me.btnArm.Text = "ARMED"
+        Me.btnArm.UseVisualStyleBackColor = False
         '
         'GroupBox1
         '
@@ -277,7 +401,7 @@ Partial Class frmLCS
         Me.txtConsole.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.txtConsole.Size = New System.Drawing.Size(357, 374)
         Me.txtConsole.TabIndex = 1
-        Me.txtConsole.Text = "Console:"
+        Me.txtConsole.Text = "Network Console:"
         '
         'ToolStrip1
         '
@@ -315,130 +439,6 @@ Partial Class frmLCS
         Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(204, 22)
         Me.ExitToolStripMenuItem.Text = "Exit..."
         '
-        'GroupBox3
-        '
-        Me.GroupBox3.Controls.Add(Me.TableLayoutPanel5)
-        Me.GroupBox3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox3.Font = New System.Drawing.Font("Consolas", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox3.Location = New System.Drawing.Point(3, 882)
-        Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(369, 150)
-        Me.GroupBox3.TabIndex = 3
-        Me.GroupBox3.TabStop = False
-        Me.GroupBox3.Text = "Launch Control"
-        '
-        'TableLayoutPanel3
-        '
-        Me.TableLayoutPanel3.ColumnCount = 2
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel3.Controls.Add(Me.btnDisarm, 1, 0)
-        Me.TableLayoutPanel3.Controls.Add(Me.btnArm, 0, 0)
-        Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel3.Location = New System.Drawing.Point(3, 28)
-        Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
-        Me.TableLayoutPanel3.RowCount = 1
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(363, 66)
-        Me.TableLayoutPanel3.TabIndex = 0
-        '
-        'btnArm
-        '
-        Me.btnArm.BackColor = System.Drawing.Color.Yellow
-        Me.btnArm.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnArm.Enabled = False
-        Me.btnArm.Location = New System.Drawing.Point(3, 3)
-        Me.btnArm.Name = "btnArm"
-        Me.btnArm.Size = New System.Drawing.Size(175, 60)
-        Me.btnArm.TabIndex = 0
-        Me.btnArm.Text = "ARMED"
-        Me.btnArm.UseVisualStyleBackColor = False
-        '
-        'btnDisarm
-        '
-        Me.btnDisarm.BackColor = System.Drawing.Color.Green
-        Me.btnDisarm.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnDisarm.Location = New System.Drawing.Point(184, 3)
-        Me.btnDisarm.Name = "btnDisarm"
-        Me.btnDisarm.Size = New System.Drawing.Size(176, 60)
-        Me.btnDisarm.TabIndex = 1
-        Me.btnDisarm.Text = "DISARM"
-        Me.btnDisarm.UseVisualStyleBackColor = False
-        '
-        'TableLayoutPanel4
-        '
-        Me.TableLayoutPanel4.ColumnCount = 2
-        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel4.Controls.Add(Me.btnCancel, 0, 0)
-        Me.TableLayoutPanel4.Controls.Add(Me.btnIgnite, 0, 0)
-        Me.TableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel4.Location = New System.Drawing.Point(3, 28)
-        Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
-        Me.TableLayoutPanel4.RowCount = 1
-        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel4.Size = New System.Drawing.Size(363, 118)
-        Me.TableLayoutPanel4.TabIndex = 0
-        '
-        'TableLayoutPanel5
-        '
-        Me.TableLayoutPanel5.ColumnCount = 2
-        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel5.Controls.Add(Me.btnAbort, 0, 0)
-        Me.TableLayoutPanel5.Controls.Add(Me.btnLaunch, 0, 0)
-        Me.TableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel5.Location = New System.Drawing.Point(3, 28)
-        Me.TableLayoutPanel5.Name = "TableLayoutPanel5"
-        Me.TableLayoutPanel5.RowCount = 1
-        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel5.Size = New System.Drawing.Size(363, 119)
-        Me.TableLayoutPanel5.TabIndex = 1
-        '
-        'btnLaunch
-        '
-        Me.btnLaunch.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnLaunch.Font = New System.Drawing.Font("Consolas", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnLaunch.Location = New System.Drawing.Point(3, 3)
-        Me.btnLaunch.Name = "btnLaunch"
-        Me.btnLaunch.Size = New System.Drawing.Size(175, 113)
-        Me.btnLaunch.TabIndex = 5
-        Me.btnLaunch.Text = "LAUNCH"
-        Me.btnLaunch.UseVisualStyleBackColor = True
-        '
-        'btnAbort
-        '
-        Me.btnAbort.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnAbort.Font = New System.Drawing.Font("Consolas", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAbort.Location = New System.Drawing.Point(184, 3)
-        Me.btnAbort.Name = "btnAbort"
-        Me.btnAbort.Size = New System.Drawing.Size(176, 113)
-        Me.btnAbort.TabIndex = 6
-        Me.btnAbort.Text = "ABORT"
-        Me.btnAbort.UseVisualStyleBackColor = True
-        '
-        'btnIgnite
-        '
-        Me.btnIgnite.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnIgnite.Font = New System.Drawing.Font("Consolas", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnIgnite.Location = New System.Drawing.Point(3, 3)
-        Me.btnIgnite.Name = "btnIgnite"
-        Me.btnIgnite.Size = New System.Drawing.Size(175, 112)
-        Me.btnIgnite.TabIndex = 6
-        Me.btnIgnite.Text = "IGNITE"
-        Me.btnIgnite.UseVisualStyleBackColor = True
-        '
-        'btnCancel
-        '
-        Me.btnCancel.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnCancel.Font = New System.Drawing.Font("Consolas", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCancel.Location = New System.Drawing.Point(184, 3)
-        Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(176, 112)
-        Me.btnCancel.TabIndex = 7
-        Me.btnCancel.Text = "CANCEL"
-        Me.btnCancel.UseVisualStyleBackColor = True
-        '
         'frmLCS
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -450,8 +450,12 @@ Partial Class frmLCS
         Me.tlpMain.ResumeLayout(False)
         Me.tlpMain.PerformLayout()
         Me.tlpRightSide.ResumeLayout(False)
+        Me.GroupBox3.ResumeLayout(False)
+        Me.TableLayoutPanel5.ResumeLayout(False)
         Me.Launch.ResumeLayout(False)
+        Me.TableLayoutPanel4.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
+        Me.TableLayoutPanel3.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel2.PerformLayout()
@@ -459,10 +463,6 @@ Partial Class frmLCS
         Me.TableLayoutPanel1.PerformLayout()
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
-        Me.GroupBox3.ResumeLayout(False)
-        Me.TableLayoutPanel3.ResumeLayout(False)
-        Me.TableLayoutPanel4.ResumeLayout(False)
-        Me.TableLayoutPanel5.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
