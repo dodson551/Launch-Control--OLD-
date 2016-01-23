@@ -92,6 +92,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmFCC.Designer.vb">
+      <DependentUpon>frmFCC.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmFCC.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmLCS.Designer.vb">
       <DependentUpon>frmLCS.vb</DependentUpon>
     </Compile>
@@ -122,6 +128,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmFCC.resx">
+      <DependentUpon>frmFCC.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLCS.resx">
       <DependentUpon>frmLCS.vb</DependentUpon>
     </EmbeddedResource>
