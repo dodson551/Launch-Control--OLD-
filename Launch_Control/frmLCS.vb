@@ -23,7 +23,16 @@ Public Class frmLCS
 
     Private Sub frmLCS_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Safety_Mode()
+        updateTimer.Start()
+        dt.Columns.Add("Events")
+        dt.Columns.Add("Timestamp")
+        txtConsole.Text = "Waiting to establish server connection..."
+        txtIP.Text = My.Settings.IP.ToString()
+        txtPort.Text = My.Settings.Port.ToString()
+    End Sub
 
+    Private Sub frmLCS_Closed(sender As Object, e As EventArgs) Handles Me.Closed
+        updateTimer.Stop()
     End Sub
 
     Private Sub btnConnect_Click(sender As Object, e As EventArgs) Handles btnConnect.Click
@@ -44,13 +53,17 @@ Public Class frmLCS
                 Else
                     bConnected = True
                     txtConsole.Text &= Environment.NewLine & "Connected to board at: " & ipAddress.ToString
-                    'dgvEvents.DataSource = dt
-                    'dt.Rows.Add(Me.Text, Date.Now)
+                    dgvEvents.DataSource = dt
+                    dt.Rows.Add("Connected to board at: " & ipAddress.ToString, Date.Now)
+                    adjust_clm_width()
                     btnConnect.Enabled = False
                     txtIP.Enabled = False
                     txtPort.Enabled = False
                     btnDisconnect.Enabled = True
                     btnPing.Enabled = True
+                    My.Settings.IP = txtIP.Text
+                    My.Settings.Port = txtPort.Text
+                    My.Settings.Save()
                 End If
             Catch ex As Exception
                 MessageBox.Show(ex.Message)
@@ -70,13 +83,13 @@ Public Class frmLCS
                 Else
                     bConnected = False
                     txtConsole.Text &= Environment.NewLine & "Disconnected from board: " & txtIP.Text
-                    'dgvEvents.DataSource = dt
-                    'dt.Rows.Add(Me.Text, Date.Now)
+                    dgvEvents.DataSource = dt
+                    dt.Rows.Add("Disconnected from board: " & txtIP.Text, Date.Now)
+                    adjust_clm_width()
                     btnConnect.Enabled = True
                     btnDisconnect.Enabled = False
                     txtIP.Enabled = True
                     txtPort.Enabled = True
-                    btnPing.Enabled = False
                 End If
             Catch ex As Exception
                 MessageBox.Show(ex.Message)
@@ -127,6 +140,27 @@ Public Class frmLCS
         btnCancel.Enabled = True
     End Sub
 
+    Public Sub adjust_clm_width()
+        Dim tWidth As Integer = dgvEvents.Size.Width
+        Dim clm As DataGridViewColumn = dgvEvents.Columns(0)
+        clm.Width = tWidth * 0.5
+        Dim clm2 As DataGridViewColumn = dgvEvents.Columns(1)
+        clm2.Width = tWidth * 0.5
+    End Sub
+
+    Public Function Send_Rec_DGV(ByVal sMess As String, ByRef dgv As DataGridView, ByRef dt As DataTable)
+        Try
+            Dim msg As Byte() = Encoding.ASCII.GetBytes(sMess)
+            Dim bytesSent As Integer = soc.Send(msg)
+            Dim bytesRec As Integer = soc.Receive(bytes)
+            dgv.DataSource = dt
+            dt.Rows.Add(Encoding.ASCII.GetString(bytes, 0, bytesRec), Date.Now)
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+        Return bConnected
+    End Function
+
     Private Sub btnArm_Click(sender As Object, e As EventArgs) Handles btnArm.Click
         Safety_Mode()
     End Sub
@@ -135,10 +169,21 @@ Public Class frmLCS
         Launch_Mode()
     End Sub
 
+    Private Sub FlightControlComputerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FlightControlComputerToolStripMenuItem.Click
+        Dim FCC As New Form
+        FCC = frmFCC
+        FCC.Show()
+    End Sub
 
+    Private Sub ToolStripButton1_Click_1(sender As Object, e As EventArgs) Handles ToolStripButton1.Click
+        Dim settings As New Form
+        settings = frmSettings
+        settings.Show()
+    End Sub
 
-
-
+    Private Sub updateTimer_Tick(sender As Object, e As EventArgs) Handles updateTimer.Tick
+        lblTime.Text = DateTime.Now.ToString()
+    End Sub
 
 
 End Class

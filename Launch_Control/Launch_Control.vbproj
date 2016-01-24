@@ -104,6 +104,12 @@
     <Compile Include="frmLCS.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmSettings.Designer.vb">
+      <DependentUpon>frmSettings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSettings.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frm_Launch_Control.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +140,9 @@
     <EmbeddedResource Include="frmLCS.resx">
       <DependentUpon>frmLCS.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmSettings.resx">
+      <DependentUpon>frmSettings.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_Launch_Control.resx">
       <DependentUpon>frm_Launch_Control.vb</DependentUpon>
     </EmbeddedResource>
@@ -145,6 +154,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\digital-7 %28italic%29.ttf" />
+    <None Include="Resources\digital-7 %28mono italic%29.ttf" />
+    <None Include="Resources\digital-7 %28mono%29.ttf" />
+    <None Include="Resources\digital-7.ttf" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>

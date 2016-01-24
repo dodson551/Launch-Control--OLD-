@@ -249,20 +249,20 @@ Public Class frmMain
     clm2.Width = tWidth * 0.5
   End Sub
 
-  Public Function Send_Rec_DGV(ByVal sMess As String, ByRef dgv As DataGridView, ByRef dt As DataTable)
-    Try
-      Dim msg As Byte() = Encoding.ASCII.GetBytes(sMess)
-      Dim bytesSent As Integer = soc.Send(msg)
-      Dim bytesRec As Integer = soc.Receive(bytes)
-      dgv.DataSource = dt
-      dt.Rows.Add(Encoding.ASCII.GetString(bytes, 0, bytesRec), Date.Now)
-    Catch ex As Exception
-      MessageBox.Show(ex.Message)
-    End Try
-    Return bConnection
-  End Function
+    Public Function Send_Rec_DGV(ByVal sMess As String, ByRef dgv As DataGridView, ByRef dt As DataTable)
+        Try
+            Dim msg As Byte() = Encoding.ASCII.GetBytes(sMess)
+            Dim bytesSent As Integer = soc.Send(msg)
+            Dim bytesRec As Integer = soc.Receive(bytes)
+            dgv.DataSource = dt
+            dt.Rows.Add(Encoding.ASCII.GetString(bytes, 0, bytesRec), Date.Now)
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+        Return bConnection
+    End Function
 
-  Public Function Send_Rec_Label(ByVal sMess As String, ByRef lbl As Label, ByRef dt As DataTable)
+    Public Function Send_Rec_Label(ByVal sMess As String, ByRef lbl As Label, ByRef dt As DataTable)
     Try
       Dim msg As Byte() = Encoding.ASCII.GetBytes(sMess)
       Dim bytesSentlbl As Integer = soc.Send(msg)
