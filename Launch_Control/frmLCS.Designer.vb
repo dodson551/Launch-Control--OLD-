@@ -24,6 +24,7 @@ Partial Class frmLCS
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmLCS))
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.tlpRightSide = New System.Windows.Forms.TableLayoutPanel()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
@@ -44,7 +45,7 @@ Partial Class frmLCS
         Me.btnPing = New System.Windows.Forms.Button()
         Me.btnConnect = New System.Windows.Forms.Button()
         Me.txtIP = New System.Windows.Forms.TextBox()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.btnNetworkInterface = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtPort = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -56,22 +57,22 @@ Partial Class frmLCS
         Me.FlightControlComputerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveEventLogToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripDropDownButton2 = New System.Windows.Forms.ToolStripDropDownButton()
+        Me.btnOpenVents = New System.Windows.Forms.ToolStripMenuItem()
+        Me.btnCloseVents = New System.Windows.Forms.ToolStripMenuItem()
+        Me.btnOpenMain = New System.Windows.Forms.ToolStripMenuItem()
+        Me.btnCloseMain = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
         Me.dgvEvents = New System.Windows.Forms.DataGridView()
         Me.TableLayoutPanel7 = New System.Windows.Forms.TableLayoutPanel()
         Me.lblTime = New System.Windows.Forms.Label()
-        Me.updateTimer = New System.Windows.Forms.Timer(Me.components)
         Me.TableLayoutPanel8 = New System.Windows.Forms.TableLayoutPanel()
         Me.btnBegin = New System.Windows.Forms.Button()
         Me.btnReset = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.ToolStripDropDownButton2 = New System.Windows.Forms.ToolStripDropDownButton()
-        Me.OpenVentsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CloseVentsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.OpenMainToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CloseMainToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.updateTimer = New System.Windows.Forms.Timer(Me.components)
         Me.tlpRightSide.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.TableLayoutPanel5.SuspendLayout()
@@ -294,7 +295,7 @@ Partial Class frmLCS
         Me.TableLayoutPanel1.Controls.Add(Me.btnPing, 0, 3)
         Me.TableLayoutPanel1.Controls.Add(Me.btnConnect, 0, 2)
         Me.TableLayoutPanel1.Controls.Add(Me.txtIP, 1, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.Button3, 1, 3)
+        Me.TableLayoutPanel1.Controls.Add(Me.btnNetworkInterface, 1, 3)
         Me.TableLayoutPanel1.Controls.Add(Me.Label1, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.txtPort, 1, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.Label2, 0, 1)
@@ -352,16 +353,16 @@ Partial Class frmLCS
         Me.txtIP.Size = New System.Drawing.Size(239, 26)
         Me.txtIP.TabIndex = 2
         '
-        'Button3
+        'btnNetworkInterface
         '
-        Me.Button3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Button3.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(247, 150)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(239, 44)
-        Me.Button3.TabIndex = 7
-        Me.Button3.Text = "Network Interface"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.btnNetworkInterface.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnNetworkInterface.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnNetworkInterface.Location = New System.Drawing.Point(247, 150)
+        Me.btnNetworkInterface.Name = "btnNetworkInterface"
+        Me.btnNetworkInterface.Size = New System.Drawing.Size(239, 44)
+        Me.btnNetworkInterface.TabIndex = 7
+        Me.btnNetworkInterface.Text = "Network Interface"
+        Me.btnNetworkInterface.UseVisualStyleBackColor = True
         '
         'Label1
         '
@@ -484,6 +485,41 @@ Partial Class frmLCS
         Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(204, 22)
         Me.ExitToolStripMenuItem.Text = "Exit..."
         '
+        'ToolStripDropDownButton2
+        '
+        Me.ToolStripDropDownButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripDropDownButton2.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnOpenVents, Me.btnCloseVents, Me.btnOpenMain, Me.btnCloseMain})
+        Me.ToolStripDropDownButton2.Image = CType(resources.GetObject("ToolStripDropDownButton2.Image"), System.Drawing.Image)
+        Me.ToolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripDropDownButton2.Name = "ToolStripDropDownButton2"
+        Me.ToolStripDropDownButton2.Size = New System.Drawing.Size(72, 22)
+        Me.ToolStripDropDownButton2.Text = "Pre-Flight"
+        '
+        'btnOpenVents
+        '
+        Me.btnOpenVents.Name = "btnOpenVents"
+        Me.btnOpenVents.Size = New System.Drawing.Size(134, 22)
+        Me.btnOpenVents.Text = "Open Vents"
+        '
+        'btnCloseVents
+        '
+        Me.btnCloseVents.Name = "btnCloseVents"
+        Me.btnCloseVents.Size = New System.Drawing.Size(134, 22)
+        Me.btnCloseVents.Text = "Close Vents"
+        '
+        'btnOpenMain
+        '
+        Me.btnOpenMain.Enabled = False
+        Me.btnOpenMain.Name = "btnOpenMain"
+        Me.btnOpenMain.Size = New System.Drawing.Size(134, 22)
+        Me.btnOpenMain.Text = "Open Main"
+        '
+        'btnCloseMain
+        '
+        Me.btnCloseMain.Name = "btnCloseMain"
+        Me.btnCloseMain.Size = New System.Drawing.Size(134, 22)
+        Me.btnCloseMain.Text = "Close Main"
+        '
         'ToolStripButton1
         '
         Me.ToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
@@ -504,6 +540,8 @@ Partial Class frmLCS
         '
         'dgvEvents
         '
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.AliceBlue
+        Me.dgvEvents.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvEvents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvEvents.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvEvents.Location = New System.Drawing.Point(4, 108)
@@ -540,10 +578,6 @@ Partial Class frmLCS
         Me.lblTime.Size = New System.Drawing.Size(1023, 64)
         Me.lblTime.TabIndex = 0
         Me.lblTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'updateTimer
-        '
-        Me.updateTimer.Interval = 1000
         '
         'TableLayoutPanel8
         '
@@ -607,39 +641,9 @@ Partial Class frmLCS
         Me.TextBox1.TabIndex = 3
         Me.TextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'ToolStripDropDownButton2
+        'updateTimer
         '
-        Me.ToolStripDropDownButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.ToolStripDropDownButton2.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenVentsToolStripMenuItem, Me.CloseVentsToolStripMenuItem, Me.OpenMainToolStripMenuItem, Me.CloseMainToolStripMenuItem})
-        Me.ToolStripDropDownButton2.Image = CType(resources.GetObject("ToolStripDropDownButton2.Image"), System.Drawing.Image)
-        Me.ToolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripDropDownButton2.Name = "ToolStripDropDownButton2"
-        Me.ToolStripDropDownButton2.Size = New System.Drawing.Size(72, 22)
-        Me.ToolStripDropDownButton2.Text = "Pre-Flight"
-        '
-        'OpenVentsToolStripMenuItem
-        '
-        Me.OpenVentsToolStripMenuItem.Name = "OpenVentsToolStripMenuItem"
-        Me.OpenVentsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.OpenVentsToolStripMenuItem.Text = "Open Vents"
-        '
-        'CloseVentsToolStripMenuItem
-        '
-        Me.CloseVentsToolStripMenuItem.Name = "CloseVentsToolStripMenuItem"
-        Me.CloseVentsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.CloseVentsToolStripMenuItem.Text = "Close Vents"
-        '
-        'OpenMainToolStripMenuItem
-        '
-        Me.OpenMainToolStripMenuItem.Name = "OpenMainToolStripMenuItem"
-        Me.OpenMainToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.OpenMainToolStripMenuItem.Text = "Open Main"
-        '
-        'CloseMainToolStripMenuItem
-        '
-        Me.CloseMainToolStripMenuItem.Name = "CloseMainToolStripMenuItem"
-        Me.CloseMainToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.CloseMainToolStripMenuItem.Text = "Close Main"
+        Me.updateTimer.Interval = 1000
         '
         'frmLCS
         '
@@ -695,7 +699,7 @@ Partial Class frmLCS
     Friend WithEvents btnPing As Button
     Friend WithEvents btnConnect As Button
     Friend WithEvents txtIP As TextBox
-    Friend WithEvents Button3 As Button
+    Friend WithEvents btnNetworkInterface As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents txtPort As TextBox
     Friend WithEvents Label2 As Label
@@ -719,8 +723,8 @@ Partial Class frmLCS
     Friend WithEvents Label3 As Label
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents ToolStripDropDownButton2 As ToolStripDropDownButton
-    Friend WithEvents OpenVentsToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents CloseVentsToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents OpenMainToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents CloseMainToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents btnOpenVents As ToolStripMenuItem
+    Friend WithEvents btnCloseVents As ToolStripMenuItem
+    Friend WithEvents btnOpenMain As ToolStripMenuItem
+    Friend WithEvents btnCloseMain As ToolStripMenuItem
 End Class
