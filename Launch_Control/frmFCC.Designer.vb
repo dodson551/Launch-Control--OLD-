@@ -24,6 +24,7 @@ Partial Class frmFCC
     Private Sub InitializeComponent()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'TextBox1
@@ -46,11 +47,22 @@ Partial Class frmFCC
         Me.TextBox2.TabIndex = 1
         Me.TextBox2.Text = "Make stuff on this page pleaseeee."
         '
+        'TextBox3
+        '
+        Me.TextBox3.Location = New System.Drawing.Point(8, 114)
+        Me.TextBox3.Margin = New System.Windows.Forms.Padding(2)
+        Me.TextBox3.Multiline = True
+        Me.TextBox3.Name = "TextBox3"
+        Me.TextBox3.Size = New System.Drawing.Size(129, 49)
+        Me.TextBox3.TabIndex = 2
+        Me.TextBox3.Text = "hopefully changing the gitignore file helped."
+        '
         'frmFCC
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(410, 400)
+        Me.Controls.Add(Me.TextBox3)
         Me.Controls.Add(Me.TextBox2)
         Me.Controls.Add(Me.TextBox1)
         Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
@@ -63,4 +75,9 @@ Partial Class frmFCC
 
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents TextBox3 As TextBox
+
+    Private Sub TextBox2_TextChanged(sender As Object, e As EventArgs) Handles TextBox2.TextChanged
+
+    End Sub
 End Class
