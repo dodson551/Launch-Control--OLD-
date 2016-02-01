@@ -23,23 +23,37 @@ Partial Class frmFCC
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(12, 12)
+        Me.TextBox1.Location = New System.Drawing.Point(8, 8)
+        Me.TextBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.TextBox1.Multiline = True
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(191, 74)
+        Me.TextBox1.Size = New System.Drawing.Size(129, 49)
         Me.TextBox1.TabIndex = 0
         Me.TextBox1.Text = "This is the form for the flight control computer."
         '
+        'TextBox2
+        '
+        Me.TextBox2.Location = New System.Drawing.Point(8, 61)
+        Me.TextBox2.Margin = New System.Windows.Forms.Padding(2)
+        Me.TextBox2.Multiline = True
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(129, 49)
+        Me.TextBox2.TabIndex = 1
+        Me.TextBox2.Text = "Make stuff on this page pleaseeee."
+        '
         'frmFCC
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(615, 615)
+        Me.ClientSize = New System.Drawing.Size(410, 400)
+        Me.Controls.Add(Me.TextBox2)
         Me.Controls.Add(Me.TextBox1)
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "frmFCC"
         Me.Text = "frmFCC"
         Me.ResumeLayout(False)
@@ -48,4 +62,5 @@ Partial Class frmFCC
     End Sub
 
     Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents TextBox2 As TextBox
 End Class

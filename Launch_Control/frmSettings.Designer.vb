@@ -24,16 +24,16 @@ Partial Class frmSettings
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmSettings))
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.btnSave = New System.Windows.Forms.Button()
-        Me.btnReset = New System.Windows.Forms.Button()
+        Me.txtSettingsFCC_Port = New System.Windows.Forms.TextBox()
+        Me.txtSettingsFCC_IP = New System.Windows.Forms.TextBox()
+        Me.txtSettingsPort = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtSettingsIP = New System.Windows.Forms.TextBox()
-        Me.txtSettingsPort = New System.Windows.Forms.TextBox()
-        Me.txtSettingsFCC_IP = New System.Windows.Forms.TextBox()
-        Me.txtSettingsFCC_Port = New System.Windows.Forms.TextBox()
+        Me.btnSave = New System.Windows.Forms.Button()
+        Me.btnReset = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txtSavePath = New System.Windows.Forms.TextBox()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -71,27 +71,35 @@ Partial Class frmSettings
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(484, 261)
         Me.TableLayoutPanel1.TabIndex = 0
         '
-        'btnSave
+        'txtSettingsFCC_Port
         '
-        Me.btnSave.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnSave.Font = New System.Drawing.Font("Consolas", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSave.Location = New System.Drawing.Point(3, 218)
-        Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(236, 40)
-        Me.btnSave.TabIndex = 0
-        Me.btnSave.Text = "Save Settings"
-        Me.btnSave.UseVisualStyleBackColor = True
+        Me.txtSettingsFCC_Port.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txtSettingsFCC_Port.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSettingsFCC_Port.Location = New System.Drawing.Point(245, 132)
+        Me.txtSettingsFCC_Port.Multiline = True
+        Me.txtSettingsFCC_Port.Name = "txtSettingsFCC_Port"
+        Me.txtSettingsFCC_Port.Size = New System.Drawing.Size(236, 37)
+        Me.txtSettingsFCC_Port.TabIndex = 9
         '
-        'btnReset
+        'txtSettingsFCC_IP
         '
-        Me.btnReset.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnReset.Font = New System.Drawing.Font("Consolas", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnReset.Location = New System.Drawing.Point(245, 218)
-        Me.btnReset.Name = "btnReset"
-        Me.btnReset.Size = New System.Drawing.Size(236, 40)
-        Me.btnReset.TabIndex = 1
-        Me.btnReset.Text = "Reset Settings"
-        Me.btnReset.UseVisualStyleBackColor = True
+        Me.txtSettingsFCC_IP.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txtSettingsFCC_IP.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSettingsFCC_IP.Location = New System.Drawing.Point(245, 89)
+        Me.txtSettingsFCC_IP.Multiline = True
+        Me.txtSettingsFCC_IP.Name = "txtSettingsFCC_IP"
+        Me.txtSettingsFCC_IP.Size = New System.Drawing.Size(236, 37)
+        Me.txtSettingsFCC_IP.TabIndex = 8
+        '
+        'txtSettingsPort
+        '
+        Me.txtSettingsPort.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txtSettingsPort.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSettingsPort.Location = New System.Drawing.Point(245, 46)
+        Me.txtSettingsPort.Multiline = True
+        Me.txtSettingsPort.Name = "txtSettingsPort"
+        Me.txtSettingsPort.Size = New System.Drawing.Size(236, 37)
+        Me.txtSettingsPort.TabIndex = 7
         '
         'Label1
         '
@@ -105,18 +113,6 @@ Partial Class frmSettings
         Me.Label1.Text = "ESB IP:"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label2.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(3, 43)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(236, 43)
-        Me.Label2.TabIndex = 3
-        Me.Label2.Text = "ESB Port:"
-        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
         'Label3
         '
         Me.Label3.AutoSize = True
@@ -128,6 +124,18 @@ Partial Class frmSettings
         Me.Label3.TabIndex = 4
         Me.Label3.Text = "FCC IP:"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label2.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(3, 43)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(236, 43)
+        Me.Label2.TabIndex = 3
+        Me.Label2.Text = "ESB Port:"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label4
         '
@@ -151,35 +159,27 @@ Partial Class frmSettings
         Me.txtSettingsIP.Size = New System.Drawing.Size(236, 37)
         Me.txtSettingsIP.TabIndex = 6
         '
-        'txtSettingsPort
+        'btnSave
         '
-        Me.txtSettingsPort.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.txtSettingsPort.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSettingsPort.Location = New System.Drawing.Point(245, 46)
-        Me.txtSettingsPort.Multiline = True
-        Me.txtSettingsPort.Name = "txtSettingsPort"
-        Me.txtSettingsPort.Size = New System.Drawing.Size(236, 37)
-        Me.txtSettingsPort.TabIndex = 7
+        Me.btnSave.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnSave.Font = New System.Drawing.Font("Consolas", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSave.Location = New System.Drawing.Point(3, 218)
+        Me.btnSave.Name = "btnSave"
+        Me.btnSave.Size = New System.Drawing.Size(236, 40)
+        Me.btnSave.TabIndex = 0
+        Me.btnSave.Text = "Save Settings"
+        Me.btnSave.UseVisualStyleBackColor = True
         '
-        'txtSettingsFCC_IP
+        'btnReset
         '
-        Me.txtSettingsFCC_IP.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.txtSettingsFCC_IP.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSettingsFCC_IP.Location = New System.Drawing.Point(245, 89)
-        Me.txtSettingsFCC_IP.Multiline = True
-        Me.txtSettingsFCC_IP.Name = "txtSettingsFCC_IP"
-        Me.txtSettingsFCC_IP.Size = New System.Drawing.Size(236, 37)
-        Me.txtSettingsFCC_IP.TabIndex = 8
-        '
-        'txtSettingsFCC_Port
-        '
-        Me.txtSettingsFCC_Port.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.txtSettingsFCC_Port.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSettingsFCC_Port.Location = New System.Drawing.Point(245, 132)
-        Me.txtSettingsFCC_Port.Multiline = True
-        Me.txtSettingsFCC_Port.Name = "txtSettingsFCC_Port"
-        Me.txtSettingsFCC_Port.Size = New System.Drawing.Size(236, 37)
-        Me.txtSettingsFCC_Port.TabIndex = 9
+        Me.btnReset.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnReset.Font = New System.Drawing.Font("Consolas", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnReset.Location = New System.Drawing.Point(245, 218)
+        Me.btnReset.Name = "btnReset"
+        Me.btnReset.Size = New System.Drawing.Size(236, 40)
+        Me.btnReset.TabIndex = 1
+        Me.btnReset.Text = "Reset Settings"
+        Me.btnReset.UseVisualStyleBackColor = True
         '
         'Label5
         '

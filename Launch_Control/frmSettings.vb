@@ -13,4 +13,5 @@
         txtSettingsIP.Text = My.Settings.IP.ToString()
         txtSettingsPort.Text = My.Settings.Port.ToString()
     End Sub
+
 End Class
