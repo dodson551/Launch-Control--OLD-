@@ -194,7 +194,7 @@ Public Class frmLCS
 
     Private Sub ToolStripButton1_Click_1(sender As Object, e As EventArgs) Handles ToolStripButton1.Click
         Dim settings As New Form
-        settings = frmSettings
+        'settings = frmSettings
         settings.Show()
     End Sub
 
