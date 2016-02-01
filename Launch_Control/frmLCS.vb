@@ -194,7 +194,7 @@ Public Class frmLCS
 
     Private Sub ToolStripButton1_Click_1(sender As Object, e As EventArgs) Handles ToolStripButton1.Click
         Dim settings As New Form
-        'settings = frmSettings
+        settings = frmSettings
         settings.Show()
     End Sub
 
@@ -258,4 +258,12 @@ Public Class frmLCS
             txtConsole.Text &= Environment.NewLine & ex.Message.ToString()
         End Try
     End Sub
+
+    Private Sub ToolStripButton2_Click(sender As Object, e As EventArgs) Handles ToolStripButton2.Click
+        Dim info As New Form
+        info = frmAbout
+        info.Show()
+    End Sub
+
+
 End Class

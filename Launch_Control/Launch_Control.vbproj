@@ -92,6 +92,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmAbout.Designer.vb">
+      <DependentUpon>frmAbout.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAbout.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmFCC.Designer.vb">
       <DependentUpon>frmFCC.vb</DependentUpon>
     </Compile>
@@ -102,6 +108,12 @@
       <DependentUpon>frmLCS.vb</DependentUpon>
     </Compile>
     <Compile Include="frmLCS.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSettings.Designer.vb">
+      <DependentUpon>frmSettings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSettings.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frm_Launch_Control.vb">
@@ -128,11 +140,17 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmAbout.resx">
+      <DependentUpon>frmAbout.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmFCC.resx">
       <DependentUpon>frmFCC.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLCS.resx">
       <DependentUpon>frmLCS.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSettings.resx">
+      <DependentUpon>frmSettings.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_Launch_Control.resx">
       <DependentUpon>frm_Launch_Control.vb</DependentUpon>

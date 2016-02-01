@@ -8,11 +8,11 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("Launch_Control")> 
-<Assembly: AssemblyDescription("")> 
-<Assembly: AssemblyCompany("")> 
-<Assembly: AssemblyProduct("Launch_Control")> 
-<Assembly: AssemblyCopyright("Copyright ©  2015")> 
+<Assembly: AssemblyTitle("Launch_Control")>
+<Assembly: AssemblyDescription("San Diego State's Rocket Project Launch Control was developed between 2015-2016 by Jacob Dodson. The Launch Control Dashboard communicates with the Electronics Systems Bay (ESB) via TCP/IP communication. This protocol allows for pnuematic activation events to take place, facilitating the testing and launch of rocket systems.")>
+<Assembly: AssemblyCompany("Rocket Project")>
+<Assembly: AssemblyProduct("Launch Control System")>
+<Assembly: AssemblyCopyright("Copyright ©  2016")>
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>

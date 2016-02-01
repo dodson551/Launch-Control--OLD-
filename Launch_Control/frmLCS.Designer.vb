@@ -56,7 +56,6 @@ Partial Class frmLCS
         Me.ToolStripDropDownButton1 = New System.Windows.Forms.ToolStripDropDownButton()
         Me.FlightControlComputerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveEventLogToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripDropDownButton2 = New System.Windows.Forms.ToolStripDropDownButton()
         Me.btnOpenVents = New System.Windows.Forms.ToolStripMenuItem()
         Me.btnCloseVents = New System.Windows.Forms.ToolStripMenuItem()
@@ -101,14 +100,15 @@ Partial Class frmLCS
         Me.tlpRightSide.Controls.Add(Me.GroupBox2, 0, 1)
         Me.tlpRightSide.Controls.Add(Me.GroupBox1, 0, 0)
         Me.tlpRightSide.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.tlpRightSide.Location = New System.Drawing.Point(1392, 3)
+        Me.tlpRightSide.Location = New System.Drawing.Point(2088, 5)
+        Me.tlpRightSide.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.tlpRightSide.Name = "tlpRightSide"
         Me.tlpRightSide.RowCount = 4
         Me.tlpRightSide.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
         Me.tlpRightSide.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
         Me.tlpRightSide.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.0!))
         Me.tlpRightSide.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.0!))
-        Me.tlpRightSide.Size = New System.Drawing.Size(509, 1035)
+        Me.tlpRightSide.Size = New System.Drawing.Size(764, 1568)
         Me.tlpRightSide.TabIndex = 0
         '
         'GroupBox3
@@ -116,9 +116,11 @@ Partial Class frmLCS
         Me.GroupBox3.Controls.Add(Me.TableLayoutPanel5)
         Me.GroupBox3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox3.Font = New System.Drawing.Font("Consolas", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox3.Location = New System.Drawing.Point(4, 882)
+        Me.GroupBox3.Location = New System.Drawing.Point(5, 1336)
+        Me.GroupBox3.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(501, 149)
+        Me.GroupBox3.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.GroupBox3.Size = New System.Drawing.Size(754, 226)
         Me.GroupBox3.TabIndex = 3
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Launch Control"
@@ -131,20 +133,22 @@ Partial Class frmLCS
         Me.TableLayoutPanel5.Controls.Add(Me.btnAbort, 0, 0)
         Me.TableLayoutPanel5.Controls.Add(Me.btnLaunch, 0, 0)
         Me.TableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel5.Location = New System.Drawing.Point(3, 28)
+        Me.TableLayoutPanel5.Location = New System.Drawing.Point(4, 42)
+        Me.TableLayoutPanel5.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TableLayoutPanel5.Name = "TableLayoutPanel5"
         Me.TableLayoutPanel5.RowCount = 1
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel5.Size = New System.Drawing.Size(495, 118)
+        Me.TableLayoutPanel5.Size = New System.Drawing.Size(746, 179)
         Me.TableLayoutPanel5.TabIndex = 1
         '
         'btnAbort
         '
         Me.btnAbort.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btnAbort.Font = New System.Drawing.Font("Consolas", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAbort.Location = New System.Drawing.Point(250, 3)
+        Me.btnAbort.Location = New System.Drawing.Point(377, 5)
+        Me.btnAbort.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnAbort.Name = "btnAbort"
-        Me.btnAbort.Size = New System.Drawing.Size(242, 112)
+        Me.btnAbort.Size = New System.Drawing.Size(365, 169)
         Me.btnAbort.TabIndex = 6
         Me.btnAbort.Text = "ABORT"
         Me.btnAbort.UseVisualStyleBackColor = True
@@ -153,9 +157,10 @@ Partial Class frmLCS
         '
         Me.btnLaunch.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btnLaunch.Font = New System.Drawing.Font("Consolas", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnLaunch.Location = New System.Drawing.Point(3, 3)
+        Me.btnLaunch.Location = New System.Drawing.Point(4, 5)
+        Me.btnLaunch.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnLaunch.Name = "btnLaunch"
-        Me.btnLaunch.Size = New System.Drawing.Size(241, 112)
+        Me.btnLaunch.Size = New System.Drawing.Size(365, 169)
         Me.btnLaunch.TabIndex = 5
         Me.btnLaunch.Text = "LAUNCH"
         Me.btnLaunch.UseVisualStyleBackColor = True
@@ -165,9 +170,11 @@ Partial Class frmLCS
         Me.Launch.Controls.Add(Me.TableLayoutPanel4)
         Me.Launch.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Launch.Font = New System.Drawing.Font("Consolas", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Launch.Location = New System.Drawing.Point(4, 727)
+        Me.Launch.Location = New System.Drawing.Point(5, 1101)
+        Me.Launch.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Launch.Name = "Launch"
-        Me.Launch.Size = New System.Drawing.Size(501, 148)
+        Me.Launch.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.Launch.Size = New System.Drawing.Size(754, 224)
         Me.Launch.TabIndex = 2
         Me.Launch.TabStop = False
         Me.Launch.Text = "Ignition Control"
@@ -180,20 +187,22 @@ Partial Class frmLCS
         Me.TableLayoutPanel4.Controls.Add(Me.btnCancel, 0, 0)
         Me.TableLayoutPanel4.Controls.Add(Me.btnIgnite, 0, 0)
         Me.TableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel4.Location = New System.Drawing.Point(3, 28)
+        Me.TableLayoutPanel4.Location = New System.Drawing.Point(4, 42)
+        Me.TableLayoutPanel4.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
         Me.TableLayoutPanel4.RowCount = 1
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel4.Size = New System.Drawing.Size(495, 117)
+        Me.TableLayoutPanel4.Size = New System.Drawing.Size(746, 177)
         Me.TableLayoutPanel4.TabIndex = 0
         '
         'btnCancel
         '
         Me.btnCancel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btnCancel.Font = New System.Drawing.Font("Consolas", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCancel.Location = New System.Drawing.Point(250, 3)
+        Me.btnCancel.Location = New System.Drawing.Point(377, 5)
+        Me.btnCancel.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(242, 111)
+        Me.btnCancel.Size = New System.Drawing.Size(365, 167)
         Me.btnCancel.TabIndex = 7
         Me.btnCancel.Text = "CANCEL"
         Me.btnCancel.UseVisualStyleBackColor = True
@@ -202,9 +211,10 @@ Partial Class frmLCS
         '
         Me.btnIgnite.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btnIgnite.Font = New System.Drawing.Font("Consolas", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnIgnite.Location = New System.Drawing.Point(3, 3)
+        Me.btnIgnite.Location = New System.Drawing.Point(4, 5)
+        Me.btnIgnite.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnIgnite.Name = "btnIgnite"
-        Me.btnIgnite.Size = New System.Drawing.Size(241, 111)
+        Me.btnIgnite.Size = New System.Drawing.Size(365, 167)
         Me.btnIgnite.TabIndex = 6
         Me.btnIgnite.Text = "IGNITE"
         Me.btnIgnite.UseVisualStyleBackColor = True
@@ -214,9 +224,11 @@ Partial Class frmLCS
         Me.GroupBox2.Controls.Add(Me.TableLayoutPanel3)
         Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox2.Font = New System.Drawing.Font("Consolas", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox2.Location = New System.Drawing.Point(4, 623)
+        Me.GroupBox2.Location = New System.Drawing.Point(5, 944)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(501, 97)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.GroupBox2.Size = New System.Drawing.Size(754, 146)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Safety"
@@ -229,20 +241,22 @@ Partial Class frmLCS
         Me.TableLayoutPanel3.Controls.Add(Me.btnDisarm, 1, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.btnArm, 0, 0)
         Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel3.Location = New System.Drawing.Point(3, 28)
+        Me.TableLayoutPanel3.Location = New System.Drawing.Point(4, 42)
+        Me.TableLayoutPanel3.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
         Me.TableLayoutPanel3.RowCount = 1
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(495, 66)
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(746, 99)
         Me.TableLayoutPanel3.TabIndex = 0
         '
         'btnDisarm
         '
         Me.btnDisarm.BackColor = System.Drawing.Color.Green
         Me.btnDisarm.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnDisarm.Location = New System.Drawing.Point(250, 3)
+        Me.btnDisarm.Location = New System.Drawing.Point(377, 5)
+        Me.btnDisarm.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnDisarm.Name = "btnDisarm"
-        Me.btnDisarm.Size = New System.Drawing.Size(242, 60)
+        Me.btnDisarm.Size = New System.Drawing.Size(365, 89)
         Me.btnDisarm.TabIndex = 1
         Me.btnDisarm.Text = "DISARM"
         Me.btnDisarm.UseVisualStyleBackColor = False
@@ -252,9 +266,10 @@ Partial Class frmLCS
         Me.btnArm.BackColor = System.Drawing.Color.Yellow
         Me.btnArm.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btnArm.Enabled = False
-        Me.btnArm.Location = New System.Drawing.Point(3, 3)
+        Me.btnArm.Location = New System.Drawing.Point(4, 5)
+        Me.btnArm.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnArm.Name = "btnArm"
-        Me.btnArm.Size = New System.Drawing.Size(241, 60)
+        Me.btnArm.Size = New System.Drawing.Size(365, 89)
         Me.btnArm.TabIndex = 0
         Me.btnArm.Text = "ARMED"
         Me.btnArm.UseVisualStyleBackColor = False
@@ -264,9 +279,11 @@ Partial Class frmLCS
         Me.GroupBox1.Controls.Add(Me.TableLayoutPanel2)
         Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox1.Font = New System.Drawing.Font("Consolas", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(4, 4)
+        Me.GroupBox1.Location = New System.Drawing.Point(5, 6)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(501, 612)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.GroupBox1.Size = New System.Drawing.Size(754, 927)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Network Configuration"
@@ -278,12 +295,13 @@ Partial Class frmLCS
         Me.TableLayoutPanel2.Controls.Add(Me.TableLayoutPanel1, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.txtConsole, 0, 1)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(3, 28)
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(4, 42)
+        Me.TableLayoutPanel2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 2
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35.0!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(495, 581)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(746, 880)
         Me.TableLayoutPanel2.TabIndex = 0
         '
         'TableLayoutPanel1
@@ -300,14 +318,15 @@ Partial Class frmLCS
         Me.TableLayoutPanel1.Controls.Add(Me.txtPort, 1, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.Label2, 0, 1)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(3, 3)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(4, 5)
+        Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 4
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(489, 197)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(738, 298)
         Me.TableLayoutPanel1.TabIndex = 0
         '
         'btnDisconnect
@@ -315,9 +334,10 @@ Partial Class frmLCS
         Me.btnDisconnect.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btnDisconnect.Enabled = False
         Me.btnDisconnect.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDisconnect.Location = New System.Drawing.Point(247, 101)
+        Me.btnDisconnect.Location = New System.Drawing.Point(373, 153)
+        Me.btnDisconnect.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnDisconnect.Name = "btnDisconnect"
-        Me.btnDisconnect.Size = New System.Drawing.Size(239, 43)
+        Me.btnDisconnect.Size = New System.Drawing.Size(361, 64)
         Me.btnDisconnect.TabIndex = 5
         Me.btnDisconnect.Text = "Disconnect"
         Me.btnDisconnect.UseVisualStyleBackColor = True
@@ -326,9 +346,10 @@ Partial Class frmLCS
         '
         Me.btnPing.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btnPing.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnPing.Location = New System.Drawing.Point(3, 150)
+        Me.btnPing.Location = New System.Drawing.Point(4, 227)
+        Me.btnPing.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnPing.Name = "btnPing"
-        Me.btnPing.Size = New System.Drawing.Size(238, 44)
+        Me.btnPing.Size = New System.Drawing.Size(361, 66)
         Me.btnPing.TabIndex = 6
         Me.btnPing.Text = "Ping Server"
         Me.btnPing.UseVisualStyleBackColor = True
@@ -337,9 +358,10 @@ Partial Class frmLCS
         '
         Me.btnConnect.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btnConnect.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnConnect.Location = New System.Drawing.Point(3, 101)
+        Me.btnConnect.Location = New System.Drawing.Point(4, 153)
+        Me.btnConnect.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnConnect.Name = "btnConnect"
-        Me.btnConnect.Size = New System.Drawing.Size(238, 43)
+        Me.btnConnect.Size = New System.Drawing.Size(361, 64)
         Me.btnConnect.TabIndex = 4
         Me.btnConnect.Text = "Connect"
         Me.btnConnect.UseVisualStyleBackColor = True
@@ -348,18 +370,20 @@ Partial Class frmLCS
         '
         Me.txtIP.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.txtIP.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtIP.Location = New System.Drawing.Point(247, 11)
+        Me.txtIP.Location = New System.Drawing.Point(373, 19)
+        Me.txtIP.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtIP.Name = "txtIP"
-        Me.txtIP.Size = New System.Drawing.Size(239, 26)
+        Me.txtIP.Size = New System.Drawing.Size(356, 36)
         Me.txtIP.TabIndex = 2
         '
         'btnNetworkInterface
         '
         Me.btnNetworkInterface.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btnNetworkInterface.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnNetworkInterface.Location = New System.Drawing.Point(247, 150)
+        Me.btnNetworkInterface.Location = New System.Drawing.Point(373, 227)
+        Me.btnNetworkInterface.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnNetworkInterface.Name = "btnNetworkInterface"
-        Me.btnNetworkInterface.Size = New System.Drawing.Size(239, 44)
+        Me.btnNetworkInterface.Size = New System.Drawing.Size(361, 66)
         Me.btnNetworkInterface.TabIndex = 7
         Me.btnNetworkInterface.Text = "Network Interface"
         Me.btnNetworkInterface.UseVisualStyleBackColor = True
@@ -369,9 +393,10 @@ Partial Class frmLCS
         Me.Label1.AutoSize = True
         Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label1.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(3, 0)
+        Me.Label1.Location = New System.Drawing.Point(4, 0)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(238, 49)
+        Me.Label1.Size = New System.Drawing.Size(361, 74)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "IP Address:"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -380,9 +405,10 @@ Partial Class frmLCS
         '
         Me.txtPort.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.txtPort.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPort.Location = New System.Drawing.Point(247, 60)
+        Me.txtPort.Location = New System.Drawing.Point(373, 93)
+        Me.txtPort.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtPort.Name = "txtPort"
-        Me.txtPort.Size = New System.Drawing.Size(239, 26)
+        Me.txtPort.Size = New System.Drawing.Size(356, 36)
         Me.txtPort.TabIndex = 3
         '
         'Label2
@@ -390,9 +416,10 @@ Partial Class frmLCS
         Me.Label2.AutoSize = True
         Me.Label2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label2.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(3, 49)
+        Me.Label2.Location = New System.Drawing.Point(4, 74)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(238, 49)
+        Me.Label2.Size = New System.Drawing.Size(361, 74)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Port:"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -401,13 +428,14 @@ Partial Class frmLCS
         '
         Me.txtConsole.BackColor = System.Drawing.SystemColors.WindowText
         Me.txtConsole.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.txtConsole.Font = New System.Drawing.Font("OCR A Extended", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtConsole.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtConsole.ForeColor = System.Drawing.Color.Lime
-        Me.txtConsole.Location = New System.Drawing.Point(3, 206)
+        Me.txtConsole.Location = New System.Drawing.Point(4, 313)
+        Me.txtConsole.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtConsole.Multiline = True
         Me.txtConsole.Name = "txtConsole"
         Me.txtConsole.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.txtConsole.Size = New System.Drawing.Size(489, 372)
+        Me.txtConsole.Size = New System.Drawing.Size(738, 562)
         Me.txtConsole.TabIndex = 1
         Me.txtConsole.Text = "Network Console:"
         '
@@ -420,10 +448,11 @@ Partial Class frmLCS
         Me.tlpMain.Controls.Add(Me.tlpLeft, 0, 0)
         Me.tlpMain.Dock = System.Windows.Forms.DockStyle.Fill
         Me.tlpMain.Location = New System.Drawing.Point(0, 0)
+        Me.tlpMain.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.tlpMain.Name = "tlpMain"
         Me.tlpMain.RowCount = 1
         Me.tlpMain.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.tlpMain.Size = New System.Drawing.Size(1904, 1041)
+        Me.tlpMain.Size = New System.Drawing.Size(2856, 1578)
         Me.tlpMain.TabIndex = 0
         '
         'tlpLeft
@@ -435,55 +464,52 @@ Partial Class frmLCS
         Me.tlpLeft.Controls.Add(Me.dgvEvents, 0, 2)
         Me.tlpLeft.Controls.Add(Me.TableLayoutPanel7, 0, 1)
         Me.tlpLeft.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.tlpLeft.Location = New System.Drawing.Point(3, 3)
+        Me.tlpLeft.Location = New System.Drawing.Point(4, 5)
+        Me.tlpLeft.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.tlpLeft.Name = "tlpLeft"
         Me.tlpLeft.RowCount = 4
         Me.tlpLeft.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.0!))
         Me.tlpLeft.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.0!))
         Me.tlpLeft.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65.0!))
         Me.tlpLeft.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.tlpLeft.Size = New System.Drawing.Size(1383, 1035)
+        Me.tlpLeft.Size = New System.Drawing.Size(2076, 1568)
         Me.tlpLeft.TabIndex = 1
         '
         'ToolStrip1
         '
         Me.ToolStrip1.BackColor = System.Drawing.SystemColors.Control
         Me.ToolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
+        Me.ToolStrip1.ImageScalingSize = New System.Drawing.Size(24, 24)
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripDropDownButton1, Me.ToolStripDropDownButton2, Me.ToolStripButton1, Me.ToolStripButton2})
         Me.ToolStrip1.Location = New System.Drawing.Point(1, 1)
         Me.ToolStrip1.Name = "ToolStrip1"
+        Me.ToolStrip1.Padding = New System.Windows.Forms.Padding(0, 0, 2, 0)
         Me.ToolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
-        Me.ToolStrip1.Size = New System.Drawing.Size(1381, 25)
+        Me.ToolStrip1.Size = New System.Drawing.Size(2074, 32)
         Me.ToolStrip1.TabIndex = 0
         Me.ToolStrip1.Text = "ToolStrip1"
         '
         'ToolStripDropDownButton1
         '
         Me.ToolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.ToolStripDropDownButton1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FlightControlComputerToolStripMenuItem, Me.SaveEventLogToolStripMenuItem, Me.ExitToolStripMenuItem})
+        Me.ToolStripDropDownButton1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FlightControlComputerToolStripMenuItem, Me.SaveEventLogToolStripMenuItem})
         Me.ToolStripDropDownButton1.Image = CType(resources.GetObject("ToolStripDropDownButton1.Image"), System.Drawing.Image)
         Me.ToolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripDropDownButton1.Name = "ToolStripDropDownButton1"
-        Me.ToolStripDropDownButton1.Size = New System.Drawing.Size(62, 22)
+        Me.ToolStripDropDownButton1.Size = New System.Drawing.Size(94, 29)
         Me.ToolStripDropDownButton1.Text = "Options"
         '
         'FlightControlComputerToolStripMenuItem
         '
         Me.FlightControlComputerToolStripMenuItem.Name = "FlightControlComputerToolStripMenuItem"
-        Me.FlightControlComputerToolStripMenuItem.Size = New System.Drawing.Size(204, 22)
+        Me.FlightControlComputerToolStripMenuItem.Size = New System.Drawing.Size(290, 30)
         Me.FlightControlComputerToolStripMenuItem.Text = "Flight Control Computer"
         '
         'SaveEventLogToolStripMenuItem
         '
         Me.SaveEventLogToolStripMenuItem.Name = "SaveEventLogToolStripMenuItem"
-        Me.SaveEventLogToolStripMenuItem.Size = New System.Drawing.Size(204, 22)
+        Me.SaveEventLogToolStripMenuItem.Size = New System.Drawing.Size(290, 30)
         Me.SaveEventLogToolStripMenuItem.Text = "Save Event Log"
-        '
-        'ExitToolStripMenuItem
-        '
-        Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(204, 22)
-        Me.ExitToolStripMenuItem.Text = "Exit..."
         '
         'ToolStripDropDownButton2
         '
@@ -492,32 +518,32 @@ Partial Class frmLCS
         Me.ToolStripDropDownButton2.Image = CType(resources.GetObject("ToolStripDropDownButton2.Image"), System.Drawing.Image)
         Me.ToolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripDropDownButton2.Name = "ToolStripDropDownButton2"
-        Me.ToolStripDropDownButton2.Size = New System.Drawing.Size(72, 22)
+        Me.ToolStripDropDownButton2.Size = New System.Drawing.Size(106, 29)
         Me.ToolStripDropDownButton2.Text = "Pre-Flight"
         '
         'btnOpenVents
         '
         Me.btnOpenVents.Name = "btnOpenVents"
-        Me.btnOpenVents.Size = New System.Drawing.Size(134, 22)
+        Me.btnOpenVents.Size = New System.Drawing.Size(211, 30)
         Me.btnOpenVents.Text = "Open Vents"
         '
         'btnCloseVents
         '
         Me.btnCloseVents.Name = "btnCloseVents"
-        Me.btnCloseVents.Size = New System.Drawing.Size(134, 22)
+        Me.btnCloseVents.Size = New System.Drawing.Size(211, 30)
         Me.btnCloseVents.Text = "Close Vents"
         '
         'btnOpenMain
         '
         Me.btnOpenMain.Enabled = False
         Me.btnOpenMain.Name = "btnOpenMain"
-        Me.btnOpenMain.Size = New System.Drawing.Size(134, 22)
+        Me.btnOpenMain.Size = New System.Drawing.Size(211, 30)
         Me.btnOpenMain.Text = "Open Main"
         '
         'btnCloseMain
         '
         Me.btnCloseMain.Name = "btnCloseMain"
-        Me.btnCloseMain.Size = New System.Drawing.Size(134, 22)
+        Me.btnCloseMain.Size = New System.Drawing.Size(211, 30)
         Me.btnCloseMain.Text = "Close Main"
         '
         'ToolStripButton1
@@ -526,7 +552,7 @@ Partial Class frmLCS
         Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
         Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton1.Name = "ToolStripButton1"
-        Me.ToolStripButton1.Size = New System.Drawing.Size(53, 22)
+        Me.ToolStripButton1.Size = New System.Drawing.Size(80, 29)
         Me.ToolStripButton1.Text = "Settings"
         '
         'ToolStripButton2
@@ -535,8 +561,8 @@ Partial Class frmLCS
         Me.ToolStripButton2.Image = CType(resources.GetObject("ToolStripButton2.Image"), System.Drawing.Image)
         Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton2.Name = "ToolStripButton2"
-        Me.ToolStripButton2.Size = New System.Drawing.Size(32, 22)
-        Me.ToolStripButton2.Text = "Info"
+        Me.ToolStripButton2.Size = New System.Drawing.Size(66, 29)
+        Me.ToolStripButton2.Text = "About"
         '
         'dgvEvents
         '
@@ -544,9 +570,10 @@ Partial Class frmLCS
         Me.dgvEvents.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvEvents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvEvents.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dgvEvents.Location = New System.Drawing.Point(4, 108)
+        Me.dgvEvents.Location = New System.Drawing.Point(5, 163)
+        Me.dgvEvents.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.dgvEvents.Name = "dgvEvents"
-        Me.dgvEvents.Size = New System.Drawing.Size(1375, 663)
+        Me.dgvEvents.Size = New System.Drawing.Size(2066, 1005)
         Me.dgvEvents.TabIndex = 1
         '
         'TableLayoutPanel7
@@ -558,11 +585,12 @@ Partial Class frmLCS
         Me.TableLayoutPanel7.Controls.Add(Me.lblTime, 0, 0)
         Me.TableLayoutPanel7.Controls.Add(Me.TableLayoutPanel8, 1, 0)
         Me.TableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel7.Location = New System.Drawing.Point(4, 35)
+        Me.TableLayoutPanel7.Location = New System.Drawing.Point(5, 53)
+        Me.TableLayoutPanel7.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TableLayoutPanel7.Name = "TableLayoutPanel7"
         Me.TableLayoutPanel7.RowCount = 1
         Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel7.Size = New System.Drawing.Size(1375, 66)
+        Me.TableLayoutPanel7.Size = New System.Drawing.Size(2066, 99)
         Me.TableLayoutPanel7.TabIndex = 2
         '
         'lblTime
@@ -570,12 +598,13 @@ Partial Class frmLCS
         Me.lblTime.AutoSize = True
         Me.lblTime.BackColor = System.Drawing.SystemColors.Control
         Me.lblTime.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblTime.Font = New System.Drawing.Font("OCR A Extended", 39.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTime.Font = New System.Drawing.Font("Microsoft Sans Serif", 39.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTime.ForeColor = System.Drawing.Color.DarkGreen
         Me.lblTime.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.lblTime.Location = New System.Drawing.Point(4, 1)
+        Me.lblTime.Location = New System.Drawing.Point(5, 1)
+        Me.lblTime.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblTime.Name = "lblTime"
-        Me.lblTime.Size = New System.Drawing.Size(1023, 64)
+        Me.lblTime.Size = New System.Drawing.Size(1539, 97)
         Me.lblTime.TabIndex = 0
         Me.lblTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -589,21 +618,23 @@ Partial Class frmLCS
         Me.TableLayoutPanel8.Controls.Add(Me.Label3, 0, 0)
         Me.TableLayoutPanel8.Controls.Add(Me.TextBox1, 0, 1)
         Me.TableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel8.Location = New System.Drawing.Point(1034, 4)
+        Me.TableLayoutPanel8.Location = New System.Drawing.Point(1553, 6)
+        Me.TableLayoutPanel8.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TableLayoutPanel8.Name = "TableLayoutPanel8"
         Me.TableLayoutPanel8.RowCount = 2
         Me.TableLayoutPanel8.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel8.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel8.Size = New System.Drawing.Size(337, 58)
+        Me.TableLayoutPanel8.Size = New System.Drawing.Size(508, 87)
         Me.TableLayoutPanel8.TabIndex = 1
         '
         'btnBegin
         '
         Me.btnBegin.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btnBegin.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnBegin.Location = New System.Drawing.Point(171, 3)
+        Me.btnBegin.Location = New System.Drawing.Point(258, 5)
+        Me.btnBegin.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnBegin.Name = "btnBegin"
-        Me.btnBegin.Size = New System.Drawing.Size(163, 23)
+        Me.btnBegin.Size = New System.Drawing.Size(246, 33)
         Me.btnBegin.TabIndex = 0
         Me.btnBegin.Text = "Begin Countdown"
         Me.btnBegin.UseVisualStyleBackColor = True
@@ -612,9 +643,10 @@ Partial Class frmLCS
         '
         Me.btnReset.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btnReset.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnReset.Location = New System.Drawing.Point(171, 32)
+        Me.btnReset.Location = New System.Drawing.Point(258, 48)
+        Me.btnReset.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnReset.Name = "btnReset"
-        Me.btnReset.Size = New System.Drawing.Size(163, 23)
+        Me.btnReset.Size = New System.Drawing.Size(246, 34)
         Me.btnReset.TabIndex = 1
         Me.btnReset.Text = "Reset Countdown"
         Me.btnReset.UseVisualStyleBackColor = True
@@ -624,9 +656,10 @@ Partial Class frmLCS
         Me.Label3.AutoSize = True
         Me.Label3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label3.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(3, 0)
+        Me.Label3.Location = New System.Drawing.Point(4, 0)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(162, 29)
+        Me.Label3.Size = New System.Drawing.Size(246, 43)
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "Countdown Timer"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -635,9 +668,10 @@ Partial Class frmLCS
         '
         Me.TextBox1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TextBox1.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(3, 32)
+        Me.TextBox1.Location = New System.Drawing.Point(4, 48)
+        Me.TextBox1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(162, 23)
+        Me.TextBox1.Size = New System.Drawing.Size(246, 30)
         Me.TextBox1.TabIndex = 3
         Me.TextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -647,11 +681,12 @@ Partial Class frmLCS
         '
         'frmLCS
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1904, 1041)
+        Me.ClientSize = New System.Drawing.Size(2856, 1578)
         Me.Controls.Add(Me.tlpMain)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "frmLCS"
         Me.Text = "San Diego State Rocket Project Launch Control"
         Me.tlpRightSide.ResumeLayout(False)
@@ -710,7 +745,6 @@ Partial Class frmLCS
     Friend WithEvents ToolStripDropDownButton1 As ToolStripDropDownButton
     Friend WithEvents FlightControlComputerToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SaveEventLogToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ExitToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripButton1 As ToolStripButton
     Friend WithEvents ToolStripButton2 As ToolStripButton
     Friend WithEvents dgvEvents As DataGridView
