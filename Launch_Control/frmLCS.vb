@@ -116,11 +116,15 @@ Public Class frmLCS
 
     Private Sub btnPing_Click(sender As Object, e As EventArgs) Handles btnPing.Click
         If txtIP.Text <> Nothing Then
-            If My.Computer.Network.Ping(txtIP.Text) Then
-                txtConsole.Text &= Environment.NewLine & "Server pinged successfully."
-            Else
-                txtConsole.Text &= Environment.NewLine & "Ping request timed out."
-            End If
+            Try
+                If My.Computer.Network.Ping(txtIP.Text) Then
+                    txtConsole.Text &= Environment.NewLine & "Server pinged successfully."
+                Else
+                    txtConsole.Text &= Environment.NewLine & "Ping request timed out."
+                End If
+            Catch ex As Exception
+                txtConsole.Text &= Environment.NewLine & ex.Message.ToString()
+            End Try
         Else
             MsgBox("Please enter IP of server you wish to ping in the IP Address field.")
         End If
