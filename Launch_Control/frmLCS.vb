@@ -14,6 +14,7 @@ Public Class frmLCS
     Dim dt As New DataTable
     Dim filename As String
     Dim bConnected As Boolean = False
+    Dim opMode As String
 
     Dim bytes(1024) As Byte
     Dim ipAddress As IPAddress = Nothing
@@ -76,6 +77,7 @@ Public Class frmLCS
                     txtPort.Enabled = False
                     btnDisconnect.Enabled = True
                     btnPing.Enabled = True
+                    sensorTimer.Start()
                     My.Settings.IP = txtIP.Text
                     My.Settings.Port = txtPort.Text
                     My.Settings.Save()
@@ -96,6 +98,7 @@ Public Class frmLCS
                 If Not dis_success Then
                     MsgBox("Client software was not able to disconnect successfully. Please try again.")
                 Else
+                    sensorTimer.Stop()
                     bConnected = False
                     txtConsole.Text &= Environment.NewLine & "Disconnected from board: " & txtIP.Text
                     dgvEvents.DataSource = dt
@@ -265,5 +268,124 @@ Public Class frmLCS
         info.Show()
     End Sub
 
+    Public Function Send_Rec_Label(ByVal sMess As String, ByRef lbl As Label, ByRef dt As DataTable)
+        Try
+            Dim msg As Byte() = Encoding.ASCII.GetBytes(sMess)
+            Dim bytesSentlbl As Integer = soc.Send(msg)
+            Dim bytesReclbl As Integer = soc.Receive(bytes)
+            lbl.Text = Encoding.ASCII.GetString(bytes, 0, bytesReclbl)
+        Catch ex As Exception
+            gbVehicleStatus.Text = "Connection to vehicle lost"
+            sensorTimer.Stop()
+            reset_sensors()
+        End Try
+        Return bConnected
+    End Function
 
+    Private Sub sensorTimer_Tick(sender As Object, e As EventArgs) Handles sensorTimer.Tick
+        Try
+            Send_Rec_Label("temp_status", lblThermo, dt)
+            Send_Rec_Label("bwire_status", lblBwire, dt)
+            Send_Rec_Label("kero_status", lblKero, dt)
+            Send_Rec_Label("LOX_status", lblLOX, dt)
+            Send_Rec_Label("main_status", lblMPV, dt)
+
+            Dim good_val As Boolean = True
+            Dim iThermo As Double
+            Try
+                iThermo = Convert.ToDouble(lblThermo.Text)
+            Catch ex As Exception
+                good_val = False
+            End Try
+
+            If good_val = True Then
+                If iThermo > 200 Then
+                    lblThermo.BackColor = Color.Green
+                ElseIf iThermo < 200 Then
+                    lblThermo.BackColor = Color.Red
+                Else
+                    lblThermo.BackColor = Color.Yellow
+                End If
+            End If
+
+            If lblKero.Text = "Open" Then
+                lblKero.BackColor = Color.Red
+            Else
+                lblKero.BackColor = Color.Green
+            End If
+
+            If lblLOX.Text = "Open" Then
+                lblLOX.BackColor = Color.Red
+            Else
+                lblLOX.BackColor = Color.Green
+            End If
+
+            If lblMPV.Text = "Open" Then
+                lblMPV.BackColor = Color.Red
+            Else
+                lblMPV.BackColor = Color.Green
+            End If
+
+            If lblBwire.Text = "Broken" Then
+                lblBwire.BackColor = Color.Green
+            Else
+                lblBwire.BackColor = Color.Red
+            End If
+
+            gbVehicleStatus.Text = "Vehicle Sensors (Connected)"
+        Catch ex As Exception
+            gbVehicleStatus.Text = "Vehicle Sensors (Disconnected)"
+        End Try
+    End Sub
+
+    Private Sub ResetToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ResetToolStripMenuItem.Click
+        Try
+            sensorTimer.Start()
+        Catch ex As Exception
+            reset_sensors()
+        End Try
+    End Sub
+
+    Private Sub StopToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles StopToolStripMenuItem.Click
+        Try
+            sensorTimer.Stop()
+            reset_sensors()
+        Catch ex As Exception
+            reset_sensors()
+        End Try
+    End Sub
+
+    Private Sub ResetToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ResetToolStripMenuItem1.Click
+        Try
+            sensorTimer.Stop()
+            reset_sensors()
+            sensorTimer.Start()
+        Catch ex As Exception
+            reset_sensors()
+        End Try
+    End Sub
+
+    Public Sub reset_sensors()
+        gbVehicleStatus.Text = "Vehicle Sensors (Disconnected)"
+
+        lblKero.BackColor = SystemColors.Control
+        lblLOX.BackColor = SystemColors.Control
+        lblMPV.BackColor = SystemColors.Control
+        lblBwire.BackColor = SystemColors.Control
+        lblThermo.BackColor = SystemColors.Control
+
+        lblKero.Text = "--"
+        lblLOX.Text = "--"
+        lblMPV.Text = "--"
+        lblBwire.Text = "--"
+        lblThermo.Text = "--"
+    End Sub
+
+    Private Sub StaticTestToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles StaticTestToolStripMenuItem.Click
+        opMode = "Static"
+    End Sub
+
+    Private Sub LaunchToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LaunchToolStripMenuItem.Click
+        opMode = "Launch"
+    End Sub
 End Class
