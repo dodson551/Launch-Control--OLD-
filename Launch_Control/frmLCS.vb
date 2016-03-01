@@ -1,6 +1,11 @@
 ﻿Imports System.Net
 Imports System.Net.Sockets
 Imports System.Text
+Imports System
+Imports System.IO
+Imports Microsoft.VisualBasic
+Imports Syncfusion.Windows.Forms.Gauge
+Imports System.Math
 
 Public Class frmLCS
 
@@ -77,10 +82,17 @@ Public Class frmLCS
                     txtPort.Enabled = False
                     btnDisconnect.Enabled = True
                     btnPing.Enabled = True
-                    sensorTimer.Start()
                     My.Settings.IP = txtIP.Text
                     My.Settings.Port = txtPort.Text
                     My.Settings.Save()
+                    If opMode = "Testing" Then
+                        Debug.WriteLine("Sensors not started")
+                        startSensors.Enabled = False
+                        stopSensors.Enabled = False
+                        resetSensors.Enabled = False
+                    Else
+                        sensorTimer.Start()
+                    End If
                 End If
             Catch ex As Exception
                 MessageBox.Show(ex.Message)
@@ -269,22 +281,44 @@ Public Class frmLCS
     End Sub
 
     Public Function Send_Rec_Label(ByVal sMess As String, ByRef lbl As Label, ByRef dt As DataTable)
-        Try
-            Dim msg As Byte() = Encoding.ASCII.GetBytes(sMess)
-            Dim bytesSentlbl As Integer = soc.Send(msg)
-            Dim bytesReclbl As Integer = soc.Receive(bytes)
-            lbl.Text = Encoding.ASCII.GetString(bytes, 0, bytesReclbl)
-        Catch ex As Exception
-            gbVehicleStatus.Text = "Connection to vehicle lost"
-            sensorTimer.Stop()
-            reset_sensors()
-        End Try
+        If bConnected = "True" Then
+            Try
+                Dim msg As Byte() = Encoding.ASCII.GetBytes(sMess)
+                Dim bytesSentlbl As Integer = soc.Send(msg)
+                Dim bytesReclbl As Integer = soc.Receive(bytes)
+                lbl.Text = Encoding.ASCII.GetString(bytes, 0, bytesReclbl)
+            Catch ex As Exception
+                gbVehicleStatus.Text = "Connection to vehicle lost"
+                sensorTimer.Stop()
+                reset_sensors()
+            End Try
+        Else
+            bConnected = "False"
+        End If
+        Return bConnected
+    End Function
+
+    Public Function Send_Rec_LinearGuage(ByVal sMess As String, ByRef lg As LinearGauge, ByRef dt As DataTable)
+        If bConnected = "True" Then
+            Try
+                Dim msg As Byte() = Encoding.ASCII.GetBytes(sMess)
+                Dim bytesSentlbl As Integer = soc.Send(msg)
+                Dim bytesReclbl As Integer = soc.Receive(bytes)
+                lg.Value = Encoding.ASCII.GetString(bytes, 0, bytesReclbl)
+            Catch ex As Exception
+                gbVehicleStatus.Text = "Connection to vehicle lost"
+                sensorTimer.Stop()
+                reset_sensors()
+            End Try
+        Else
+            bConnected = "False"
+        End If
         Return bConnected
     End Function
 
     Private Sub sensorTimer_Tick(sender As Object, e As EventArgs) Handles sensorTimer.Tick
         Try
-            Send_Rec_Label("temp_status", lblThermo, dt)
+            Send_Rec_LinearGuage("temp_status", lgTemp, dt)
             Send_Rec_Label("bwire_status", lblBwire, dt)
             Send_Rec_Label("kero_status", lblKero, dt)
             Send_Rec_Label("LOX_status", lblLOX, dt)
@@ -293,20 +327,20 @@ Public Class frmLCS
             Dim good_val As Boolean = True
             Dim iThermo As Double
             Try
-                iThermo = Convert.ToDouble(lblThermo.Text)
+                iThermo = Convert.ToDouble(lgTemp.Value)
             Catch ex As Exception
                 good_val = False
             End Try
 
-            If good_val = True Then
-                If iThermo > 200 Then
-                    lblThermo.BackColor = Color.Green
-                ElseIf iThermo < 200 Then
-                    lblThermo.BackColor = Color.Red
-                Else
-                    lblThermo.BackColor = Color.Yellow
-                End If
-            End If
+            'If good_val = True Then
+            'If iThermo > 200 Then
+            'lblThermo.BackColor = Color.Green
+            'ElseIf iThermo < 200 Then
+            'lblThermo.BackColor = Color.Red
+            'Else
+            'lblThermo.BackColor = Color.Yellow
+            'End If
+            'End If
 
             If lblKero.Text = "Open" Then
                 lblKero.BackColor = Color.Red
@@ -338,31 +372,37 @@ Public Class frmLCS
         End Try
     End Sub
 
-    Private Sub ResetToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ResetToolStripMenuItem.Click
-        Try
-            sensorTimer.Start()
-        Catch ex As Exception
-            reset_sensors()
-        End Try
+    Private Sub startSensors_Click(sender As Object, e As EventArgs) Handles startSensors.Click
+        If bConnected = True Then
+            Try
+                sensorTimer.Start()
+            Catch ex As Exception
+                reset_sensors()
+            End Try
+        End If
     End Sub
 
-    Private Sub StopToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles StopToolStripMenuItem.Click
-        Try
-            sensorTimer.Stop()
-            reset_sensors()
-        Catch ex As Exception
-            reset_sensors()
-        End Try
+    Private Sub stopSensors_Click(sender As Object, e As EventArgs) Handles stopSensors.Click
+        If bConnected = True Then
+            Try
+                sensorTimer.Stop()
+                reset_sensors()
+            Catch ex As Exception
+                reset_sensors()
+            End Try
+        End If
     End Sub
 
-    Private Sub ResetToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ResetToolStripMenuItem1.Click
-        Try
-            sensorTimer.Stop()
-            reset_sensors()
-            sensorTimer.Start()
-        Catch ex As Exception
-            reset_sensors()
-        End Try
+    Private Sub resetSensors_Click(sender As Object, e As EventArgs) Handles resetSensors.Click
+        If bConnected = True Then
+            Try
+                sensorTimer.Stop()
+                reset_sensors()
+                sensorTimer.Start()
+            Catch ex As Exception
+                reset_sensors()
+            End Try
+        End If
     End Sub
 
     Public Sub reset_sensors()
@@ -372,20 +412,71 @@ Public Class frmLCS
         lblLOX.BackColor = SystemColors.Control
         lblMPV.BackColor = SystemColors.Control
         lblBwire.BackColor = SystemColors.Control
-        lblThermo.BackColor = SystemColors.Control
 
         lblKero.Text = "--"
         lblLOX.Text = "--"
         lblMPV.Text = "--"
         lblBwire.Text = "--"
-        lblThermo.Text = "--"
+        lgTemp.Value = 0
     End Sub
 
     Private Sub StaticTestToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles StaticTestToolStripMenuItem.Click
         opMode = "Static"
+        startSensors.Enabled = True
+        stopSensors.Enabled = True
+        resetSensors.Enabled = True
     End Sub
 
     Private Sub LaunchToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LaunchToolStripMenuItem.Click
         opMode = "Launch"
+        startSensors.Enabled = True
+        stopSensors.Enabled = True
+        resetSensors.Enabled = True
+    End Sub
+
+    Private Sub loadCell_Click(sender As Object, e As EventArgs) Handles loadCell.Click
+        Dim loadcell As New Form
+        loadcell = frmLoadCell
+        loadcell.Show()
+    End Sub
+
+    Private Sub TestingToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TestingToolStripMenuItem.Click
+        opMode = "Testing"
+        startSensors.Enabled = False
+        stopSensors.Enabled = False
+        resetSensors.Enabled = False
+    End Sub
+
+    Private Sub btnBegin_Click(sender As Object, e As EventArgs) Handles btnBegin.Click
+        updateTimer.Stop()
+        Dim t As Integer = txtCount.Text
+        lblTime.Text = "T-minus: " + t.ToString()
+        countdownTimer.Start()
+        btnBegin.Enabled = False
+        txtCount.Enabled = False
+    End Sub
+
+    Private Sub countdownTimer_Tick(sender As Object, e As EventArgs) Handles countdownTimer.Tick
+        Dim time As Integer = txtCount.Text
+        Dim t As Integer
+        If time > 0 Then
+            time = time - 1
+            txtCount.Text = time
+            t = Abs(time)
+            lblTime.Text = "T-minus: " + t.ToString()
+        Else
+            time = time - 1
+            txtCount.Text = time
+            t = Abs(time)
+            lblTime.Text = "T-plus: " + t.ToString()
+        End If
+    End Sub
+
+    Private Sub btnReset_Click(sender As Object, e As EventArgs) Handles btnReset.Click
+        countdownTimer.Stop()
+        btnBegin.Enabled = True
+        txtCount.Enabled = True
+        txtCount.Text = "0"
+        updateTimer.Start()
     End Sub
 End Class

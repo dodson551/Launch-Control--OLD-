@@ -6,158 +6,195 @@ Launch_Control
 </name>
 </assembly>
 <members>
+<member name="T:Launch_Control.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
 <member name="P:Launch_Control.My.Resources.Resources.ResourceManager">
-	<summary>
+<summary>
   Returns the cached ResourceManager instance used by this class.
 </summary>
-</member><member name="P:Launch_Control.My.Resources.Resources.Culture">
-	<summary>
+</member>
+<member name="P:Launch_Control.My.Resources.Resources.Culture">
+<summary>
   Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 </summary>
-</member><member name="P:Launch_Control.My.Resources.Resources.abort1">
-	<summary>
+</member>
+<member name="P:Launch_Control.My.Resources.Resources.abort1">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:Launch_Control.My.Resources.Resources.begin_sensors">
-	<summary>
+</member>
+<member name="P:Launch_Control.My.Resources.Resources.begin_sensors">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:Launch_Control.My.Resources.Resources.bwire1">
-	<summary>
+</member>
+<member name="P:Launch_Control.My.Resources.Resources.bwire1">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:Launch_Control.My.Resources.Resources.camera_button2">
-	<summary>
+</member>
+<member name="P:Launch_Control.My.Resources.Resources.camera_button2">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:Launch_Control.My.Resources.Resources.caution_tape">
-	<summary>
+</member>
+<member name="P:Launch_Control.My.Resources.Resources.caution_tape">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:Launch_Control.My.Resources.Resources.connect1">
-	<summary>
+</member>
+<member name="P:Launch_Control.My.Resources.Resources.connect1">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:Launch_Control.My.Resources.Resources.disconnect">
-	<summary>
+</member>
+<member name="P:Launch_Control.My.Resources.Resources.disconnect">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:Launch_Control.My.Resources.Resources.end_camera_button">
-	<summary>
+</member>
+<member name="P:Launch_Control.My.Resources.Resources.end_camera_button">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:Launch_Control.My.Resources.Resources.go_for_launch">
-	<summary>
+</member>
+<member name="P:Launch_Control.My.Resources.Resources.go_for_launch">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:Launch_Control.My.Resources.Resources.he_pressure">
-	<summary>
+</member>
+<member name="P:Launch_Control.My.Resources.Resources.he_pressure">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:Launch_Control.My.Resources.Resources.he_pressure1">
-	<summary>
+</member>
+<member name="P:Launch_Control.My.Resources.Resources.he_pressure1">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:Launch_Control.My.Resources.Resources.ignitor_off">
-	<summary>
+</member>
+<member name="P:Launch_Control.My.Resources.Resources.ignitor_off">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:Launch_Control.My.Resources.Resources.ignitor_on">
-	<summary>
+</member>
+<member name="P:Launch_Control.My.Resources.Resources.ignitor_on">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:Launch_Control.My.Resources.Resources.ignitor_one_off">
-	<summary>
+</member>
+<member name="P:Launch_Control.My.Resources.Resources.ignitor_one_off">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:Launch_Control.My.Resources.Resources.ignitor_one_on">
-	<summary>
+</member>
+<member name="P:Launch_Control.My.Resources.Resources.ignitor_one_on">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:Launch_Control.My.Resources.Resources.ignitor_two_off">
-	<summary>
+</member>
+<member name="P:Launch_Control.My.Resources.Resources.ignitor_two_off">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:Launch_Control.My.Resources.Resources.ignitor_two_on">
-	<summary>
+</member>
+<member name="P:Launch_Control.My.Resources.Resources.ignitor_two_on">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:Launch_Control.My.Resources.Resources.Kero_pressure">
-	<summary>
+</member>
+<member name="P:Launch_Control.My.Resources.Resources.Kero_pressure">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:Launch_Control.My.Resources.Resources.kero_valve1">
-	<summary>
+</member>
+<member name="P:Launch_Control.My.Resources.Resources.kero_valve1">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:Launch_Control.My.Resources.Resources.launch51">
-	<summary>
+</member>
+<member name="P:Launch_Control.My.Resources.Resources.launch51">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:Launch_Control.My.Resources.Resources.LOX_pressure">
-	<summary>
+</member>
+<member name="P:Launch_Control.My.Resources.Resources.LOX_pressure">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:Launch_Control.My.Resources.Resources.LOX_valve1">
-	<summary>
+</member>
+<member name="P:Launch_Control.My.Resources.Resources.LOX_valve1">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:Launch_Control.My.Resources.Resources.Main_valves1">
-	<summary>
+</member>
+<member name="P:Launch_Control.My.Resources.Resources.Main_valves1">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:Launch_Control.My.Resources.Resources.no_go_for_launch">
-	<summary>
+</member>
+<member name="P:Launch_Control.My.Resources.Resources.no_go_for_launch">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:Launch_Control.My.Resources.Resources.reading_sensors">
-	<summary>
+</member>
+<member name="P:Launch_Control.My.Resources.Resources.reading_sensors">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:Launch_Control.My.Resources.Resources.recording">
-	<summary>
+</member>
+<member name="P:Launch_Control.My.Resources.Resources.recording">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:Launch_Control.My.Resources.Resources.safety">
-	<summary>
+</member>
+<member name="P:Launch_Control.My.Resources.Resources.safety">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:Launch_Control.My.Resources.Resources.safety_off">
-	<summary>
+</member>
+<member name="P:Launch_Control.My.Resources.Resources.safety_off">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:Launch_Control.My.Resources.Resources.safety_on2">
-	<summary>
+</member>
+<member name="P:Launch_Control.My.Resources.Resources.safety_on2">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:Launch_Control.My.Resources.Resources.thermocouple_read1">
-	<summary>
+</member>
+<member name="P:Launch_Control.My.Resources.Resources.thermocouple_read1">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:Launch_Control.My.Resources.Resources.title_2">
-	<summary>
+</member>
+<member name="P:Launch_Control.My.Resources.Resources.title_2">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:Launch_Control.My.Resources.Resources.toggle_video_no_capture">
-	<summary>
+</member>
+<member name="P:Launch_Control.My.Resources.Resources.toggle_video_no_capture">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:Launch_Control.My.Resources.Resources.toggle_video_recording">
-	<summary>
+</member>
+<member name="P:Launch_Control.My.Resources.Resources.toggle_video_recording">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:Launch_Control.My.Resources.Resources.vents_closed1">
-	<summary>
+</member>
+<member name="P:Launch_Control.My.Resources.Resources.vents_closed1">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:Launch_Control.My.Resources.Resources.vents_opened1">
-	<summary>
+</member>
+<member name="P:Launch_Control.My.Resources.Resources.vents_opened1">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="T:Launch_Control.My.Resources.Resources">
-	<summary>
-  A strongly-typed resource class, for looking up localized strings, etc.
 </summary>
 </member>
 </members>

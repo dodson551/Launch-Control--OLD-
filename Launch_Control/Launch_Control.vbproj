@@ -11,7 +11,7 @@
     <AssemblyName>Launch_Control</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -27,6 +27,7 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -68,6 +69,10 @@
     <Reference Include="AutoScaleButton">
       <HintPath>..\..\Visual Studio 2013\dll\AutoScaleButton.dll</HintPath>
     </Reference>
+    <Reference Include="Syncfusion.Gauge.Windows, Version=13.4460.0.58, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Syncfusion\EssentialStudio\13.4.0.58\Windows\Gauge.Windows\Samples\RadialGauge\RadialGauge\CS\bin\Debug\Syncfusion.Gauge.Windows.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -101,13 +106,17 @@
     <Compile Include="frmFCC.Designer.vb">
       <DependentUpon>frmFCC.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmFCC.vb">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="frmFCC.vb" />
     <Compile Include="frmLCS.Designer.vb">
       <DependentUpon>frmLCS.vb</DependentUpon>
     </Compile>
     <Compile Include="frmLCS.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLoadCell.Designer.vb">
+      <DependentUpon>frmLoadCell.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmLoadCell.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmSettings.Designer.vb">
@@ -148,6 +157,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmLCS.resx">
       <DependentUpon>frmLCS.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLoadCell.resx">
+      <DependentUpon>frmLoadCell.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSettings.resx">
       <DependentUpon>frmSettings.vb</DependentUpon>

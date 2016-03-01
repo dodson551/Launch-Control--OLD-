@@ -25,6 +25,9 @@ Partial Class frmLCS
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmLCS))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim LinearRange1 As Syncfusion.Windows.Forms.Gauge.LinearRange = New Syncfusion.Windows.Forms.Gauge.LinearRange()
+        Dim LinearRange2 As Syncfusion.Windows.Forms.Gauge.LinearRange = New Syncfusion.Windows.Forms.Gauge.LinearRange()
+        Dim LinearRange3 As Syncfusion.Windows.Forms.Gauge.LinearRange = New Syncfusion.Windows.Forms.Gauge.LinearRange()
         Me.tlpRightSide = New System.Windows.Forms.TableLayoutPanel()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
@@ -56,7 +59,14 @@ Partial Class frmLCS
         Me.ToolStripDropDownButton1 = New System.Windows.Forms.ToolStripDropDownButton()
         Me.FlightControlComputerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveEventLogToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.startSensors = New System.Windows.Forms.ToolStripMenuItem()
+        Me.stopSensors = New System.Windows.Forms.ToolStripMenuItem()
+        Me.resetSensors = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveEventLogToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.StaticTestToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LaunchToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TestingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SaveEventLogToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripDropDownButton2 = New System.Windows.Forms.ToolStripDropDownButton()
         Me.btnOpenVents = New System.Windows.Forms.ToolStripMenuItem()
         Me.btnCloseVents = New System.Windows.Forms.ToolStripMenuItem()
@@ -64,6 +74,7 @@ Partial Class frmLCS
         Me.btnCloseMain = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
+        Me.loadCell = New System.Windows.Forms.ToolStripButton()
         Me.dgvEvents = New System.Windows.Forms.DataGridView()
         Me.TableLayoutPanel7 = New System.Windows.Forms.TableLayoutPanel()
         Me.lblTime = New System.Windows.Forms.Label()
@@ -71,10 +82,9 @@ Partial Class frmLCS
         Me.btnBegin = New System.Windows.Forms.Button()
         Me.btnReset = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtCount = New System.Windows.Forms.TextBox()
         Me.gbVehicleStatus = New System.Windows.Forms.GroupBox()
         Me.TableLayoutPanel6 = New System.Windows.Forms.TableLayoutPanel()
-        Me.lblThermo = New System.Windows.Forms.Label()
         Me.lblBwire = New System.Windows.Forms.Label()
         Me.lblMPV = New System.Windows.Forms.Label()
         Me.lblLOX = New System.Windows.Forms.Label()
@@ -84,14 +94,10 @@ Partial Class frmLCS
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.lgTemp = New Syncfusion.Windows.Forms.Gauge.LinearGauge()
         Me.updateTimer = New System.Windows.Forms.Timer(Me.components)
         Me.sensorTimer = New System.Windows.Forms.Timer(Me.components)
-        Me.ResetToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.StopToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ResetToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.StaticTestToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.LaunchToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SaveEventLogToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.countdownTimer = New System.Windows.Forms.Timer(Me.components)
         Me.tlpRightSide.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.TableLayoutPanel5.SuspendLayout()
@@ -472,7 +478,7 @@ Partial Class frmLCS
         Me.ToolStrip1.BackColor = System.Drawing.SystemColors.Control
         Me.ToolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
         Me.ToolStrip1.ImageScalingSize = New System.Drawing.Size(24, 24)
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripDropDownButton1, Me.ToolStripDropDownButton2, Me.ToolStripButton1, Me.ToolStripButton2})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripDropDownButton1, Me.ToolStripDropDownButton2, Me.ToolStripButton1, Me.ToolStripButton2, Me.loadCell})
         Me.ToolStrip1.Location = New System.Drawing.Point(1, 1)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
@@ -498,17 +504,59 @@ Partial Class frmLCS
         '
         'SaveEventLogToolStripMenuItem
         '
-        Me.SaveEventLogToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ResetToolStripMenuItem, Me.StopToolStripMenuItem, Me.ResetToolStripMenuItem1})
+        Me.SaveEventLogToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.startSensors, Me.stopSensors, Me.resetSensors})
         Me.SaveEventLogToolStripMenuItem.Name = "SaveEventLogToolStripMenuItem"
         Me.SaveEventLogToolStripMenuItem.Size = New System.Drawing.Size(204, 22)
         Me.SaveEventLogToolStripMenuItem.Text = "Sensor Timer"
         '
+        'startSensors
+        '
+        Me.startSensors.Name = "startSensors"
+        Me.startSensors.Size = New System.Drawing.Size(102, 22)
+        Me.startSensors.Text = "Start"
+        '
+        'stopSensors
+        '
+        Me.stopSensors.Name = "stopSensors"
+        Me.stopSensors.Size = New System.Drawing.Size(102, 22)
+        Me.stopSensors.Text = "Stop"
+        '
+        'resetSensors
+        '
+        Me.resetSensors.Name = "resetSensors"
+        Me.resetSensors.Size = New System.Drawing.Size(102, 22)
+        Me.resetSensors.Text = "Reset"
+        '
         'SaveEventLogToolStripMenuItem1
         '
-        Me.SaveEventLogToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StaticTestToolStripMenuItem, Me.LaunchToolStripMenuItem})
+        Me.SaveEventLogToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StaticTestToolStripMenuItem, Me.LaunchToolStripMenuItem, Me.TestingToolStripMenuItem})
         Me.SaveEventLogToolStripMenuItem1.Name = "SaveEventLogToolStripMenuItem1"
         Me.SaveEventLogToolStripMenuItem1.Size = New System.Drawing.Size(204, 22)
         Me.SaveEventLogToolStripMenuItem1.Text = "Operational Mode"
+        '
+        'StaticTestToolStripMenuItem
+        '
+        Me.StaticTestToolStripMenuItem.Name = "StaticTestToolStripMenuItem"
+        Me.StaticTestToolStripMenuItem.Size = New System.Drawing.Size(127, 22)
+        Me.StaticTestToolStripMenuItem.Text = "Static Test"
+        '
+        'LaunchToolStripMenuItem
+        '
+        Me.LaunchToolStripMenuItem.Name = "LaunchToolStripMenuItem"
+        Me.LaunchToolStripMenuItem.Size = New System.Drawing.Size(127, 22)
+        Me.LaunchToolStripMenuItem.Text = "Launch"
+        '
+        'TestingToolStripMenuItem
+        '
+        Me.TestingToolStripMenuItem.Name = "TestingToolStripMenuItem"
+        Me.TestingToolStripMenuItem.Size = New System.Drawing.Size(127, 22)
+        Me.TestingToolStripMenuItem.Text = "Testing"
+        '
+        'SaveEventLogToolStripMenuItem2
+        '
+        Me.SaveEventLogToolStripMenuItem2.Name = "SaveEventLogToolStripMenuItem2"
+        Me.SaveEventLogToolStripMenuItem2.Size = New System.Drawing.Size(204, 22)
+        Me.SaveEventLogToolStripMenuItem2.Text = "Save Event Log"
         '
         'ToolStripDropDownButton2
         '
@@ -563,6 +611,15 @@ Partial Class frmLCS
         Me.ToolStripButton2.Size = New System.Drawing.Size(44, 22)
         Me.ToolStripButton2.Text = "About"
         '
+        'loadCell
+        '
+        Me.loadCell.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.loadCell.Image = CType(resources.GetObject("loadCell.Image"), System.Drawing.Image)
+        Me.loadCell.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.loadCell.Name = "loadCell"
+        Me.loadCell.Size = New System.Drawing.Size(60, 22)
+        Me.loadCell.Text = "Load Cell"
+        '
         'dgvEvents
         '
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.AliceBlue
@@ -612,7 +669,7 @@ Partial Class frmLCS
         Me.TableLayoutPanel8.Controls.Add(Me.btnBegin, 1, 0)
         Me.TableLayoutPanel8.Controls.Add(Me.btnReset, 1, 1)
         Me.TableLayoutPanel8.Controls.Add(Me.Label3, 0, 0)
-        Me.TableLayoutPanel8.Controls.Add(Me.TextBox1, 0, 1)
+        Me.TableLayoutPanel8.Controls.Add(Me.txtCount, 0, 1)
         Me.TableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel8.Location = New System.Drawing.Point(1034, 4)
         Me.TableLayoutPanel8.Name = "TableLayoutPanel8"
@@ -641,7 +698,7 @@ Partial Class frmLCS
         Me.btnReset.Name = "btnReset"
         Me.btnReset.Size = New System.Drawing.Size(163, 32)
         Me.btnReset.TabIndex = 1
-        Me.btnReset.Text = "Reset Countdown"
+        Me.btnReset.Text = "Reset Clock"
         Me.btnReset.UseVisualStyleBackColor = True
         '
         'Label3
@@ -656,15 +713,15 @@ Partial Class frmLCS
         Me.Label3.Text = "Countdown Timer"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'TextBox1
+        'txtCount
         '
-        Me.TextBox1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TextBox1.Font = New System.Drawing.Font("Consolas", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(3, 41)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(162, 32)
-        Me.TextBox1.TabIndex = 3
-        Me.TextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.txtCount.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txtCount.Font = New System.Drawing.Font("Consolas", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCount.Location = New System.Drawing.Point(3, 41)
+        Me.txtCount.Name = "txtCount"
+        Me.txtCount.Size = New System.Drawing.Size(162, 32)
+        Me.txtCount.TabIndex = 3
+        Me.txtCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'gbVehicleStatus
         '
@@ -687,7 +744,6 @@ Partial Class frmLCS
         Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
         Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
         Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
-        Me.TableLayoutPanel6.Controls.Add(Me.lblThermo, 4, 1)
         Me.TableLayoutPanel6.Controls.Add(Me.lblBwire, 3, 1)
         Me.TableLayoutPanel6.Controls.Add(Me.lblMPV, 2, 1)
         Me.TableLayoutPanel6.Controls.Add(Me.lblLOX, 1, 1)
@@ -697,35 +753,24 @@ Partial Class frmLCS
         Me.TableLayoutPanel6.Controls.Add(Me.Label6, 2, 0)
         Me.TableLayoutPanel6.Controls.Add(Me.Label5, 1, 0)
         Me.TableLayoutPanel6.Controls.Add(Me.Label4, 0, 0)
+        Me.TableLayoutPanel6.Controls.Add(Me.lgTemp, 4, 1)
         Me.TableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel6.Location = New System.Drawing.Point(3, 28)
         Me.TableLayoutPanel6.Name = "TableLayoutPanel6"
         Me.TableLayoutPanel6.RowCount = 2
-        Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
+        Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
         Me.TableLayoutPanel6.Size = New System.Drawing.Size(1369, 191)
         Me.TableLayoutPanel6.TabIndex = 0
-        '
-        'lblThermo
-        '
-        Me.lblThermo.AutoSize = True
-        Me.lblThermo.BackColor = System.Drawing.SystemColors.Control
-        Me.lblThermo.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblThermo.Location = New System.Drawing.Point(1096, 96)
-        Me.lblThermo.Name = "lblThermo"
-        Me.lblThermo.Size = New System.Drawing.Size(269, 94)
-        Me.lblThermo.TabIndex = 9
-        Me.lblThermo.Text = "--"
-        Me.lblThermo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lblBwire
         '
         Me.lblBwire.AutoSize = True
         Me.lblBwire.BackColor = System.Drawing.SystemColors.Control
         Me.lblBwire.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblBwire.Location = New System.Drawing.Point(823, 96)
+        Me.lblBwire.Location = New System.Drawing.Point(823, 77)
         Me.lblBwire.Name = "lblBwire"
-        Me.lblBwire.Size = New System.Drawing.Size(266, 94)
+        Me.lblBwire.Size = New System.Drawing.Size(266, 113)
         Me.lblBwire.TabIndex = 8
         Me.lblBwire.Text = "--"
         Me.lblBwire.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -735,9 +780,9 @@ Partial Class frmLCS
         Me.lblMPV.AutoSize = True
         Me.lblMPV.BackColor = System.Drawing.SystemColors.Control
         Me.lblMPV.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblMPV.Location = New System.Drawing.Point(550, 96)
+        Me.lblMPV.Location = New System.Drawing.Point(550, 77)
         Me.lblMPV.Name = "lblMPV"
-        Me.lblMPV.Size = New System.Drawing.Size(266, 94)
+        Me.lblMPV.Size = New System.Drawing.Size(266, 113)
         Me.lblMPV.TabIndex = 7
         Me.lblMPV.Text = "--"
         Me.lblMPV.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -747,9 +792,9 @@ Partial Class frmLCS
         Me.lblLOX.AutoSize = True
         Me.lblLOX.BackColor = System.Drawing.SystemColors.Control
         Me.lblLOX.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblLOX.Location = New System.Drawing.Point(277, 96)
+        Me.lblLOX.Location = New System.Drawing.Point(277, 77)
         Me.lblLOX.Name = "lblLOX"
-        Me.lblLOX.Size = New System.Drawing.Size(266, 94)
+        Me.lblLOX.Size = New System.Drawing.Size(266, 113)
         Me.lblLOX.TabIndex = 6
         Me.lblLOX.Text = "--"
         Me.lblLOX.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -759,9 +804,9 @@ Partial Class frmLCS
         Me.lblKero.AutoSize = True
         Me.lblKero.BackColor = System.Drawing.SystemColors.Control
         Me.lblKero.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblKero.Location = New System.Drawing.Point(4, 96)
+        Me.lblKero.Location = New System.Drawing.Point(4, 77)
         Me.lblKero.Name = "lblKero"
-        Me.lblKero.Size = New System.Drawing.Size(266, 94)
+        Me.lblKero.Size = New System.Drawing.Size(266, 113)
         Me.lblKero.TabIndex = 5
         Me.lblKero.Text = "--"
         Me.lblKero.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -772,7 +817,7 @@ Partial Class frmLCS
         Me.Label8.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label8.Location = New System.Drawing.Point(1096, 1)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(269, 94)
+        Me.Label8.Size = New System.Drawing.Size(269, 75)
         Me.Label8.TabIndex = 4
         Me.Label8.Text = "Ignition Temp"
         Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -783,7 +828,7 @@ Partial Class frmLCS
         Me.Label7.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label7.Location = New System.Drawing.Point(823, 1)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(266, 94)
+        Me.Label7.Size = New System.Drawing.Size(266, 75)
         Me.Label7.TabIndex = 3
         Me.Label7.Text = "Breakwire"
         Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -794,7 +839,7 @@ Partial Class frmLCS
         Me.Label6.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label6.Location = New System.Drawing.Point(550, 1)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(266, 94)
+        Me.Label6.Size = New System.Drawing.Size(266, 75)
         Me.Label6.TabIndex = 2
         Me.Label6.Text = "MPV"
         Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -805,7 +850,7 @@ Partial Class frmLCS
         Me.Label5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label5.Location = New System.Drawing.Point(277, 1)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(266, 94)
+        Me.Label5.Size = New System.Drawing.Size(266, 75)
         Me.Label5.TabIndex = 1
         Me.Label5.Text = "LOX Valve"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -816,10 +861,60 @@ Partial Class frmLCS
         Me.Label4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label4.Location = New System.Drawing.Point(4, 1)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(266, 94)
+        Me.Label4.Size = New System.Drawing.Size(266, 75)
         Me.Label4.TabIndex = 0
         Me.Label4.Text = "Kero Valve"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lgTemp
+        '
+        Me.lgTemp.BackgroundGradientEndColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(227, Byte), Integer), CType(CType(228, Byte), Integer))
+        Me.lgTemp.BackgroundGradientStartColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(245, Byte), Integer), CType(CType(245, Byte), Integer))
+        Me.lgTemp.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.lgTemp.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lgTemp.ForeColor = System.Drawing.Color.Black
+        Me.lgTemp.GaugelabelFont = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lgTemp.InnerFrameGradientEndColor = System.Drawing.Color.FromArgb(CType(CType(245, Byte), Integer), CType(CType(245, Byte), Integer), CType(CType(245, Byte), Integer))
+        Me.lgTemp.InnerFrameGradientStartColor = System.Drawing.Color.FromArgb(CType(CType(135, Byte), Integer), CType(CType(135, Byte), Integer), CType(CType(135, Byte), Integer))
+        Me.lgTemp.LinearFrameType = Syncfusion.Windows.Forms.Gauge.LinearFrameType.Horizontal
+        Me.lgTemp.Location = New System.Drawing.Point(1096, 80)
+        Me.lgTemp.MajorDifference = 150
+        Me.lgTemp.MajorTicksHeight = 15
+        Me.lgTemp.MaximumValue = 900.0!
+        Me.lgTemp.MinimumSize = New System.Drawing.Size(100, 50)
+        Me.lgTemp.MinorTickCount = 5
+        Me.lgTemp.MinorTickHeight = 10
+        Me.lgTemp.Name = "lgTemp"
+        Me.lgTemp.PointerPlacement = Syncfusion.Windows.Forms.Gauge.Placement.Center
+        LinearRange1.Color = System.Drawing.Color.Green
+        LinearRange1.EndValue = 900.0!
+        LinearRange1.Height = 5
+        LinearRange1.InRange = False
+        LinearRange1.Name = "GaugeRange1"
+        LinearRange1.RangePlacement = Syncfusion.Windows.Forms.Gauge.TickPlacement.OutSide
+        LinearRange1.StartValue = 300.0!
+        LinearRange2.Color = System.Drawing.Color.Yellow
+        LinearRange2.EndValue = 300.0!
+        LinearRange2.Height = 5
+        LinearRange2.InRange = False
+        LinearRange2.Name = "GaugeRange2"
+        LinearRange2.RangePlacement = Syncfusion.Windows.Forms.Gauge.TickPlacement.Inside
+        LinearRange2.StartValue = 100.0!
+        LinearRange3.Color = System.Drawing.Color.Red
+        LinearRange3.EndValue = 100.0!
+        LinearRange3.Height = 5
+        LinearRange3.InRange = False
+        LinearRange3.Name = "GaugeRange3"
+        LinearRange3.RangePlacement = Syncfusion.Windows.Forms.Gauge.TickPlacement.Inside
+        LinearRange3.StartValue = 0!
+        Me.lgTemp.Ranges.Add(LinearRange1)
+        Me.lgTemp.Ranges.Add(LinearRange2)
+        Me.lgTemp.Ranges.Add(LinearRange3)
+        Me.lgTemp.Size = New System.Drawing.Size(269, 107)
+        Me.lgTemp.TabIndex = 9
+        Me.lgTemp.Text = "LinearGauge1"
+        Me.lgTemp.ValueIndicatorColor = System.Drawing.Color.Gray
+        Me.lgTemp.VisualStyle = Syncfusion.Windows.Forms.Gauge.ThemeStyle.Silver
         '
         'updateTimer
         '
@@ -829,41 +924,9 @@ Partial Class frmLCS
         '
         Me.sensorTimer.Interval = 250
         '
-        'ResetToolStripMenuItem
+        'countdownTimer
         '
-        Me.ResetToolStripMenuItem.Name = "ResetToolStripMenuItem"
-        Me.ResetToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.ResetToolStripMenuItem.Text = "Start"
-        '
-        'StopToolStripMenuItem
-        '
-        Me.StopToolStripMenuItem.Name = "StopToolStripMenuItem"
-        Me.StopToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.StopToolStripMenuItem.Text = "Stop"
-        '
-        'ResetToolStripMenuItem1
-        '
-        Me.ResetToolStripMenuItem1.Name = "ResetToolStripMenuItem1"
-        Me.ResetToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
-        Me.ResetToolStripMenuItem1.Text = "Reset"
-        '
-        'StaticTestToolStripMenuItem
-        '
-        Me.StaticTestToolStripMenuItem.Name = "StaticTestToolStripMenuItem"
-        Me.StaticTestToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.StaticTestToolStripMenuItem.Text = "Static Test"
-        '
-        'LaunchToolStripMenuItem
-        '
-        Me.LaunchToolStripMenuItem.Name = "LaunchToolStripMenuItem"
-        Me.LaunchToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.LaunchToolStripMenuItem.Text = "Launch"
-        '
-        'SaveEventLogToolStripMenuItem2
-        '
-        Me.SaveEventLogToolStripMenuItem2.Name = "SaveEventLogToolStripMenuItem2"
-        Me.SaveEventLogToolStripMenuItem2.Size = New System.Drawing.Size(204, 22)
-        Me.SaveEventLogToolStripMenuItem2.Text = "Save Event Log"
+        Me.countdownTimer.Interval = 1000
         '
         'frmLCS
         '
@@ -943,7 +1006,7 @@ Partial Class frmLCS
     Friend WithEvents btnBegin As Button
     Friend WithEvents btnReset As Button
     Friend WithEvents Label3 As Label
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents txtCount As TextBox
     Friend WithEvents ToolStripDropDownButton2 As ToolStripDropDownButton
     Friend WithEvents btnOpenVents As ToolStripMenuItem
     Friend WithEvents btnCloseVents As ToolStripMenuItem
@@ -952,7 +1015,6 @@ Partial Class frmLCS
     Friend WithEvents gbVehicleStatus As GroupBox
     Friend WithEvents TableLayoutPanel6 As TableLayoutPanel
     Friend WithEvents sensorTimer As Timer
-    Friend WithEvents lblThermo As Label
     Friend WithEvents lblBwire As Label
     Friend WithEvents lblMPV As Label
     Friend WithEvents lblLOX As Label
@@ -963,10 +1025,14 @@ Partial Class frmLCS
     Friend WithEvents Label5 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents SaveEventLogToolStripMenuItem1 As ToolStripMenuItem
-    Friend WithEvents ResetToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents StopToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ResetToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents startSensors As ToolStripMenuItem
+    Friend WithEvents stopSensors As ToolStripMenuItem
+    Friend WithEvents resetSensors As ToolStripMenuItem
     Friend WithEvents StaticTestToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents LaunchToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SaveEventLogToolStripMenuItem2 As ToolStripMenuItem
+    Friend WithEvents loadCell As ToolStripButton
+    Friend WithEvents TestingToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents lgTemp As Syncfusion.Windows.Forms.Gauge.LinearGauge
+    Friend WithEvents countdownTimer As Timer
 End Class
