@@ -23,6 +23,7 @@ Public Class frmLCS
 
     Dim bytes(1024) As Byte
     Dim ipAddress As IPAddress = Nothing
+    Dim hostname As String = Nothing
     Dim port As Integer = Nothing
     Dim soc As Socket
 
@@ -33,8 +34,9 @@ Public Class frmLCS
         dt.Columns.Add("Events")
         dt.Columns.Add("Timestamp")
         txtConsole.Text = "Waiting to establish server connection..."
-        txtIP.Text = My.Settings.IP.ToString()
-        txtPort.Text = My.Settings.Port.ToString()
+        txtIP.Text = My.Settings.LCS_IP
+        txtPort.Text = My.Settings.LCS_Port
+        txtCount.Text = My.Settings.Countdown
     End Sub
 
     Private Sub frmLCS_Closed(sender As Object, e As EventArgs) Handles Me.Closed
@@ -82,8 +84,8 @@ Public Class frmLCS
                     txtPort.Enabled = False
                     btnDisconnect.Enabled = True
                     btnPing.Enabled = True
-                    My.Settings.IP = txtIP.Text
-                    My.Settings.Port = txtPort.Text
+                    My.Settings.LCS_IP = txtIP.Text
+                    My.Settings.LCS_Port = txtPort.Text
                     My.Settings.Save()
                     If opMode = "Testing" Then
                         Debug.WriteLine("Sensors not started")
@@ -110,7 +112,6 @@ Public Class frmLCS
                 If Not dis_success Then
                     MsgBox("Client software was not able to disconnect successfully. Please try again.")
                 Else
-                    sensorTimer.Stop()
                     bConnected = False
                     txtConsole.Text &= Environment.NewLine & "Disconnected from board: " & txtIP.Text
                     dgvEvents.DataSource = dt
@@ -120,6 +121,8 @@ Public Class frmLCS
                     btnDisconnect.Enabled = False
                     txtIP.Enabled = True
                     txtPort.Enabled = True
+                    sensorTimer.Stop()
+                    reset_sensors()
                 End If
             Catch ex As Exception
                 MessageBox.Show(ex.Message)
@@ -218,7 +221,7 @@ Public Class frmLCS
     End Sub
 
     Private Sub updateTimer_Tick(sender As Object, e As EventArgs) Handles updateTimer.Tick
-        lblTime.Text = DateTime.Now.ToString()
+        lblTime.Text = TimeOfDay.ToString("h:mm:ss tt")
     End Sub
 
     Private Sub btnOpenVents_Click(sender As Object, e As EventArgs) Handles btnOpenVents.Click
@@ -322,7 +325,7 @@ Public Class frmLCS
 
     Private Sub sensorTimer_Tick(sender As Object, e As EventArgs) Handles sensorTimer.Tick
         Try
-            Send_Rec_LinearGuage("temp_status", lgTemp, dt)
+            Send_Rec_Label("temp_status", lblThermo, dt)
             Send_Rec_Label("bwire_status", lblBwire, dt)
             Send_Rec_Label("kero_status", lblKero, dt)
             Send_Rec_Label("LOX_status", lblLOX, dt)
@@ -331,25 +334,19 @@ Public Class frmLCS
             Dim good_val As Boolean = True
             Dim iThermo As Double
             Try
-                iThermo = Convert.ToDouble(lgTemp.Value)
+                iThermo = Convert.ToDouble(lblThermo.Text)
             Catch ex As Exception
                 good_val = False
             End Try
 
-            'If good_val = True Then
-            'If iThermo > 200 Then
-            'lblThermo.BackColor = Color.Green
-            'ElseIf iThermo < 200 Then
-            'lblThermo.BackColor = Color.Red
-            'Else
-            'lblThermo.BackColor = Color.Yellow
-            'End If
-            'End If
-
-            If lblKero.Text = "Open" Then
-                lblKero.BackColor = Color.Red
-            Else
-                lblKero.BackColor = Color.Green
+            If good_val = True Then
+                If iThermo > 200 Then
+                    lblThermo.BackColor = Color.Green
+                ElseIf iThermo < 200 Then
+                    lblThermo.BackColor = Color.Red
+                Else
+                    lblThermo.BackColor = Color.Yellow
+                End If
             End If
 
             If lblLOX.Text = "Open" Then
@@ -364,10 +361,22 @@ Public Class frmLCS
                 lblMPV.BackColor = Color.Green
             End If
 
-            If lblBwire.Text = "Broken" Then
-                lblBwire.BackColor = Color.Green
-            Else
+            If lblBwire.Text = "Open" Then
                 lblBwire.BackColor = Color.Red
+            Else
+                lblBwire.BackColor = Color.Green
+            End If
+
+            If lblKero.Text = "Open" Then
+                lblKero.BackColor = Color.Red
+            Else
+                lblKero.BackColor = Color.Green
+            End If
+
+            If lblThermo.Text = "Broken" Then
+                lblThermo.BackColor = Color.Green
+            Else
+                lblThermo.BackColor = Color.Red
             End If
 
             gbVehicleStatus.Text = "Vehicle Sensors (Connected)"
@@ -412,16 +421,17 @@ Public Class frmLCS
     Public Sub reset_sensors()
         gbVehicleStatus.Text = "Vehicle Sensors (Disconnected)"
 
-        lblKero.BackColor = SystemColors.Control
         lblLOX.BackColor = SystemColors.Control
+        lblKero.BackColor = SystemColors.Control
         lblMPV.BackColor = SystemColors.Control
         lblBwire.BackColor = SystemColors.Control
+        lblThermo.BackColor = SystemColors.Control
 
-        lblKero.Text = "--"
         lblLOX.Text = "--"
         lblMPV.Text = "--"
         lblBwire.Text = "--"
-        lgTemp.Value = 0
+        lblKero.Text = "--"
+        lblThermo.Text = "--"
     End Sub
 
     Private Sub StaticTestToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles StaticTestToolStripMenuItem.Click
@@ -429,6 +439,7 @@ Public Class frmLCS
         startSensors.Enabled = True
         stopSensors.Enabled = True
         resetSensors.Enabled = True
+        My.Settings.OpMode = opMode
     End Sub
 
     Private Sub LaunchToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LaunchToolStripMenuItem.Click
@@ -436,6 +447,7 @@ Public Class frmLCS
         startSensors.Enabled = True
         stopSensors.Enabled = True
         resetSensors.Enabled = True
+        My.Settings.OpMode = opMode
     End Sub
 
     Private Sub loadCell_Click(sender As Object, e As EventArgs) Handles loadCell.Click
@@ -449,6 +461,7 @@ Public Class frmLCS
         startSensors.Enabled = False
         stopSensors.Enabled = False
         resetSensors.Enabled = False
+        My.Settings.OpMode = opMode
     End Sub
 
     Private Sub btnBegin_Click(sender As Object, e As EventArgs) Handles btnBegin.Click
@@ -483,4 +496,5 @@ Public Class frmLCS
         txtCount.Text = "0"
         updateTimer.Start()
     End Sub
+
 End Class

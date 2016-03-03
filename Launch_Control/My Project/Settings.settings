@@ -2,11 +2,29 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
   <Profiles />
   <Settings>
-    <Setting Name="IP" Type="System.String" Scope="User">
-      <Value Profile="(Default)">launch1.local</Value>
+    <Setting Name="LCS_IP" Type="System.String" Scope="User">
+      <Value Profile="(Default)">192.168.1.33</Value>
     </Setting>
-    <Setting Name="Port" Type="System.String" Scope="User">
-      <Value Profile="(Default)">5555</Value>
+    <Setting Name="LCS_Port" Type="System.String" Scope="User">
+      <Value Profile="(Default)">5000</Value>
+    </Setting>
+    <Setting Name="FCC_IP" Type="System.String" Scope="User">
+      <Value Profile="(Default)">192.168.1.34</Value>
+    </Setting>
+    <Setting Name="FCC_Port" Type="System.String" Scope="User">
+      <Value Profile="(Default)">5005</Value>
+    </Setting>
+    <Setting Name="OpMode" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Static</Value>
+    </Setting>
+    <Setting Name="LCS_Hostname" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ESB</Value>
+    </Setting>
+    <Setting Name="FCC_Hostname" Type="System.String" Scope="User">
+      <Value Profile="(Default)">FCC</Value>
+    </Setting>
+    <Setting Name="Countdown" Type="System.String" Scope="User">
+      <Value Profile="(Default)">30</Value>
     </Setting>
   </Settings>
 </SettingsFile>

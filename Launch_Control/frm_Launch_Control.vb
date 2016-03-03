@@ -25,8 +25,8 @@ Public Class frmMain
   '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
 
   Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-    txtIP.Text = My.Settings.IP.ToString
-    txtPort.Text = My.Settings.Port.ToString
+    txtIP.Text = My.Settings.LCS_IP.ToString
+    txtPort.Text = My.Settings.LCS_Port.ToString
     Safety_Mode()
     dt.Columns.Add("Events")
     dt.Columns.Add("Timestamp")
@@ -351,11 +351,11 @@ Public Class frmMain
   '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
 
   Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-    My.Settings.IP = txtIPSettings.Text
-    My.Settings.Port = txtPortSettings.Text
+    My.Settings.LCS_IP = txtIPSettings.Text
+    My.Settings.LCS_Port = txtPortSettings.Text
     My.Settings.Save()
-    txtIP.Text = My.Settings.IP.ToString
-    txtPort.Text = My.Settings.Port.ToString
+    txtIP.Text = My.Settings.LCS_IP.ToString
+    txtPort.Text = My.Settings.LCS_Port.ToString
   End Sub
 
   Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click

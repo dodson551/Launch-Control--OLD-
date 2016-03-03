@@ -56,25 +56,97 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("launch1.local")>  _
-        Public Property IP() As String
+         Global.System.Configuration.DefaultSettingValueAttribute("192.168.1.33")>  _
+        Public Property LCS_IP() As String
             Get
-                Return CType(Me("IP"),String)
+                Return CType(Me("LCS_IP"),String)
             End Get
             Set
-                Me("IP") = value
+                Me("LCS_IP") = value
             End Set
         End Property
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("5555")>  _
-        Public Property Port() As String
+         Global.System.Configuration.DefaultSettingValueAttribute("5000")>  _
+        Public Property LCS_Port() As String
             Get
-                Return CType(Me("Port"),String)
+                Return CType(Me("LCS_Port"),String)
             End Get
             Set
-                Me("Port") = value
+                Me("LCS_Port") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("192.168.1.34")>  _
+        Public Property FCC_IP() As String
+            Get
+                Return CType(Me("FCC_IP"),String)
+            End Get
+            Set
+                Me("FCC_IP") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("5005")>  _
+        Public Property FCC_Port() As String
+            Get
+                Return CType(Me("FCC_Port"),String)
+            End Get
+            Set
+                Me("FCC_Port") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Static")>  _
+        Public Property OpMode() As String
+            Get
+                Return CType(Me("OpMode"),String)
+            End Get
+            Set
+                Me("OpMode") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("ESB")>  _
+        Public Property LCS_Hostname() As String
+            Get
+                Return CType(Me("LCS_Hostname"),String)
+            End Get
+            Set
+                Me("LCS_Hostname") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("FCC")>  _
+        Public Property FCC_Hostname() As String
+            Get
+                Return CType(Me("FCC_Hostname"),String)
+            End Get
+            Set
+                Me("FCC_Hostname") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("30")>  _
+        Public Property Countdown() As String
+            Get
+                Return CType(Me("Countdown"),String)
+            End Get
+            Set
+                Me("Countdown") = value
             End Set
         End Property
     End Class
