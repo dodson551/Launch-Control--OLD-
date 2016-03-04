@@ -30,6 +30,7 @@ Partial Class frmSettings
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.txtCountdownTimer = New System.Windows.Forms.TextBox()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -49,7 +50,7 @@ Partial Class frmSettings
         Me.txtLCS_Port = New System.Windows.Forms.TextBox()
         Me.txtLCS_Hostname = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.TableLayoutPanel5.SuspendLayout()
@@ -70,13 +71,14 @@ Partial Class frmSettings
         Me.TableLayoutPanel1.Controls.Add(Me.GroupBox1, 0, 0)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
+        Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 4
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(434, 611)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(642, 914)
         Me.TableLayoutPanel1.TabIndex = 0
         '
         'GroupBox3
@@ -84,9 +86,11 @@ Partial Class frmSettings
         Me.GroupBox3.Controls.Add(Me.TableLayoutPanel5)
         Me.GroupBox3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox3.Font = New System.Drawing.Font("Consolas", 14.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox3.Location = New System.Drawing.Point(3, 369)
+        Me.GroupBox3.Location = New System.Drawing.Point(4, 553)
+        Me.GroupBox3.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(428, 177)
+        Me.GroupBox3.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.GroupBox3.Size = New System.Drawing.Size(634, 264)
         Me.GroupBox3.TabIndex = 3
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Other Settings"
@@ -101,24 +105,27 @@ Partial Class frmSettings
         Me.TableLayoutPanel5.Controls.Add(Me.Label7, 0, 1)
         Me.TableLayoutPanel5.Controls.Add(Me.txtCountdownTimer, 1, 1)
         Me.TableLayoutPanel5.Controls.Add(Me.Label8, 0, 2)
+        Me.TableLayoutPanel5.Controls.Add(Me.Label10, 0, 3)
         Me.TableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel5.Location = New System.Drawing.Point(3, 26)
+        Me.TableLayoutPanel5.Location = New System.Drawing.Point(4, 39)
+        Me.TableLayoutPanel5.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TableLayoutPanel5.Name = "TableLayoutPanel5"
         Me.TableLayoutPanel5.RowCount = 4
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel5.Size = New System.Drawing.Size(422, 148)
+        Me.TableLayoutPanel5.Size = New System.Drawing.Size(626, 220)
         Me.TableLayoutPanel5.TabIndex = 1
         '
         'txtOpMode
         '
         Me.txtOpMode.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtOpMode.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtOpMode.Location = New System.Drawing.Point(150, 3)
+        Me.txtOpMode.Location = New System.Drawing.Point(223, 5)
+        Me.txtOpMode.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtOpMode.Name = "txtOpMode"
-        Me.txtOpMode.Size = New System.Drawing.Size(269, 26)
+        Me.txtOpMode.Size = New System.Drawing.Size(399, 36)
         Me.txtOpMode.TabIndex = 0
         '
         'Label9
@@ -126,9 +133,10 @@ Partial Class frmSettings
         Me.Label9.AutoSize = True
         Me.Label9.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label9.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(3, 0)
+        Me.Label9.Location = New System.Drawing.Point(4, 0)
+        Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(141, 37)
+        Me.Label9.Size = New System.Drawing.Size(211, 55)
         Me.Label9.TabIndex = 3
         Me.Label9.Text = "OpMode:"
         Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -138,9 +146,10 @@ Partial Class frmSettings
         Me.Label7.AutoSize = True
         Me.Label7.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label7.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(3, 37)
+        Me.Label7.Location = New System.Drawing.Point(4, 55)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(141, 37)
+        Me.Label7.Size = New System.Drawing.Size(211, 55)
         Me.Label7.TabIndex = 4
         Me.Label7.Text = "Countdown:"
         Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -149,19 +158,32 @@ Partial Class frmSettings
         '
         Me.txtCountdownTimer.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtCountdownTimer.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCountdownTimer.Location = New System.Drawing.Point(150, 40)
+        Me.txtCountdownTimer.Location = New System.Drawing.Point(223, 60)
+        Me.txtCountdownTimer.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtCountdownTimer.Name = "txtCountdownTimer"
-        Me.txtCountdownTimer.Size = New System.Drawing.Size(269, 26)
+        Me.txtCountdownTimer.Size = New System.Drawing.Size(399, 36)
         Me.txtCountdownTimer.TabIndex = 5
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(4, 110)
+        Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(111, 34)
+        Me.Label8.TabIndex = 6
+        Me.Label8.Text = "Label8"
         '
         'GroupBox2
         '
         Me.GroupBox2.Controls.Add(Me.TableLayoutPanel4)
         Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox2.Font = New System.Drawing.Font("Consolas", 14.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox2.Location = New System.Drawing.Point(3, 186)
+        Me.GroupBox2.Location = New System.Drawing.Point(4, 279)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(428, 177)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.GroupBox2.Size = New System.Drawing.Size(634, 264)
         Me.GroupBox2.TabIndex = 2
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Flight Control Computer Settings"
@@ -178,14 +200,15 @@ Partial Class frmSettings
         Me.TableLayoutPanel4.Controls.Add(Me.txtFCC_Hostname, 1, 2)
         Me.TableLayoutPanel4.Controls.Add(Me.Label6, 0, 0)
         Me.TableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel4.Location = New System.Drawing.Point(3, 26)
+        Me.TableLayoutPanel4.Location = New System.Drawing.Point(4, 39)
+        Me.TableLayoutPanel4.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
         Me.TableLayoutPanel4.RowCount = 4
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel4.Size = New System.Drawing.Size(422, 148)
+        Me.TableLayoutPanel4.Size = New System.Drawing.Size(626, 220)
         Me.TableLayoutPanel4.TabIndex = 1
         '
         'Label4
@@ -193,9 +216,10 @@ Partial Class frmSettings
         Me.Label4.AutoSize = True
         Me.Label4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label4.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(3, 74)
+        Me.Label4.Location = New System.Drawing.Point(4, 110)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(141, 37)
+        Me.Label4.Size = New System.Drawing.Size(211, 55)
         Me.Label4.TabIndex = 5
         Me.Label4.Text = "FCC Hostname:"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -205,9 +229,10 @@ Partial Class frmSettings
         Me.Label5.AutoSize = True
         Me.Label5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label5.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(3, 37)
+        Me.Label5.Location = New System.Drawing.Point(4, 55)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(141, 37)
+        Me.Label5.Size = New System.Drawing.Size(211, 55)
         Me.Label5.TabIndex = 4
         Me.Label5.Text = "FCC Port:"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -216,27 +241,30 @@ Partial Class frmSettings
         '
         Me.txtFCC_IP.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtFCC_IP.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtFCC_IP.Location = New System.Drawing.Point(150, 3)
+        Me.txtFCC_IP.Location = New System.Drawing.Point(223, 5)
+        Me.txtFCC_IP.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtFCC_IP.Name = "txtFCC_IP"
-        Me.txtFCC_IP.Size = New System.Drawing.Size(269, 26)
+        Me.txtFCC_IP.Size = New System.Drawing.Size(399, 36)
         Me.txtFCC_IP.TabIndex = 0
         '
         'txtFCC_Port
         '
         Me.txtFCC_Port.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtFCC_Port.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtFCC_Port.Location = New System.Drawing.Point(150, 40)
+        Me.txtFCC_Port.Location = New System.Drawing.Point(223, 60)
+        Me.txtFCC_Port.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtFCC_Port.Name = "txtFCC_Port"
-        Me.txtFCC_Port.Size = New System.Drawing.Size(269, 26)
+        Me.txtFCC_Port.Size = New System.Drawing.Size(399, 36)
         Me.txtFCC_Port.TabIndex = 1
         '
         'txtFCC_Hostname
         '
         Me.txtFCC_Hostname.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtFCC_Hostname.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtFCC_Hostname.Location = New System.Drawing.Point(150, 77)
+        Me.txtFCC_Hostname.Location = New System.Drawing.Point(223, 115)
+        Me.txtFCC_Hostname.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtFCC_Hostname.Name = "txtFCC_Hostname"
-        Me.txtFCC_Hostname.Size = New System.Drawing.Size(269, 26)
+        Me.txtFCC_Hostname.Size = New System.Drawing.Size(399, 36)
         Me.txtFCC_Hostname.TabIndex = 2
         '
         'Label6
@@ -244,9 +272,10 @@ Partial Class frmSettings
         Me.Label6.AutoSize = True
         Me.Label6.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label6.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(3, 0)
+        Me.Label6.Location = New System.Drawing.Point(4, 0)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(141, 37)
+        Me.Label6.Size = New System.Drawing.Size(211, 55)
         Me.Label6.TabIndex = 3
         Me.Label6.Text = "FCC IP:"
         Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -259,20 +288,22 @@ Partial Class frmSettings
         Me.TableLayoutPanel2.Controls.Add(Me.btnReset, 1, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.btnSave, 0, 0)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(3, 552)
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(4, 827)
+        Me.TableLayoutPanel2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 1
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(428, 56)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(634, 82)
         Me.TableLayoutPanel2.TabIndex = 0
         '
         'btnReset
         '
         Me.btnReset.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btnReset.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnReset.Location = New System.Drawing.Point(217, 3)
+        Me.btnReset.Location = New System.Drawing.Point(321, 5)
+        Me.btnReset.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnReset.Name = "btnReset"
-        Me.btnReset.Size = New System.Drawing.Size(208, 50)
+        Me.btnReset.Size = New System.Drawing.Size(309, 72)
         Me.btnReset.TabIndex = 1
         Me.btnReset.Text = "Reset Fields"
         Me.btnReset.UseVisualStyleBackColor = True
@@ -281,9 +312,10 @@ Partial Class frmSettings
         '
         Me.btnSave.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btnSave.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSave.Location = New System.Drawing.Point(3, 3)
+        Me.btnSave.Location = New System.Drawing.Point(4, 5)
+        Me.btnSave.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(208, 50)
+        Me.btnSave.Size = New System.Drawing.Size(309, 72)
         Me.btnSave.TabIndex = 0
         Me.btnSave.Text = "Save Changes"
         Me.btnSave.UseVisualStyleBackColor = True
@@ -293,9 +325,11 @@ Partial Class frmSettings
         Me.GroupBox1.Controls.Add(Me.TableLayoutPanel3)
         Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox1.Font = New System.Drawing.Font("Consolas", 14.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(3, 3)
+        Me.GroupBox1.Location = New System.Drawing.Point(4, 5)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(428, 177)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.GroupBox1.Size = New System.Drawing.Size(634, 264)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Launch Control Connection Settings"
@@ -312,14 +346,15 @@ Partial Class frmSettings
         Me.TableLayoutPanel3.Controls.Add(Me.txtLCS_Hostname, 1, 2)
         Me.TableLayoutPanel3.Controls.Add(Me.Label1, 0, 0)
         Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel3.Location = New System.Drawing.Point(3, 26)
+        Me.TableLayoutPanel3.Location = New System.Drawing.Point(4, 39)
+        Me.TableLayoutPanel3.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
         Me.TableLayoutPanel3.RowCount = 4
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(422, 148)
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(626, 220)
         Me.TableLayoutPanel3.TabIndex = 0
         '
         'Label3
@@ -327,9 +362,10 @@ Partial Class frmSettings
         Me.Label3.AutoSize = True
         Me.Label3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label3.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(3, 74)
+        Me.Label3.Location = New System.Drawing.Point(4, 110)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(141, 37)
+        Me.Label3.Size = New System.Drawing.Size(211, 55)
         Me.Label3.TabIndex = 5
         Me.Label3.Text = "LCS Hostname:"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -339,9 +375,10 @@ Partial Class frmSettings
         Me.Label2.AutoSize = True
         Me.Label2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label2.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(3, 37)
+        Me.Label2.Location = New System.Drawing.Point(4, 55)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(141, 37)
+        Me.Label2.Size = New System.Drawing.Size(211, 55)
         Me.Label2.TabIndex = 4
         Me.Label2.Text = "LCS Port:"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -350,27 +387,30 @@ Partial Class frmSettings
         '
         Me.txtLCS_IP.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtLCS_IP.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtLCS_IP.Location = New System.Drawing.Point(150, 3)
+        Me.txtLCS_IP.Location = New System.Drawing.Point(223, 5)
+        Me.txtLCS_IP.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtLCS_IP.Name = "txtLCS_IP"
-        Me.txtLCS_IP.Size = New System.Drawing.Size(269, 26)
+        Me.txtLCS_IP.Size = New System.Drawing.Size(399, 36)
         Me.txtLCS_IP.TabIndex = 0
         '
         'txtLCS_Port
         '
         Me.txtLCS_Port.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtLCS_Port.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtLCS_Port.Location = New System.Drawing.Point(150, 40)
+        Me.txtLCS_Port.Location = New System.Drawing.Point(223, 60)
+        Me.txtLCS_Port.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtLCS_Port.Name = "txtLCS_Port"
-        Me.txtLCS_Port.Size = New System.Drawing.Size(269, 26)
+        Me.txtLCS_Port.Size = New System.Drawing.Size(399, 36)
         Me.txtLCS_Port.TabIndex = 1
         '
         'txtLCS_Hostname
         '
         Me.txtLCS_Hostname.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtLCS_Hostname.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtLCS_Hostname.Location = New System.Drawing.Point(150, 77)
+        Me.txtLCS_Hostname.Location = New System.Drawing.Point(223, 115)
+        Me.txtLCS_Hostname.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtLCS_Hostname.Name = "txtLCS_Hostname"
-        Me.txtLCS_Hostname.Size = New System.Drawing.Size(269, 26)
+        Me.txtLCS_Hostname.Size = New System.Drawing.Size(399, 36)
         Me.txtLCS_Hostname.TabIndex = 2
         '
         'Label1
@@ -378,32 +418,32 @@ Partial Class frmSettings
         Me.Label1.AutoSize = True
         Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label1.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(3, 0)
+        Me.Label1.Location = New System.Drawing.Point(4, 0)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(141, 37)
+        Me.Label1.Size = New System.Drawing.Size(211, 55)
         Me.Label1.TabIndex = 3
         Me.Label1.Text = "LCS IP:"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'Label8
+        'Label10
         '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(3, 74)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(70, 22)
-        Me.Label8.TabIndex = 6
-        Me.Label8.Text = "Label8"
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(3, 165)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(127, 34)
+        Me.Label10.TabIndex = 7
+        Me.Label10.Text = "Label10"
         '
         'frmSettings
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(434, 611)
+        Me.ClientSize = New System.Drawing.Size(642, 914)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Margin = New System.Windows.Forms.Padding(2)
-        Me.MaximumSize = New System.Drawing.Size(450, 650)
-        Me.MinimumSize = New System.Drawing.Size(450, 650)
+        Me.MaximumSize = New System.Drawing.Size(664, 970)
+        Me.MinimumSize = New System.Drawing.Size(664, 970)
         Me.Name = "frmSettings"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Settings"
@@ -449,4 +489,5 @@ Partial Class frmSettings
     Friend WithEvents Label7 As Label
     Friend WithEvents txtCountdownTimer As TextBox
     Friend WithEvents Label8 As Label
+    Friend WithEvents Label10 As Label
 End Class
