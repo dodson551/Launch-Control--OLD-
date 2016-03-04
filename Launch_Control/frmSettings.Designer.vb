@@ -24,19 +24,13 @@ Partial Class frmSettings
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmSettings))
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-        Me.btnSave = New System.Windows.Forms.Button()
-        Me.btnReset = New System.Windows.Forms.Button()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
-        Me.txtLCS_IP = New System.Windows.Forms.TextBox()
-        Me.txtLCS_Port = New System.Windows.Forms.TextBox()
-        Me.txtLCS_Hostname = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
+        Me.txtOpMode = New System.Windows.Forms.TextBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.txtCountdownTimer = New System.Windows.Forms.TextBox()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -44,19 +38,26 @@ Partial Class frmSettings
         Me.txtFCC_Port = New System.Windows.Forms.TextBox()
         Me.txtFCC_Hostname = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
-        Me.txtOpMode = New System.Windows.Forms.TextBox()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.txtCountdownTimer = New System.Windows.Forms.TextBox()
+        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+        Me.btnReset = New System.Windows.Forms.Button()
+        Me.btnSave = New System.Windows.Forms.Button()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.txtLCS_IP = New System.Windows.Forms.TextBox()
+        Me.txtLCS_Port = New System.Windows.Forms.TextBox()
+        Me.txtLCS_Hostname = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1.SuspendLayout()
+        Me.GroupBox3.SuspendLayout()
+        Me.TableLayoutPanel5.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
+        Me.TableLayoutPanel4.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
-        Me.GroupBox2.SuspendLayout()
-        Me.GroupBox3.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
-        Me.TableLayoutPanel4.SuspendLayout()
-        Me.TableLayoutPanel5.SuspendLayout()
         Me.SuspendLayout()
         '
         'TableLayoutPanel1
@@ -78,67 +79,6 @@ Partial Class frmSettings
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(434, 611)
         Me.TableLayoutPanel1.TabIndex = 0
         '
-        'TableLayoutPanel2
-        '
-        Me.TableLayoutPanel2.ColumnCount = 2
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel2.Controls.Add(Me.btnReset, 1, 0)
-        Me.TableLayoutPanel2.Controls.Add(Me.btnSave, 0, 0)
-        Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(3, 552)
-        Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
-        Me.TableLayoutPanel2.RowCount = 1
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(428, 56)
-        Me.TableLayoutPanel2.TabIndex = 0
-        '
-        'btnSave
-        '
-        Me.btnSave.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnSave.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSave.Location = New System.Drawing.Point(3, 3)
-        Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(208, 50)
-        Me.btnSave.TabIndex = 0
-        Me.btnSave.Text = "Save Changes"
-        Me.btnSave.UseVisualStyleBackColor = True
-        '
-        'btnReset
-        '
-        Me.btnReset.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnReset.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnReset.Location = New System.Drawing.Point(217, 3)
-        Me.btnReset.Name = "btnReset"
-        Me.btnReset.Size = New System.Drawing.Size(208, 50)
-        Me.btnReset.TabIndex = 1
-        Me.btnReset.Text = "Reset Fields"
-        Me.btnReset.UseVisualStyleBackColor = True
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.Controls.Add(Me.TableLayoutPanel3)
-        Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox1.Font = New System.Drawing.Font("Consolas", 14.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(3, 3)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(428, 177)
-        Me.GroupBox1.TabIndex = 1
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Launch Control Connection Settings"
-        '
-        'GroupBox2
-        '
-        Me.GroupBox2.Controls.Add(Me.TableLayoutPanel4)
-        Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox2.Font = New System.Drawing.Font("Consolas", 14.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox2.Location = New System.Drawing.Point(3, 186)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(428, 177)
-        Me.GroupBox2.TabIndex = 2
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Flight Control Computer Settings"
-        '
         'GroupBox3
         '
         Me.GroupBox3.Controls.Add(Me.TableLayoutPanel5)
@@ -151,90 +91,80 @@ Partial Class frmSettings
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Other Settings"
         '
-        'TableLayoutPanel3
+        'TableLayoutPanel5
         '
-        Me.TableLayoutPanel3.ColumnCount = 2
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.0!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.0!))
-        Me.TableLayoutPanel3.Controls.Add(Me.Label3, 0, 2)
-        Me.TableLayoutPanel3.Controls.Add(Me.Label2, 0, 1)
-        Me.TableLayoutPanel3.Controls.Add(Me.txtLCS_IP, 1, 0)
-        Me.TableLayoutPanel3.Controls.Add(Me.txtLCS_Port, 1, 1)
-        Me.TableLayoutPanel3.Controls.Add(Me.txtLCS_Hostname, 1, 2)
-        Me.TableLayoutPanel3.Controls.Add(Me.Label1, 0, 0)
-        Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel3.Location = New System.Drawing.Point(3, 26)
-        Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
-        Me.TableLayoutPanel3.RowCount = 4
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(422, 148)
-        Me.TableLayoutPanel3.TabIndex = 0
+        Me.TableLayoutPanel5.ColumnCount = 2
+        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.0!))
+        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.0!))
+        Me.TableLayoutPanel5.Controls.Add(Me.txtOpMode, 1, 0)
+        Me.TableLayoutPanel5.Controls.Add(Me.Label9, 0, 0)
+        Me.TableLayoutPanel5.Controls.Add(Me.Label7, 0, 1)
+        Me.TableLayoutPanel5.Controls.Add(Me.txtCountdownTimer, 1, 1)
+        Me.TableLayoutPanel5.Controls.Add(Me.Label8, 0, 2)
+        Me.TableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel5.Location = New System.Drawing.Point(3, 26)
+        Me.TableLayoutPanel5.Name = "TableLayoutPanel5"
+        Me.TableLayoutPanel5.RowCount = 4
+        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel5.Size = New System.Drawing.Size(422, 148)
+        Me.TableLayoutPanel5.TabIndex = 1
         '
-        'txtLCS_IP
+        'txtOpMode
         '
-        Me.txtLCS_IP.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.txtLCS_IP.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtLCS_IP.Location = New System.Drawing.Point(150, 3)
-        Me.txtLCS_IP.Name = "txtLCS_IP"
-        Me.txtLCS_IP.Size = New System.Drawing.Size(269, 26)
-        Me.txtLCS_IP.TabIndex = 0
+        Me.txtOpMode.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txtOpMode.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtOpMode.Location = New System.Drawing.Point(150, 3)
+        Me.txtOpMode.Name = "txtOpMode"
+        Me.txtOpMode.Size = New System.Drawing.Size(269, 26)
+        Me.txtOpMode.TabIndex = 0
         '
-        'txtLCS_Port
+        'Label9
         '
-        Me.txtLCS_Port.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.txtLCS_Port.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtLCS_Port.Location = New System.Drawing.Point(150, 40)
-        Me.txtLCS_Port.Name = "txtLCS_Port"
-        Me.txtLCS_Port.Size = New System.Drawing.Size(269, 26)
-        Me.txtLCS_Port.TabIndex = 1
+        Me.Label9.AutoSize = True
+        Me.Label9.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label9.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(3, 0)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(141, 37)
+        Me.Label9.TabIndex = 3
+        Me.Label9.Text = "OpMode:"
+        Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'txtLCS_Hostname
+        'Label7
         '
-        Me.txtLCS_Hostname.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.txtLCS_Hostname.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtLCS_Hostname.Location = New System.Drawing.Point(150, 77)
-        Me.txtLCS_Hostname.Name = "txtLCS_Hostname"
-        Me.txtLCS_Hostname.Size = New System.Drawing.Size(269, 26)
-        Me.txtLCS_Hostname.TabIndex = 2
+        Me.Label7.AutoSize = True
+        Me.Label7.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label7.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(3, 37)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(141, 37)
+        Me.Label7.TabIndex = 4
+        Me.Label7.Text = "Countdown:"
+        Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'Label1
+        'txtCountdownTimer
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label1.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(3, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(141, 37)
-        Me.Label1.TabIndex = 3
-        Me.Label1.Text = "LCS IP:"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.txtCountdownTimer.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txtCountdownTimer.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCountdownTimer.Location = New System.Drawing.Point(150, 40)
+        Me.txtCountdownTimer.Name = "txtCountdownTimer"
+        Me.txtCountdownTimer.Size = New System.Drawing.Size(269, 26)
+        Me.txtCountdownTimer.TabIndex = 5
         '
-        'Label2
+        'GroupBox2
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label2.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(3, 37)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(141, 37)
-        Me.Label2.TabIndex = 4
-        Me.Label2.Text = "LCS Port:"
-        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label3.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(3, 74)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(141, 37)
-        Me.Label3.TabIndex = 5
-        Me.Label3.Text = "LCS Hostname:"
-        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.GroupBox2.Controls.Add(Me.TableLayoutPanel4)
+        Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupBox2.Font = New System.Drawing.Font("Consolas", 14.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox2.Location = New System.Drawing.Point(3, 186)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(428, 177)
+        Me.GroupBox2.TabIndex = 2
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Flight Control Computer Settings"
         '
         'TableLayoutPanel4
         '
@@ -321,67 +251,148 @@ Partial Class frmSettings
         Me.Label6.Text = "FCC IP:"
         Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'TableLayoutPanel5
+        'TableLayoutPanel2
         '
-        Me.TableLayoutPanel5.ColumnCount = 2
-        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.0!))
-        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.0!))
-        Me.TableLayoutPanel5.Controls.Add(Me.txtOpMode, 1, 0)
-        Me.TableLayoutPanel5.Controls.Add(Me.Label9, 0, 0)
-        Me.TableLayoutPanel5.Controls.Add(Me.Label7, 0, 1)
-        Me.TableLayoutPanel5.Controls.Add(Me.txtCountdownTimer, 1, 1)
-        Me.TableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel5.Location = New System.Drawing.Point(3, 26)
-        Me.TableLayoutPanel5.Name = "TableLayoutPanel5"
-        Me.TableLayoutPanel5.RowCount = 4
-        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel5.Size = New System.Drawing.Size(422, 148)
-        Me.TableLayoutPanel5.TabIndex = 1
+        Me.TableLayoutPanel2.ColumnCount = 2
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel2.Controls.Add(Me.btnReset, 1, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.btnSave, 0, 0)
+        Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(3, 552)
+        Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
+        Me.TableLayoutPanel2.RowCount = 1
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(428, 56)
+        Me.TableLayoutPanel2.TabIndex = 0
         '
-        'txtOpMode
+        'btnReset
         '
-        Me.txtOpMode.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.txtOpMode.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtOpMode.Location = New System.Drawing.Point(150, 3)
-        Me.txtOpMode.Name = "txtOpMode"
-        Me.txtOpMode.Size = New System.Drawing.Size(269, 26)
-        Me.txtOpMode.TabIndex = 0
+        Me.btnReset.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnReset.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnReset.Location = New System.Drawing.Point(217, 3)
+        Me.btnReset.Name = "btnReset"
+        Me.btnReset.Size = New System.Drawing.Size(208, 50)
+        Me.btnReset.TabIndex = 1
+        Me.btnReset.Text = "Reset Fields"
+        Me.btnReset.UseVisualStyleBackColor = True
         '
-        'Label9
+        'btnSave
         '
-        Me.Label9.AutoSize = True
-        Me.Label9.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label9.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(3, 0)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(141, 37)
-        Me.Label9.TabIndex = 3
-        Me.Label9.Text = "OpMode:"
-        Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.btnSave.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnSave.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSave.Location = New System.Drawing.Point(3, 3)
+        Me.btnSave.Name = "btnSave"
+        Me.btnSave.Size = New System.Drawing.Size(208, 50)
+        Me.btnSave.TabIndex = 0
+        Me.btnSave.Text = "Save Changes"
+        Me.btnSave.UseVisualStyleBackColor = True
         '
-        'Label7
+        'GroupBox1
         '
-        Me.Label7.AutoSize = True
-        Me.Label7.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label7.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(3, 37)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(141, 37)
-        Me.Label7.TabIndex = 4
-        Me.Label7.Text = "Countdown:"
-        Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.GroupBox1.Controls.Add(Me.TableLayoutPanel3)
+        Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupBox1.Font = New System.Drawing.Font("Consolas", 14.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox1.Location = New System.Drawing.Point(3, 3)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(428, 177)
+        Me.GroupBox1.TabIndex = 1
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Launch Control Connection Settings"
         '
-        'txtCountdownTimer
+        'TableLayoutPanel3
         '
-        Me.txtCountdownTimer.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.txtCountdownTimer.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCountdownTimer.Location = New System.Drawing.Point(150, 40)
-        Me.txtCountdownTimer.Name = "txtCountdownTimer"
-        Me.txtCountdownTimer.Size = New System.Drawing.Size(269, 26)
-        Me.txtCountdownTimer.TabIndex = 5
+        Me.TableLayoutPanel3.ColumnCount = 2
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.0!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.0!))
+        Me.TableLayoutPanel3.Controls.Add(Me.Label3, 0, 2)
+        Me.TableLayoutPanel3.Controls.Add(Me.Label2, 0, 1)
+        Me.TableLayoutPanel3.Controls.Add(Me.txtLCS_IP, 1, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.txtLCS_Port, 1, 1)
+        Me.TableLayoutPanel3.Controls.Add(Me.txtLCS_Hostname, 1, 2)
+        Me.TableLayoutPanel3.Controls.Add(Me.Label1, 0, 0)
+        Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel3.Location = New System.Drawing.Point(3, 26)
+        Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
+        Me.TableLayoutPanel3.RowCount = 4
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(422, 148)
+        Me.TableLayoutPanel3.TabIndex = 0
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label3.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(3, 74)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(141, 37)
+        Me.Label3.TabIndex = 5
+        Me.Label3.Text = "LCS Hostname:"
+        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label2.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(3, 37)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(141, 37)
+        Me.Label2.TabIndex = 4
+        Me.Label2.Text = "LCS Port:"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'txtLCS_IP
+        '
+        Me.txtLCS_IP.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txtLCS_IP.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtLCS_IP.Location = New System.Drawing.Point(150, 3)
+        Me.txtLCS_IP.Name = "txtLCS_IP"
+        Me.txtLCS_IP.Size = New System.Drawing.Size(269, 26)
+        Me.txtLCS_IP.TabIndex = 0
+        '
+        'txtLCS_Port
+        '
+        Me.txtLCS_Port.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txtLCS_Port.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtLCS_Port.Location = New System.Drawing.Point(150, 40)
+        Me.txtLCS_Port.Name = "txtLCS_Port"
+        Me.txtLCS_Port.Size = New System.Drawing.Size(269, 26)
+        Me.txtLCS_Port.TabIndex = 1
+        '
+        'txtLCS_Hostname
+        '
+        Me.txtLCS_Hostname.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txtLCS_Hostname.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtLCS_Hostname.Location = New System.Drawing.Point(150, 77)
+        Me.txtLCS_Hostname.Name = "txtLCS_Hostname"
+        Me.txtLCS_Hostname.Size = New System.Drawing.Size(269, 26)
+        Me.txtLCS_Hostname.TabIndex = 2
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label1.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(3, 0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(141, 37)
+        Me.Label1.TabIndex = 3
+        Me.Label1.Text = "LCS IP:"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(3, 74)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(70, 22)
+        Me.Label8.TabIndex = 6
+        Me.Label8.Text = "Label8"
         '
         'frmSettings
         '
@@ -397,16 +408,16 @@ Partial Class frmSettings
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Settings"
         Me.TableLayoutPanel1.ResumeLayout(False)
-        Me.TableLayoutPanel2.ResumeLayout(False)
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox3.ResumeLayout(False)
-        Me.TableLayoutPanel3.ResumeLayout(False)
-        Me.TableLayoutPanel3.PerformLayout()
-        Me.TableLayoutPanel4.ResumeLayout(False)
-        Me.TableLayoutPanel4.PerformLayout()
         Me.TableLayoutPanel5.ResumeLayout(False)
         Me.TableLayoutPanel5.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.TableLayoutPanel4.ResumeLayout(False)
+        Me.TableLayoutPanel4.PerformLayout()
+        Me.TableLayoutPanel2.ResumeLayout(False)
+        Me.GroupBox1.ResumeLayout(False)
+        Me.TableLayoutPanel3.ResumeLayout(False)
+        Me.TableLayoutPanel3.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -437,4 +448,5 @@ Partial Class frmSettings
     Friend WithEvents Label9 As Label
     Friend WithEvents Label7 As Label
     Friend WithEvents txtCountdownTimer As TextBox
+    Friend WithEvents Label8 As Label
 End Class
