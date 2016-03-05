@@ -26,5 +26,8 @@
     <Setting Name="Countdown" Type="System.String" Scope="User">
       <Value Profile="(Default)">30</Value>
     </Setting>
+    <Setting Name="Filename" Type="System.String" Scope="User">
+      <Value Profile="(Default)">txt_events.txt</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

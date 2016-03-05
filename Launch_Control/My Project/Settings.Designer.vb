@@ -149,6 +149,18 @@ Namespace My
                 Me("Countdown") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("txt_events.txt")>  _
+        Public Property Filename() As String
+            Get
+                Return CType(Me("Filename"),String)
+            End Get
+            Set
+                Me("Filename") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

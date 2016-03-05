@@ -23,8 +23,8 @@ Partial Class frmLCS
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmLCS))
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.tlpRightSide = New System.Windows.Forms.TableLayoutPanel()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
@@ -53,6 +53,28 @@ Partial Class frmLCS
         Me.tlpMain = New System.Windows.Forms.TableLayoutPanel()
         Me.tlpLeft = New System.Windows.Forms.TableLayoutPanel()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
+        Me.dgvEvents = New System.Windows.Forms.DataGridView()
+        Me.TableLayoutPanel7 = New System.Windows.Forms.TableLayoutPanel()
+        Me.TableLayoutPanel8 = New System.Windows.Forms.TableLayoutPanel()
+        Me.btnBegin = New System.Windows.Forms.Button()
+        Me.btnReset = New System.Windows.Forms.Button()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.txtCount = New System.Windows.Forms.TextBox()
+        Me.gbVehicleStatus = New System.Windows.Forms.GroupBox()
+        Me.TableLayoutPanel6 = New System.Windows.Forms.TableLayoutPanel()
+        Me.lblKero = New System.Windows.Forms.Label()
+        Me.lblThermo = New System.Windows.Forms.Label()
+        Me.lblBwire = New System.Windows.Forms.Label()
+        Me.lblMPV = New System.Windows.Forms.Label()
+        Me.lblLOX = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.updateTimer = New System.Windows.Forms.Timer(Me.components)
+        Me.sensorTimer = New System.Windows.Forms.Timer(Me.components)
+        Me.countdownTimer = New System.Windows.Forms.Timer(Me.components)
         Me.ToolStripDropDownButton1 = New System.Windows.Forms.ToolStripDropDownButton()
         Me.FlightControlComputerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveEventLogToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -72,29 +94,7 @@ Partial Class frmLCS
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
         Me.loadCell = New System.Windows.Forms.ToolStripButton()
-        Me.dgvEvents = New System.Windows.Forms.DataGridView()
-        Me.TableLayoutPanel7 = New System.Windows.Forms.TableLayoutPanel()
         Me.lblTime = New System.Windows.Forms.Label()
-        Me.TableLayoutPanel8 = New System.Windows.Forms.TableLayoutPanel()
-        Me.btnBegin = New System.Windows.Forms.Button()
-        Me.btnReset = New System.Windows.Forms.Button()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.txtCount = New System.Windows.Forms.TextBox()
-        Me.gbVehicleStatus = New System.Windows.Forms.GroupBox()
-        Me.TableLayoutPanel6 = New System.Windows.Forms.TableLayoutPanel()
-        Me.lblThermo = New System.Windows.Forms.Label()
-        Me.lblBwire = New System.Windows.Forms.Label()
-        Me.lblMPV = New System.Windows.Forms.Label()
-        Me.lblLOX = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.updateTimer = New System.Windows.Forms.Timer(Me.components)
-        Me.sensorTimer = New System.Windows.Forms.Timer(Me.components)
-        Me.countdownTimer = New System.Windows.Forms.Timer(Me.components)
-        Me.lblKero = New System.Windows.Forms.Label()
         Me.tlpRightSide.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.TableLayoutPanel5.SuspendLayout()
@@ -437,6 +437,7 @@ Partial Class frmLCS
         '
         'tlpMain
         '
+        Me.tlpMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.tlpMain.ColumnCount = 2
         Me.tlpMain.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 73.0!))
         Me.tlpMain.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.0!))
@@ -482,6 +483,263 @@ Partial Class frmLCS
         Me.ToolStrip1.Size = New System.Drawing.Size(1381, 25)
         Me.ToolStrip1.TabIndex = 0
         Me.ToolStrip1.Text = "ToolStrip1"
+        '
+        'dgvEvents
+        '
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.dgvEvents.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle3
+        Me.dgvEvents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvEvents.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.dgvEvents.Location = New System.Drawing.Point(4, 123)
+        Me.dgvEvents.Name = "dgvEvents"
+        Me.dgvEvents.Size = New System.Drawing.Size(1375, 556)
+        Me.dgvEvents.TabIndex = 1
+        '
+        'TableLayoutPanel7
+        '
+        Me.TableLayoutPanel7.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.[Single]
+        Me.TableLayoutPanel7.ColumnCount = 2
+        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75.0!))
+        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel7.Controls.Add(Me.lblTime, 0, 0)
+        Me.TableLayoutPanel7.Controls.Add(Me.TableLayoutPanel8, 1, 0)
+        Me.TableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel7.Location = New System.Drawing.Point(4, 32)
+        Me.TableLayoutPanel7.Name = "TableLayoutPanel7"
+        Me.TableLayoutPanel7.RowCount = 1
+        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel7.Size = New System.Drawing.Size(1375, 84)
+        Me.TableLayoutPanel7.TabIndex = 2
+        '
+        'TableLayoutPanel8
+        '
+        Me.TableLayoutPanel8.ColumnCount = 2
+        Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel8.Controls.Add(Me.btnBegin, 1, 0)
+        Me.TableLayoutPanel8.Controls.Add(Me.btnReset, 1, 1)
+        Me.TableLayoutPanel8.Controls.Add(Me.Label3, 0, 0)
+        Me.TableLayoutPanel8.Controls.Add(Me.txtCount, 0, 1)
+        Me.TableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel8.Location = New System.Drawing.Point(1034, 4)
+        Me.TableLayoutPanel8.Name = "TableLayoutPanel8"
+        Me.TableLayoutPanel8.RowCount = 2
+        Me.TableLayoutPanel8.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel8.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel8.Size = New System.Drawing.Size(337, 76)
+        Me.TableLayoutPanel8.TabIndex = 1
+        '
+        'btnBegin
+        '
+        Me.btnBegin.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnBegin.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnBegin.Location = New System.Drawing.Point(171, 3)
+        Me.btnBegin.Name = "btnBegin"
+        Me.btnBegin.Size = New System.Drawing.Size(163, 32)
+        Me.btnBegin.TabIndex = 0
+        Me.btnBegin.Text = "Begin Countdown"
+        Me.btnBegin.UseVisualStyleBackColor = True
+        '
+        'btnReset
+        '
+        Me.btnReset.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnReset.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnReset.Location = New System.Drawing.Point(171, 41)
+        Me.btnReset.Name = "btnReset"
+        Me.btnReset.Size = New System.Drawing.Size(163, 32)
+        Me.btnReset.TabIndex = 1
+        Me.btnReset.Text = "Reset Clock"
+        Me.btnReset.UseVisualStyleBackColor = True
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label3.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(3, 0)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(162, 38)
+        Me.Label3.TabIndex = 2
+        Me.Label3.Text = "Countdown Timer"
+        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'txtCount
+        '
+        Me.txtCount.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txtCount.Font = New System.Drawing.Font("Consolas", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCount.Location = New System.Drawing.Point(3, 41)
+        Me.txtCount.Name = "txtCount"
+        Me.txtCount.Size = New System.Drawing.Size(162, 32)
+        Me.txtCount.TabIndex = 3
+        Me.txtCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'gbVehicleStatus
+        '
+        Me.gbVehicleStatus.BackColor = System.Drawing.Color.Transparent
+        Me.gbVehicleStatus.Controls.Add(Me.TableLayoutPanel6)
+        Me.gbVehicleStatus.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.gbVehicleStatus.Font = New System.Drawing.Font("Consolas", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gbVehicleStatus.Location = New System.Drawing.Point(4, 686)
+        Me.gbVehicleStatus.Name = "gbVehicleStatus"
+        Me.gbVehicleStatus.Size = New System.Drawing.Size(1375, 222)
+        Me.gbVehicleStatus.TabIndex = 3
+        Me.gbVehicleStatus.TabStop = False
+        Me.gbVehicleStatus.Text = "Vehicle Sensors (Disconnected)"
+        '
+        'TableLayoutPanel6
+        '
+        Me.TableLayoutPanel6.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset
+        Me.TableLayoutPanel6.ColumnCount = 5
+        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.TableLayoutPanel6.Controls.Add(Me.lblKero, 0, 1)
+        Me.TableLayoutPanel6.Controls.Add(Me.lblThermo, 3, 1)
+        Me.TableLayoutPanel6.Controls.Add(Me.lblBwire, 2, 1)
+        Me.TableLayoutPanel6.Controls.Add(Me.lblMPV, 1, 1)
+        Me.TableLayoutPanel6.Controls.Add(Me.lblLOX, 0, 1)
+        Me.TableLayoutPanel6.Controls.Add(Me.Label8, 4, 0)
+        Me.TableLayoutPanel6.Controls.Add(Me.Label7, 3, 0)
+        Me.TableLayoutPanel6.Controls.Add(Me.Label6, 2, 0)
+        Me.TableLayoutPanel6.Controls.Add(Me.Label5, 1, 0)
+        Me.TableLayoutPanel6.Controls.Add(Me.Label4, 0, 0)
+        Me.TableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel6.Location = New System.Drawing.Point(3, 28)
+        Me.TableLayoutPanel6.Name = "TableLayoutPanel6"
+        Me.TableLayoutPanel6.RowCount = 2
+        Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel6.Size = New System.Drawing.Size(1369, 191)
+        Me.TableLayoutPanel6.TabIndex = 0
+        '
+        'lblKero
+        '
+        Me.lblKero.AutoSize = True
+        Me.lblKero.BackColor = System.Drawing.SystemColors.Control
+        Me.lblKero.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.lblKero.Location = New System.Drawing.Point(5, 96)
+        Me.lblKero.Name = "lblKero"
+        Me.lblKero.Size = New System.Drawing.Size(265, 93)
+        Me.lblKero.TabIndex = 9
+        Me.lblKero.Text = "--"
+        Me.lblKero.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lblThermo
+        '
+        Me.lblThermo.AutoSize = True
+        Me.lblThermo.BackColor = System.Drawing.SystemColors.Control
+        Me.lblThermo.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.lblThermo.Location = New System.Drawing.Point(1097, 96)
+        Me.lblThermo.Name = "lblThermo"
+        Me.lblThermo.Size = New System.Drawing.Size(267, 93)
+        Me.lblThermo.TabIndex = 8
+        Me.lblThermo.Text = "--"
+        Me.lblThermo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lblBwire
+        '
+        Me.lblBwire.AutoSize = True
+        Me.lblBwire.BackColor = System.Drawing.SystemColors.Control
+        Me.lblBwire.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.lblBwire.Location = New System.Drawing.Point(824, 96)
+        Me.lblBwire.Name = "lblBwire"
+        Me.lblBwire.Size = New System.Drawing.Size(265, 93)
+        Me.lblBwire.TabIndex = 7
+        Me.lblBwire.Text = "--"
+        Me.lblBwire.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lblMPV
+        '
+        Me.lblMPV.AutoSize = True
+        Me.lblMPV.BackColor = System.Drawing.SystemColors.Control
+        Me.lblMPV.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.lblMPV.Location = New System.Drawing.Point(551, 96)
+        Me.lblMPV.Name = "lblMPV"
+        Me.lblMPV.Size = New System.Drawing.Size(265, 93)
+        Me.lblMPV.TabIndex = 6
+        Me.lblMPV.Text = "--"
+        Me.lblMPV.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lblLOX
+        '
+        Me.lblLOX.AutoSize = True
+        Me.lblLOX.BackColor = System.Drawing.SystemColors.Control
+        Me.lblLOX.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.lblLOX.Location = New System.Drawing.Point(278, 96)
+        Me.lblLOX.Name = "lblLOX"
+        Me.lblLOX.Size = New System.Drawing.Size(265, 93)
+        Me.lblLOX.TabIndex = 5
+        Me.lblLOX.Text = "--"
+        Me.lblLOX.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label8.Location = New System.Drawing.Point(1097, 2)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(267, 92)
+        Me.Label8.TabIndex = 4
+        Me.Label8.Text = "Ignition Temp"
+        Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label7.Location = New System.Drawing.Point(824, 2)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(265, 92)
+        Me.Label7.TabIndex = 3
+        Me.Label7.Text = "Breakwire"
+        Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label6.Location = New System.Drawing.Point(551, 2)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(265, 92)
+        Me.Label6.TabIndex = 2
+        Me.Label6.Text = "MPV"
+        Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label5.Location = New System.Drawing.Point(278, 2)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(265, 92)
+        Me.Label5.TabIndex = 1
+        Me.Label5.Text = "LOX Valve"
+        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label4.Location = New System.Drawing.Point(5, 2)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(265, 92)
+        Me.Label4.TabIndex = 0
+        Me.Label4.Text = "Kero Valve"
+        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'updateTimer
+        '
+        Me.updateTimer.Interval = 1000
+        '
+        'sensorTimer
+        '
+        Me.sensorTimer.Interval = 250
+        '
+        'countdownTimer
+        '
+        Me.countdownTimer.Interval = 1000
         '
         'ToolStripDropDownButton1
         '
@@ -617,33 +875,6 @@ Partial Class frmLCS
         Me.loadCell.Size = New System.Drawing.Size(60, 22)
         Me.loadCell.Text = "Load Cell"
         '
-        'dgvEvents
-        '
-        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.dgvEvents.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle5
-        Me.dgvEvents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvEvents.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dgvEvents.Location = New System.Drawing.Point(4, 123)
-        Me.dgvEvents.Name = "dgvEvents"
-        Me.dgvEvents.Size = New System.Drawing.Size(1375, 556)
-        Me.dgvEvents.TabIndex = 1
-        '
-        'TableLayoutPanel7
-        '
-        Me.TableLayoutPanel7.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.[Single]
-        Me.TableLayoutPanel7.ColumnCount = 2
-        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75.0!))
-        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel7.Controls.Add(Me.lblTime, 0, 0)
-        Me.TableLayoutPanel7.Controls.Add(Me.TableLayoutPanel8, 1, 0)
-        Me.TableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel7.Location = New System.Drawing.Point(4, 32)
-        Me.TableLayoutPanel7.Name = "TableLayoutPanel7"
-        Me.TableLayoutPanel7.RowCount = 1
-        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel7.Size = New System.Drawing.Size(1375, 84)
-        Me.TableLayoutPanel7.TabIndex = 2
-        '
         'lblTime
         '
         Me.lblTime.AutoSize = True
@@ -651,241 +882,13 @@ Partial Class frmLCS
         Me.lblTime.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblTime.Font = New System.Drawing.Font("Digital-7 Mono", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTime.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.lblTime.Image = CType(resources.GetObject("lblTime.Image"), System.Drawing.Image)
         Me.lblTime.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.lblTime.Location = New System.Drawing.Point(4, 1)
         Me.lblTime.Name = "lblTime"
         Me.lblTime.Size = New System.Drawing.Size(1023, 82)
         Me.lblTime.TabIndex = 0
         Me.lblTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'TableLayoutPanel8
-        '
-        Me.TableLayoutPanel8.ColumnCount = 2
-        Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel8.Controls.Add(Me.btnBegin, 1, 0)
-        Me.TableLayoutPanel8.Controls.Add(Me.btnReset, 1, 1)
-        Me.TableLayoutPanel8.Controls.Add(Me.Label3, 0, 0)
-        Me.TableLayoutPanel8.Controls.Add(Me.txtCount, 0, 1)
-        Me.TableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel8.Location = New System.Drawing.Point(1034, 4)
-        Me.TableLayoutPanel8.Name = "TableLayoutPanel8"
-        Me.TableLayoutPanel8.RowCount = 2
-        Me.TableLayoutPanel8.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel8.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel8.Size = New System.Drawing.Size(337, 76)
-        Me.TableLayoutPanel8.TabIndex = 1
-        '
-        'btnBegin
-        '
-        Me.btnBegin.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnBegin.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnBegin.Location = New System.Drawing.Point(171, 3)
-        Me.btnBegin.Name = "btnBegin"
-        Me.btnBegin.Size = New System.Drawing.Size(163, 32)
-        Me.btnBegin.TabIndex = 0
-        Me.btnBegin.Text = "Begin Countdown"
-        Me.btnBegin.UseVisualStyleBackColor = True
-        '
-        'btnReset
-        '
-        Me.btnReset.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnReset.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnReset.Location = New System.Drawing.Point(171, 41)
-        Me.btnReset.Name = "btnReset"
-        Me.btnReset.Size = New System.Drawing.Size(163, 32)
-        Me.btnReset.TabIndex = 1
-        Me.btnReset.Text = "Reset Clock"
-        Me.btnReset.UseVisualStyleBackColor = True
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label3.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(3, 0)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(162, 38)
-        Me.Label3.TabIndex = 2
-        Me.Label3.Text = "Countdown Timer"
-        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'txtCount
-        '
-        Me.txtCount.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.txtCount.Font = New System.Drawing.Font("Consolas", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCount.Location = New System.Drawing.Point(3, 41)
-        Me.txtCount.Name = "txtCount"
-        Me.txtCount.Size = New System.Drawing.Size(162, 32)
-        Me.txtCount.TabIndex = 3
-        Me.txtCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'gbVehicleStatus
-        '
-        Me.gbVehicleStatus.Controls.Add(Me.TableLayoutPanel6)
-        Me.gbVehicleStatus.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.gbVehicleStatus.Font = New System.Drawing.Font("Consolas", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gbVehicleStatus.Location = New System.Drawing.Point(4, 686)
-        Me.gbVehicleStatus.Name = "gbVehicleStatus"
-        Me.gbVehicleStatus.Size = New System.Drawing.Size(1375, 222)
-        Me.gbVehicleStatus.TabIndex = 3
-        Me.gbVehicleStatus.TabStop = False
-        Me.gbVehicleStatus.Text = "Vehicle Sensors (Disconnected)"
-        '
-        'TableLayoutPanel6
-        '
-        Me.TableLayoutPanel6.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset
-        Me.TableLayoutPanel6.ColumnCount = 5
-        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
-        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
-        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
-        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
-        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
-        Me.TableLayoutPanel6.Controls.Add(Me.lblKero, 0, 1)
-        Me.TableLayoutPanel6.Controls.Add(Me.lblThermo, 3, 1)
-        Me.TableLayoutPanel6.Controls.Add(Me.lblBwire, 2, 1)
-        Me.TableLayoutPanel6.Controls.Add(Me.lblMPV, 1, 1)
-        Me.TableLayoutPanel6.Controls.Add(Me.lblLOX, 0, 1)
-        Me.TableLayoutPanel6.Controls.Add(Me.Label8, 4, 0)
-        Me.TableLayoutPanel6.Controls.Add(Me.Label7, 3, 0)
-        Me.TableLayoutPanel6.Controls.Add(Me.Label6, 2, 0)
-        Me.TableLayoutPanel6.Controls.Add(Me.Label5, 1, 0)
-        Me.TableLayoutPanel6.Controls.Add(Me.Label4, 0, 0)
-        Me.TableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel6.Location = New System.Drawing.Point(3, 28)
-        Me.TableLayoutPanel6.Name = "TableLayoutPanel6"
-        Me.TableLayoutPanel6.RowCount = 2
-        Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel6.Size = New System.Drawing.Size(1369, 191)
-        Me.TableLayoutPanel6.TabIndex = 0
-        '
-        'lblThermo
-        '
-        Me.lblThermo.AutoSize = True
-        Me.lblThermo.BackColor = System.Drawing.SystemColors.Control
-        Me.lblThermo.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblThermo.Location = New System.Drawing.Point(1097, 96)
-        Me.lblThermo.Name = "lblThermo"
-        Me.lblThermo.Size = New System.Drawing.Size(267, 93)
-        Me.lblThermo.TabIndex = 8
-        Me.lblThermo.Text = "--"
-        Me.lblThermo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'lblBwire
-        '
-        Me.lblBwire.AutoSize = True
-        Me.lblBwire.BackColor = System.Drawing.SystemColors.Control
-        Me.lblBwire.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblBwire.Location = New System.Drawing.Point(824, 96)
-        Me.lblBwire.Name = "lblBwire"
-        Me.lblBwire.Size = New System.Drawing.Size(265, 93)
-        Me.lblBwire.TabIndex = 7
-        Me.lblBwire.Text = "--"
-        Me.lblBwire.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'lblMPV
-        '
-        Me.lblMPV.AutoSize = True
-        Me.lblMPV.BackColor = System.Drawing.SystemColors.Control
-        Me.lblMPV.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblMPV.Location = New System.Drawing.Point(551, 96)
-        Me.lblMPV.Name = "lblMPV"
-        Me.lblMPV.Size = New System.Drawing.Size(265, 93)
-        Me.lblMPV.TabIndex = 6
-        Me.lblMPV.Text = "--"
-        Me.lblMPV.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'lblLOX
-        '
-        Me.lblLOX.AutoSize = True
-        Me.lblLOX.BackColor = System.Drawing.SystemColors.Control
-        Me.lblLOX.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblLOX.Location = New System.Drawing.Point(278, 96)
-        Me.lblLOX.Name = "lblLOX"
-        Me.lblLOX.Size = New System.Drawing.Size(265, 93)
-        Me.lblLOX.TabIndex = 5
-        Me.lblLOX.Text = "--"
-        Me.lblLOX.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label8.Location = New System.Drawing.Point(1097, 2)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(267, 92)
-        Me.Label8.TabIndex = 4
-        Me.Label8.Text = "Ignition Temp"
-        Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label7.Location = New System.Drawing.Point(824, 2)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(265, 92)
-        Me.Label7.TabIndex = 3
-        Me.Label7.Text = "Breakwire"
-        Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label6.Location = New System.Drawing.Point(551, 2)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(265, 92)
-        Me.Label6.TabIndex = 2
-        Me.Label6.Text = "MPV"
-        Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label5.Location = New System.Drawing.Point(278, 2)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(265, 92)
-        Me.Label5.TabIndex = 1
-        Me.Label5.Text = "LOX Valve"
-        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label4.Location = New System.Drawing.Point(5, 2)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(265, 92)
-        Me.Label4.TabIndex = 0
-        Me.Label4.Text = "Kero Valve"
-        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'updateTimer
-        '
-        Me.updateTimer.Interval = 1000
-        '
-        'sensorTimer
-        '
-        Me.sensorTimer.Interval = 250
-        '
-        'countdownTimer
-        '
-        Me.countdownTimer.Interval = 1000
-        '
-        'lblKero
-        '
-        Me.lblKero.AutoSize = True
-        Me.lblKero.BackColor = System.Drawing.SystemColors.Control
-        Me.lblKero.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblKero.Location = New System.Drawing.Point(5, 96)
-        Me.lblKero.Name = "lblKero"
-        Me.lblKero.Size = New System.Drawing.Size(265, 93)
-        Me.lblKero.TabIndex = 9
-        Me.lblKero.Text = "--"
-        Me.lblKero.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'frmLCS
         '

@@ -12,6 +12,7 @@
 
         txtOpMode.Text = My.Settings.OpMode
         txtCountdownTimer.Text = My.Settings.Countdown
+        txtFileName.Text = My.Settings.Filename
 
     End Sub
 
@@ -27,9 +28,11 @@
 
         My.Settings.OpMode = txtOpMode.Text
         My.Settings.Countdown = txtCountdownTimer.Text
+        My.Settings.Filename = txtFileName.Text
 
         My.Settings.Save()
     End Sub
+
 
     Private Sub btnReset_Click(sender As Object, e As EventArgs) Handles btnReset.Click
 
@@ -43,6 +46,7 @@
 
         My.Settings.OpMode = txtOpMode.Text
         My.Settings.Countdown = txtCountdownTimer.Text
+        My.Settings.Filename = txtFileName.Text
 
     End Sub
 

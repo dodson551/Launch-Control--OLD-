@@ -22,11 +22,10 @@ Public Class frmLCS
     Dim opMode As String
 
     Dim bytes(1024) As Byte
-    Dim ipAddress As IPAddress = Nothing
+    Dim ipAddress As String = Nothing
     Dim hostname As String = Nothing
     Dim port As Integer = Nothing
     Dim soc As Socket
-
 
     Private Sub frmLCS_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Safety_Mode()
@@ -65,7 +64,7 @@ Public Class frmLCS
             MsgBox("Please enter the board port that you wish to use to connect to.")
         Else
             Try
-                ipAddress = System.Net.IPAddress.Parse(txtIP.Text)
+                ipAddress = txtIP.Text
                 port = txtPort.Text
                 soc = New Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp)
                 Dim result = soc.BeginConnect(ipAddress, port, Nothing, Nothing)
@@ -202,10 +201,16 @@ Public Class frmLCS
 
     Private Sub btnArm_Click(sender As Object, e As EventArgs) Handles btnArm.Click
         Safety_Mode()
+        dgvEvents.DataSource = dt
+        dt.Rows.Add("Safety Armed", Date.Now)
+        adjust_clm_width()
     End Sub
 
     Private Sub btnDisarm_Click(sender As Object, e As EventArgs) Handles btnDisarm.Click
         Launch_Mode()
+        dgvEvents.DataSource = dt
+        dt.Rows.Add("Safety Disarmed", Date.Now)
+        adjust_clm_width()
     End Sub
 
     Private Sub FlightControlComputerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FlightControlComputerToolStripMenuItem.Click
@@ -495,6 +500,18 @@ Public Class frmLCS
         txtCount.Enabled = True
         txtCount.Text = "0"
         updateTimer.Start()
+    End Sub
+
+    Private Sub SaveEventLogToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles SaveEventLogToolStripMenuItem2.Click
+        filename = System.IO.Path.Combine(My.Computer.FileSystem.SpecialDirectories.MyDocuments, My.Settings.Filename)
+        SaveGridData(dgvEvents, filename)
+    End Sub
+
+    Private Sub SaveGridData(ByVal thisgrid As DataGridView, ByVal FileName As String)
+        thisgrid.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableWithoutHeaderText
+        thisgrid.SelectAll()
+        IO.File.WriteAllText(FileName, thisgrid.GetClipboardContent().GetText.TrimEnd)
+        thisgrid.ClearSelection()
     End Sub
 
 End Class
