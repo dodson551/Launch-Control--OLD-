@@ -49,6 +49,8 @@ Partial Class frmSettings
         Me.txtLCS_Port = New System.Windows.Forms.TextBox()
         Me.txtLCS_Hostname = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.txtFileName = New System.Windows.Forms.TextBox()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.TableLayoutPanel5.SuspendLayout()
@@ -99,6 +101,8 @@ Partial Class frmSettings
         Me.TableLayoutPanel5.Controls.Add(Me.Label9, 0, 0)
         Me.TableLayoutPanel5.Controls.Add(Me.Label7, 0, 1)
         Me.TableLayoutPanel5.Controls.Add(Me.txtCountdownTimer, 1, 1)
+        Me.TableLayoutPanel5.Controls.Add(Me.Label8, 0, 2)
+        Me.TableLayoutPanel5.Controls.Add(Me.txtFileName, 1, 2)
         Me.TableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel5.Location = New System.Drawing.Point(3, 26)
         Me.TableLayoutPanel5.Name = "TableLayoutPanel5"
@@ -383,6 +387,27 @@ Partial Class frmSettings
         Me.Label1.Text = "LCS IP:"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label8.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(3, 74)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(141, 37)
+        Me.Label8.TabIndex = 6
+        Me.Label8.Text = "Filename:"
+        Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'txtFileName
+        '
+        Me.txtFileName.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txtFileName.Font = New System.Drawing.Font("Consolas", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtFileName.Location = New System.Drawing.Point(150, 77)
+        Me.txtFileName.Name = "txtFileName"
+        Me.txtFileName.Size = New System.Drawing.Size(269, 26)
+        Me.txtFileName.TabIndex = 7
+        '
         'frmSettings
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -437,4 +462,6 @@ Partial Class frmSettings
     Friend WithEvents Label9 As Label
     Friend WithEvents Label7 As Label
     Friend WithEvents txtCountdownTimer As TextBox
+    Friend WithEvents Label8 As Label
+    Friend WithEvents txtFileName As TextBox
 End Class

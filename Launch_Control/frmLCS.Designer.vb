@@ -23,8 +23,8 @@ Partial Class frmLCS
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmLCS))
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.tlpRightSide = New System.Windows.Forms.TableLayoutPanel()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
@@ -53,8 +53,28 @@ Partial Class frmLCS
         Me.tlpMain = New System.Windows.Forms.TableLayoutPanel()
         Me.tlpLeft = New System.Windows.Forms.TableLayoutPanel()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
+        Me.ToolStripDropDownButton1 = New System.Windows.Forms.ToolStripDropDownButton()
+        Me.FlightControlComputerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SaveEventLogToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.startSensors = New System.Windows.Forms.ToolStripMenuItem()
+        Me.stopSensors = New System.Windows.Forms.ToolStripMenuItem()
+        Me.resetSensors = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SaveEventLogToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.StaticTestToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LaunchToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TestingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SaveEventLogToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripDropDownButton2 = New System.Windows.Forms.ToolStripDropDownButton()
+        Me.btnOpenVents = New System.Windows.Forms.ToolStripMenuItem()
+        Me.btnCloseVents = New System.Windows.Forms.ToolStripMenuItem()
+        Me.btnOpenMain = New System.Windows.Forms.ToolStripMenuItem()
+        Me.btnCloseMain = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
+        Me.loadCell = New System.Windows.Forms.ToolStripButton()
         Me.dgvEvents = New System.Windows.Forms.DataGridView()
         Me.TableLayoutPanel7 = New System.Windows.Forms.TableLayoutPanel()
+        Me.lblTime = New System.Windows.Forms.Label()
         Me.TableLayoutPanel8 = New System.Windows.Forms.TableLayoutPanel()
         Me.btnBegin = New System.Windows.Forms.Button()
         Me.btnReset = New System.Windows.Forms.Button()
@@ -75,26 +95,6 @@ Partial Class frmLCS
         Me.updateTimer = New System.Windows.Forms.Timer(Me.components)
         Me.sensorTimer = New System.Windows.Forms.Timer(Me.components)
         Me.countdownTimer = New System.Windows.Forms.Timer(Me.components)
-        Me.ToolStripDropDownButton1 = New System.Windows.Forms.ToolStripDropDownButton()
-        Me.FlightControlComputerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SaveEventLogToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.startSensors = New System.Windows.Forms.ToolStripMenuItem()
-        Me.stopSensors = New System.Windows.Forms.ToolStripMenuItem()
-        Me.resetSensors = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SaveEventLogToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.StaticTestToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.LaunchToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TestingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SaveEventLogToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripDropDownButton2 = New System.Windows.Forms.ToolStripDropDownButton()
-        Me.btnOpenVents = New System.Windows.Forms.ToolStripMenuItem()
-        Me.btnCloseVents = New System.Windows.Forms.ToolStripMenuItem()
-        Me.btnOpenMain = New System.Windows.Forms.ToolStripMenuItem()
-        Me.btnCloseMain = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
-        Me.loadCell = New System.Windows.Forms.ToolStripButton()
-        Me.lblTime = New System.Windows.Forms.Label()
         Me.tlpRightSide.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.TableLayoutPanel5.SuspendLayout()
@@ -484,10 +484,144 @@ Partial Class frmLCS
         Me.ToolStrip1.TabIndex = 0
         Me.ToolStrip1.Text = "ToolStrip1"
         '
+        'ToolStripDropDownButton1
+        '
+        Me.ToolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripDropDownButton1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FlightControlComputerToolStripMenuItem, Me.SaveEventLogToolStripMenuItem, Me.SaveEventLogToolStripMenuItem1, Me.SaveEventLogToolStripMenuItem2})
+        Me.ToolStripDropDownButton1.Image = CType(resources.GetObject("ToolStripDropDownButton1.Image"), System.Drawing.Image)
+        Me.ToolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripDropDownButton1.Name = "ToolStripDropDownButton1"
+        Me.ToolStripDropDownButton1.Size = New System.Drawing.Size(62, 22)
+        Me.ToolStripDropDownButton1.Text = "Options"
+        '
+        'FlightControlComputerToolStripMenuItem
+        '
+        Me.FlightControlComputerToolStripMenuItem.Name = "FlightControlComputerToolStripMenuItem"
+        Me.FlightControlComputerToolStripMenuItem.Size = New System.Drawing.Size(204, 22)
+        Me.FlightControlComputerToolStripMenuItem.Text = "Flight Control Computer"
+        '
+        'SaveEventLogToolStripMenuItem
+        '
+        Me.SaveEventLogToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.startSensors, Me.stopSensors, Me.resetSensors})
+        Me.SaveEventLogToolStripMenuItem.Name = "SaveEventLogToolStripMenuItem"
+        Me.SaveEventLogToolStripMenuItem.Size = New System.Drawing.Size(204, 22)
+        Me.SaveEventLogToolStripMenuItem.Text = "Sensor Timer"
+        '
+        'startSensors
+        '
+        Me.startSensors.Name = "startSensors"
+        Me.startSensors.Size = New System.Drawing.Size(102, 22)
+        Me.startSensors.Text = "Start"
+        '
+        'stopSensors
+        '
+        Me.stopSensors.Name = "stopSensors"
+        Me.stopSensors.Size = New System.Drawing.Size(102, 22)
+        Me.stopSensors.Text = "Stop"
+        '
+        'resetSensors
+        '
+        Me.resetSensors.Name = "resetSensors"
+        Me.resetSensors.Size = New System.Drawing.Size(102, 22)
+        Me.resetSensors.Text = "Reset"
+        '
+        'SaveEventLogToolStripMenuItem1
+        '
+        Me.SaveEventLogToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StaticTestToolStripMenuItem, Me.LaunchToolStripMenuItem, Me.TestingToolStripMenuItem})
+        Me.SaveEventLogToolStripMenuItem1.Name = "SaveEventLogToolStripMenuItem1"
+        Me.SaveEventLogToolStripMenuItem1.Size = New System.Drawing.Size(204, 22)
+        Me.SaveEventLogToolStripMenuItem1.Text = "Operational Mode"
+        '
+        'StaticTestToolStripMenuItem
+        '
+        Me.StaticTestToolStripMenuItem.Name = "StaticTestToolStripMenuItem"
+        Me.StaticTestToolStripMenuItem.Size = New System.Drawing.Size(127, 22)
+        Me.StaticTestToolStripMenuItem.Text = "Static Test"
+        '
+        'LaunchToolStripMenuItem
+        '
+        Me.LaunchToolStripMenuItem.Name = "LaunchToolStripMenuItem"
+        Me.LaunchToolStripMenuItem.Size = New System.Drawing.Size(127, 22)
+        Me.LaunchToolStripMenuItem.Text = "Launch"
+        '
+        'TestingToolStripMenuItem
+        '
+        Me.TestingToolStripMenuItem.Name = "TestingToolStripMenuItem"
+        Me.TestingToolStripMenuItem.Size = New System.Drawing.Size(127, 22)
+        Me.TestingToolStripMenuItem.Text = "Testing"
+        '
+        'SaveEventLogToolStripMenuItem2
+        '
+        Me.SaveEventLogToolStripMenuItem2.Name = "SaveEventLogToolStripMenuItem2"
+        Me.SaveEventLogToolStripMenuItem2.Size = New System.Drawing.Size(204, 22)
+        Me.SaveEventLogToolStripMenuItem2.Text = "Save Event Log"
+        '
+        'ToolStripDropDownButton2
+        '
+        Me.ToolStripDropDownButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripDropDownButton2.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnOpenVents, Me.btnCloseVents, Me.btnOpenMain, Me.btnCloseMain})
+        Me.ToolStripDropDownButton2.Image = CType(resources.GetObject("ToolStripDropDownButton2.Image"), System.Drawing.Image)
+        Me.ToolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripDropDownButton2.Name = "ToolStripDropDownButton2"
+        Me.ToolStripDropDownButton2.Size = New System.Drawing.Size(72, 22)
+        Me.ToolStripDropDownButton2.Text = "Pre-Flight"
+        '
+        'btnOpenVents
+        '
+        Me.btnOpenVents.Name = "btnOpenVents"
+        Me.btnOpenVents.Size = New System.Drawing.Size(134, 22)
+        Me.btnOpenVents.Text = "Open Vents"
+        '
+        'btnCloseVents
+        '
+        Me.btnCloseVents.Name = "btnCloseVents"
+        Me.btnCloseVents.Size = New System.Drawing.Size(134, 22)
+        Me.btnCloseVents.Text = "Close Vents"
+        '
+        'btnOpenMain
+        '
+        Me.btnOpenMain.Enabled = False
+        Me.btnOpenMain.Name = "btnOpenMain"
+        Me.btnOpenMain.Size = New System.Drawing.Size(134, 22)
+        Me.btnOpenMain.Text = "Open Main"
+        '
+        'btnCloseMain
+        '
+        Me.btnCloseMain.Name = "btnCloseMain"
+        Me.btnCloseMain.Size = New System.Drawing.Size(134, 22)
+        Me.btnCloseMain.Text = "Close Main"
+        '
+        'ToolStripButton1
+        '
+        Me.ToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
+        Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton1.Name = "ToolStripButton1"
+        Me.ToolStripButton1.Size = New System.Drawing.Size(53, 22)
+        Me.ToolStripButton1.Text = "Settings"
+        '
+        'ToolStripButton2
+        '
+        Me.ToolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripButton2.Image = CType(resources.GetObject("ToolStripButton2.Image"), System.Drawing.Image)
+        Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton2.Name = "ToolStripButton2"
+        Me.ToolStripButton2.Size = New System.Drawing.Size(44, 22)
+        Me.ToolStripButton2.Text = "About"
+        '
+        'loadCell
+        '
+        Me.loadCell.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.loadCell.Image = CType(resources.GetObject("loadCell.Image"), System.Drawing.Image)
+        Me.loadCell.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.loadCell.Name = "loadCell"
+        Me.loadCell.Size = New System.Drawing.Size(60, 22)
+        Me.loadCell.Text = "Load Cell"
+        '
         'dgvEvents
         '
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.dgvEvents.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.dgvEvents.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvEvents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvEvents.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvEvents.Location = New System.Drawing.Point(4, 123)
@@ -510,6 +644,21 @@ Partial Class frmLCS
         Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel7.Size = New System.Drawing.Size(1375, 84)
         Me.TableLayoutPanel7.TabIndex = 2
+        '
+        'lblTime
+        '
+        Me.lblTime.AutoSize = True
+        Me.lblTime.BackColor = System.Drawing.SystemColors.Control
+        Me.lblTime.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.lblTime.Font = New System.Drawing.Font("Digital-7 Mono", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTime.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.lblTime.Image = Global.Launch_Control.My.Resources.Resources.banner
+        Me.lblTime.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lblTime.Location = New System.Drawing.Point(4, 1)
+        Me.lblTime.Name = "lblTime"
+        Me.lblTime.Size = New System.Drawing.Size(1023, 82)
+        Me.lblTime.TabIndex = 0
+        Me.lblTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'TableLayoutPanel8
         '
@@ -740,155 +889,6 @@ Partial Class frmLCS
         'countdownTimer
         '
         Me.countdownTimer.Interval = 1000
-        '
-        'ToolStripDropDownButton1
-        '
-        Me.ToolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.ToolStripDropDownButton1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FlightControlComputerToolStripMenuItem, Me.SaveEventLogToolStripMenuItem, Me.SaveEventLogToolStripMenuItem1, Me.SaveEventLogToolStripMenuItem2})
-        Me.ToolStripDropDownButton1.Image = CType(resources.GetObject("ToolStripDropDownButton1.Image"), System.Drawing.Image)
-        Me.ToolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripDropDownButton1.Name = "ToolStripDropDownButton1"
-        Me.ToolStripDropDownButton1.Size = New System.Drawing.Size(62, 22)
-        Me.ToolStripDropDownButton1.Text = "Options"
-        '
-        'FlightControlComputerToolStripMenuItem
-        '
-        Me.FlightControlComputerToolStripMenuItem.Name = "FlightControlComputerToolStripMenuItem"
-        Me.FlightControlComputerToolStripMenuItem.Size = New System.Drawing.Size(204, 22)
-        Me.FlightControlComputerToolStripMenuItem.Text = "Flight Control Computer"
-        '
-        'SaveEventLogToolStripMenuItem
-        '
-        Me.SaveEventLogToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.startSensors, Me.stopSensors, Me.resetSensors})
-        Me.SaveEventLogToolStripMenuItem.Name = "SaveEventLogToolStripMenuItem"
-        Me.SaveEventLogToolStripMenuItem.Size = New System.Drawing.Size(204, 22)
-        Me.SaveEventLogToolStripMenuItem.Text = "Sensor Timer"
-        '
-        'startSensors
-        '
-        Me.startSensors.Name = "startSensors"
-        Me.startSensors.Size = New System.Drawing.Size(102, 22)
-        Me.startSensors.Text = "Start"
-        '
-        'stopSensors
-        '
-        Me.stopSensors.Name = "stopSensors"
-        Me.stopSensors.Size = New System.Drawing.Size(102, 22)
-        Me.stopSensors.Text = "Stop"
-        '
-        'resetSensors
-        '
-        Me.resetSensors.Name = "resetSensors"
-        Me.resetSensors.Size = New System.Drawing.Size(102, 22)
-        Me.resetSensors.Text = "Reset"
-        '
-        'SaveEventLogToolStripMenuItem1
-        '
-        Me.SaveEventLogToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StaticTestToolStripMenuItem, Me.LaunchToolStripMenuItem, Me.TestingToolStripMenuItem})
-        Me.SaveEventLogToolStripMenuItem1.Name = "SaveEventLogToolStripMenuItem1"
-        Me.SaveEventLogToolStripMenuItem1.Size = New System.Drawing.Size(204, 22)
-        Me.SaveEventLogToolStripMenuItem1.Text = "Operational Mode"
-        '
-        'StaticTestToolStripMenuItem
-        '
-        Me.StaticTestToolStripMenuItem.Name = "StaticTestToolStripMenuItem"
-        Me.StaticTestToolStripMenuItem.Size = New System.Drawing.Size(127, 22)
-        Me.StaticTestToolStripMenuItem.Text = "Static Test"
-        '
-        'LaunchToolStripMenuItem
-        '
-        Me.LaunchToolStripMenuItem.Name = "LaunchToolStripMenuItem"
-        Me.LaunchToolStripMenuItem.Size = New System.Drawing.Size(127, 22)
-        Me.LaunchToolStripMenuItem.Text = "Launch"
-        '
-        'TestingToolStripMenuItem
-        '
-        Me.TestingToolStripMenuItem.Name = "TestingToolStripMenuItem"
-        Me.TestingToolStripMenuItem.Size = New System.Drawing.Size(127, 22)
-        Me.TestingToolStripMenuItem.Text = "Testing"
-        '
-        'SaveEventLogToolStripMenuItem2
-        '
-        Me.SaveEventLogToolStripMenuItem2.Name = "SaveEventLogToolStripMenuItem2"
-        Me.SaveEventLogToolStripMenuItem2.Size = New System.Drawing.Size(204, 22)
-        Me.SaveEventLogToolStripMenuItem2.Text = "Save Event Log"
-        '
-        'ToolStripDropDownButton2
-        '
-        Me.ToolStripDropDownButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.ToolStripDropDownButton2.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnOpenVents, Me.btnCloseVents, Me.btnOpenMain, Me.btnCloseMain})
-        Me.ToolStripDropDownButton2.Image = CType(resources.GetObject("ToolStripDropDownButton2.Image"), System.Drawing.Image)
-        Me.ToolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripDropDownButton2.Name = "ToolStripDropDownButton2"
-        Me.ToolStripDropDownButton2.Size = New System.Drawing.Size(72, 22)
-        Me.ToolStripDropDownButton2.Text = "Pre-Flight"
-        '
-        'btnOpenVents
-        '
-        Me.btnOpenVents.Name = "btnOpenVents"
-        Me.btnOpenVents.Size = New System.Drawing.Size(134, 22)
-        Me.btnOpenVents.Text = "Open Vents"
-        '
-        'btnCloseVents
-        '
-        Me.btnCloseVents.Name = "btnCloseVents"
-        Me.btnCloseVents.Size = New System.Drawing.Size(134, 22)
-        Me.btnCloseVents.Text = "Close Vents"
-        '
-        'btnOpenMain
-        '
-        Me.btnOpenMain.Enabled = False
-        Me.btnOpenMain.Name = "btnOpenMain"
-        Me.btnOpenMain.Size = New System.Drawing.Size(134, 22)
-        Me.btnOpenMain.Text = "Open Main"
-        '
-        'btnCloseMain
-        '
-        Me.btnCloseMain.Name = "btnCloseMain"
-        Me.btnCloseMain.Size = New System.Drawing.Size(134, 22)
-        Me.btnCloseMain.Text = "Close Main"
-        '
-        'ToolStripButton1
-        '
-        Me.ToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
-        Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton1.Name = "ToolStripButton1"
-        Me.ToolStripButton1.Size = New System.Drawing.Size(53, 22)
-        Me.ToolStripButton1.Text = "Settings"
-        '
-        'ToolStripButton2
-        '
-        Me.ToolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.ToolStripButton2.Image = CType(resources.GetObject("ToolStripButton2.Image"), System.Drawing.Image)
-        Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton2.Name = "ToolStripButton2"
-        Me.ToolStripButton2.Size = New System.Drawing.Size(44, 22)
-        Me.ToolStripButton2.Text = "About"
-        '
-        'loadCell
-        '
-        Me.loadCell.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.loadCell.Image = CType(resources.GetObject("loadCell.Image"), System.Drawing.Image)
-        Me.loadCell.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.loadCell.Name = "loadCell"
-        Me.loadCell.Size = New System.Drawing.Size(60, 22)
-        Me.loadCell.Text = "Load Cell"
-        '
-        'lblTime
-        '
-        Me.lblTime.AutoSize = True
-        Me.lblTime.BackColor = System.Drawing.SystemColors.Control
-        Me.lblTime.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblTime.Font = New System.Drawing.Font("Digital-7 Mono", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTime.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.lblTime.Image = CType(resources.GetObject("lblTime.Image"), System.Drawing.Image)
-        Me.lblTime.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.lblTime.Location = New System.Drawing.Point(4, 1)
-        Me.lblTime.Name = "lblTime"
-        Me.lblTime.Size = New System.Drawing.Size(1023, 82)
-        Me.lblTime.TabIndex = 0
-        Me.lblTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'frmLCS
         '
