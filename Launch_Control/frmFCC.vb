@@ -17,6 +17,7 @@ Public Class frmFCC
     Dim ipAddr As IPAddress
     Dim port As Integer
     Dim fccSocket As Socket
+    Dim fccTCP As TcpClient
     Dim dt As DataTable = New DataTable()
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles tb_IPAddress.TextChanged
 
@@ -91,13 +92,13 @@ Public Class frmFCC
             dgv_FCC.DataSource = dt ' make sure all data is printing to DGV
             fccSocket.Send(message) ' sends byte array over socket connection
 
-            Do
-                returnedMsg = Listen()
-                dt.Rows.Add(returnedMsg)
-            Loop Until returnedMsg = "Complete"
+            'Do
+            '    returnedMsg = Listen()
+            '    dt.Rows.Add(returnedMsg)
+            'Loop Until returnedMsg = "Complete"
 
 
-            dt.Rows.Add("Message Sent: " & sendThis & " " & DateTime.Now.ToShortTimeString())
+            ' AddRowsToDGV("Message Sent: ")
 
             'Dim receipt(1024) As Byte
             'Dim receivedMsgLength As Integer = fccSocket.Receive(receipt) ' gets size and bytes 
@@ -109,12 +110,15 @@ Public Class frmFCC
             Return Nothing
 
         Catch ex As Exception
-            dt.Rows.Add("Error sending/receiving the message.  Try again!")
+            AddRowsToDGV("Error sending the message.  Try again!")
             Return Nothing
         End Try
 
     End Function
-
+    ''' <summary>
+    ''' Tries to receive live stream from server
+    ''' </summary>
+    ''' <returns></returns>
     Public Function Listen() As String
         Try
             Dim receipt(1024) As Byte
@@ -122,16 +126,36 @@ Public Class frmFCC
 
             Dim receiptStr As String = Encoding.ASCII.GetString(receipt, 0, receivedMsgLength) ' converts message to string
 
-            dt.Rows.Add(receiptStr)
+            'AddRowsToDGV(receiptStr)
 
             Return receiptStr
 
         Catch ex As Exception
-            dt.Rows.Add("Error Listening to Connection")
+            AddRowsToDGV("Error Listening to Connection")
             Return Nothing
         End Try
     End Function
 
+    Public Function Send_Receive(sendThis As String) As String
+        Try
+            Dim message As Byte() = Encoding.ASCII.GetBytes(sendThis) ' converts string to ASCII bytes
+            Dim returnedMsg As String = Nothing
+            dgv_FCC.DataSource = dt ' make sure all data is printing to DGV
+            fccSocket.Send(message) ' sends byte array over socket connection
+
+            Dim receipt(1024) As Byte
+            Dim receivedMsgLength As Integer = fccSocket.Receive(receipt) ' gets size and bytes 
+
+            Dim receiptStr As String = Encoding.ASCII.GetString(receipt, 0, receivedMsgLength) ' converts message to string
+
+            AddRowsToDGV("Message Received: ")
+
+            Return receiptStr
+        Catch ex As Exception
+            dt.Rows.Add("error sending the message.  try again {0}", DateTime.Now)
+        End Try
+
+    End Function
 
     Private Sub btn_Disconnect_Click(sender As Object, e As EventArgs) Handles btn_Disconnect.Click
         Try
@@ -157,26 +181,24 @@ Public Class frmFCC
     End Sub
 
     Private Sub btn_X_Click(sender As Object, e As EventArgs) Handles btn_X.Click
-        Dim sendThisMsg As String = "max"
-        Dim returnedMsg As String = Send(sendThisMsg)
+        Dim sendThisMsg As String = "x_pattern"
+        Dim returnedMsg As String = Send_Receive(sendThisMsg)
 
-        If returnedMsg = "Complete" Then
-            dt.Rows.Add(returnedMsg & DateTime.Now.ToShortTimeString())
-            dgv_FCC.DataSource = dt
+        If returnedMsg = "X Pattern starting." Then
+            AddRowsToDGV(returnedMsg)
         Else
-            dt.Rows.Add("Error Receiving X Pattern return message.  Check X Pattern status on server.")
+            AddRowsToDGV("Error Receiving X Pattern return message.  Check X Pattern status on server.")
         End If
     End Sub
 
     Private Sub btn_Circle_Click(sender As Object, e As EventArgs) Handles btn_Circle.Click
-        Dim sendThisMsg As String = "min"
+        Dim sendThisMsg As String = "circle"
         Dim returnedMsg As String = Send(sendThisMsg)
 
         If returnedMsg = "Complete" Then
-            dt.Rows.Add(returnedMsg & DateTime.Now.ToShortTimeString())
-            dgv_FCC.DataSource = dt
+            AddRowsToDGV("Circle Pattern Complete")
         Else
-            dt.Rows.Add("Error Receiving Circle Pattern return message.  Check Circle Pattern status on server.")
+            AddRowsToDGV("Error Receiving Circle Pattern return message.  Check Circle Pattern status on server.")
 
         End If
     End Sub
@@ -186,40 +208,49 @@ Public Class frmFCC
         Dim returnedMsg As String = Send(sendThisMsg)
 
         If returnedMsg = "PID Program started successfully." Then
-            dt.Rows.Add(returnedMsg & DateTime.Now.ToShortTimeString())
-            dgv_FCC.DataSource = dt
+            AddRowsToDGV(returnedMsg)
         Else
-            dt.Rows.Add("Error Receiving PID return message.  Check PID status on server.")
+            AddRowsToDGV("Error Receiving PID return message.  Check PID status on server.")
         End If
     End Sub
 
     Private Sub btn_Center_Click(sender As Object, e As EventArgs) Handles btn_Center.Click
         Dim sendThisMsg As String = "center"
         Dim returnedMsg As String = Nothing
-        returnedMsg = Send(sendThisMsg)
-        'Do
-        '    returnedMsg = Listen()
+        Dim timeoutCounter As Int32 = 0
+        Send(sendThisMsg) ' sends center command to server
+        returnedMsg = Listen() ' waits fore response
+        AddRowsToDGV(returnedMsg) ' adds response to dgv
 
-        '    'If returnedMsg = Nothing Then
-        '    '    Exit Do
-        '    'End If
+        ' if the returnedMsg is Center Pattern STring, then send "Clear To Send"
+        If returnedMsg = "Center Pattern Starting" Then
+            Send("CTS") ' lets server know to begin data transmission
+            While True
+                returnedMsg = Listen() ' gets response
+                If returnedMsg = "Complete" Then ' if response is "Complete", Exit the loop
+                    Exit While
+                End If
 
-        '    dt.Rows.Add(returnedMsg)
-        'Loop Until returnedMsg = "Complete"
+                ' otherwise let's parse the data and display it in the gauge
+                Dim temp As Int32
+                Int32.TryParse(returnedMsg, temp)
+                lg_Data.Value = temp
+                lg_Data.RepaintControl()
 
-        If returnedMsg = Nothing Then
-            dt.Rows.Add("Heard Nothing, Check Centering Status")
-        Else
-            dt.Rows.Add("Centering Complete")
+                ' AddRowsToDGV(returnedMsg)
+
+                ' send ACKnowledgement to server to get next transmission
+                Send("ACK")
+
+            End While
+
+            If returnedMsg = Nothing Then
+                AddRowsToDGV("Heard Nothing, Check Centering Status")
+            Else
+                AddRowsToDGV("Centering Complete")
+            End If
         End If
 
-        'If returnedMsg = "Complete" Then
-        '    dt.Rows.Add(returnedMsg & DateTime.Now.ToShortTimeString())
-        '    dgv_FCC.DataSource = dt
-        'Else
-        '    dt.Rows.Add("Error Receiving Centering Pattern return message.  Check Centering Pattern status on server.")
-        '    dt.Rows.Add("Here's what was sent: {0}", returnedMsg)
-        'End If
     End Sub
 
     Private Sub btn_Abort_Click(sender As Object, e As EventArgs) Handles btn_Abort.Click
@@ -236,5 +267,28 @@ Public Class frmFCC
 
     Private Sub GroupBox2_Enter(sender As Object, e As EventArgs)
 
+    End Sub
+
+    Private Sub btn_OpenValve1_Click(sender As Object, e As EventArgs) Handles btn_OpenValve1.Click
+
+    End Sub
+    Public Sub AdjustDGV()
+        Dim tWidth As Integer = dgv_FCC.Size.Width
+        Dim clm As DataGridViewColumn = dgv_FCC.Columns(0)
+        clm.Width = tWidth * 0.7
+        Dim clm2 As DataGridViewColumn = dgv_FCC.Columns(1)
+        clm2.Width = tWidth * 0.2
+
+        ' follows most recent row in dgv
+        dgv_FCC.FirstDisplayedScrollingRowIndex = dgv_FCC.RowCount - 1
+    End Sub
+
+    Public Sub AddRowsToDGV(message As String)
+        Dim dtRow As DataRow = dt.NewRow()
+        dtRow(0) = message
+        dtRow(1) = DateTime.Now.ToShortTimeString()
+        dt.Rows.Add(dtRow)
+        dgv_FCC.DataSource = dt
+        AdjustDGV()
     End Sub
 End Class

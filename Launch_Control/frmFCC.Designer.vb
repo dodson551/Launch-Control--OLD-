@@ -22,6 +22,7 @@ Partial Class frmFCC
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmFCC))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.tb_IPAddress = New System.Windows.Forms.TextBox()
@@ -32,6 +33,10 @@ Partial Class frmFCC
         Me.tb_Port = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.btn_CloseValve2 = New System.Windows.Forms.Button()
+        Me.btn_CloseValve1 = New System.Windows.Forms.Button()
+        Me.btn_OpenValve2 = New System.Windows.Forms.Button()
+        Me.btn_OpenValve1 = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.btn_Center = New System.Windows.Forms.Button()
         Me.btn_Abort = New System.Windows.Forms.Button()
@@ -42,16 +47,15 @@ Partial Class frmFCC
         Me.lb_ConnectionStatus = New System.Windows.Forms.ListBox()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.dgv_FCC = New System.Windows.Forms.DataGridView()
-        Me.btn_OpenValve1 = New System.Windows.Forms.Button()
-        Me.btn_OpenValve2 = New System.Windows.Forms.Button()
-        Me.btn_CloseValve2 = New System.Windows.Forms.Button()
-        Me.btn_CloseValve1 = New System.Windows.Forms.Button()
+        Me.Model1 = New Syncfusion.Windows.Forms.Diagram.Model(Me.components)
+        Me.lg_Data = New Syncfusion.Windows.Forms.Gauge.LinearGauge()
         Me.gb_NetworkConnections.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
         CType(Me.dgv_FCC, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Model1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -149,6 +153,46 @@ Partial Class frmFCC
         Me.GroupBox1.TabIndex = 3
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "RCS"
+        '
+        'btn_CloseValve2
+        '
+        Me.btn_CloseValve2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!)
+        Me.btn_CloseValve2.Location = New System.Drawing.Point(154, 124)
+        Me.btn_CloseValve2.Name = "btn_CloseValve2"
+        Me.btn_CloseValve2.Size = New System.Drawing.Size(145, 63)
+        Me.btn_CloseValve2.TabIndex = 10
+        Me.btn_CloseValve2.Text = "Close Valve 2"
+        Me.btn_CloseValve2.UseVisualStyleBackColor = True
+        '
+        'btn_CloseValve1
+        '
+        Me.btn_CloseValve1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!)
+        Me.btn_CloseValve1.Location = New System.Drawing.Point(6, 124)
+        Me.btn_CloseValve1.Name = "btn_CloseValve1"
+        Me.btn_CloseValve1.Size = New System.Drawing.Size(145, 63)
+        Me.btn_CloseValve1.TabIndex = 9
+        Me.btn_CloseValve1.Text = "Close Valve 1"
+        Me.btn_CloseValve1.UseVisualStyleBackColor = True
+        '
+        'btn_OpenValve2
+        '
+        Me.btn_OpenValve2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!)
+        Me.btn_OpenValve2.Location = New System.Drawing.Point(154, 34)
+        Me.btn_OpenValve2.Name = "btn_OpenValve2"
+        Me.btn_OpenValve2.Size = New System.Drawing.Size(145, 63)
+        Me.btn_OpenValve2.TabIndex = 8
+        Me.btn_OpenValve2.Text = "Open Valve 2"
+        Me.btn_OpenValve2.UseVisualStyleBackColor = True
+        '
+        'btn_OpenValve1
+        '
+        Me.btn_OpenValve1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!)
+        Me.btn_OpenValve1.Location = New System.Drawing.Point(6, 34)
+        Me.btn_OpenValve1.Name = "btn_OpenValve1"
+        Me.btn_OpenValve1.Size = New System.Drawing.Size(145, 63)
+        Me.btn_OpenValve1.TabIndex = 0
+        Me.btn_OpenValve1.Text = "Open Valve 1"
+        Me.btn_OpenValve1.UseVisualStyleBackColor = True
         '
         'GroupBox3
         '
@@ -250,59 +294,61 @@ Partial Class frmFCC
         Me.dgv_FCC.Size = New System.Drawing.Size(620, 271)
         Me.dgv_FCC.TabIndex = 6
         '
-        'btn_OpenValve1
+        'Model1
         '
-        Me.btn_OpenValve1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!)
-        Me.btn_OpenValve1.Location = New System.Drawing.Point(6, 34)
-        Me.btn_OpenValve1.Name = "btn_OpenValve1"
-        Me.btn_OpenValve1.Size = New System.Drawing.Size(145, 63)
-        Me.btn_OpenValve1.TabIndex = 0
-        Me.btn_OpenValve1.Text = "Open Valve 1"
-        Me.btn_OpenValve1.UseVisualStyleBackColor = True
+        Me.Model1.AlignmentType = AlignmentType.SelectedNode
+        Me.Model1.BackgroundStyle.PathBrushStyle = Syncfusion.Windows.Forms.Diagram.PathGradientBrushStyle.RectangleCenter
+        Me.Model1.DocumentScale.DisplayName = "No Scale"
+        Me.Model1.DocumentScale.Height = 1.0!
+        Me.Model1.DocumentScale.Width = 1.0!
+        Me.Model1.DocumentSize.Height = 1169.0!
+        Me.Model1.DocumentSize.Width = 827.0!
+        Me.Model1.LineStyle.DashPattern = Nothing
+        Me.Model1.LineStyle.LineColor = System.Drawing.Color.Black
+        Me.Model1.LogicalSize = New System.Drawing.SizeF(827.0!, 1169.0!)
+        Me.Model1.ShadowStyle.Color = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(105, Byte), Integer), CType(CType(105, Byte), Integer), CType(CType(105, Byte), Integer))
+        Me.Model1.ShadowStyle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(105, Byte), Integer), CType(CType(105, Byte), Integer), CType(CType(105, Byte), Integer))
         '
-        'btn_OpenValve2
+        'lg_Data
         '
-        Me.btn_OpenValve2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!)
-        Me.btn_OpenValve2.Location = New System.Drawing.Point(154, 34)
-        Me.btn_OpenValve2.Name = "btn_OpenValve2"
-        Me.btn_OpenValve2.Size = New System.Drawing.Size(145, 63)
-        Me.btn_OpenValve2.TabIndex = 8
-        Me.btn_OpenValve2.Text = "Open Valve 2"
-        Me.btn_OpenValve2.UseVisualStyleBackColor = True
-        '
-        'btn_CloseValve2
-        '
-        Me.btn_CloseValve2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!)
-        Me.btn_CloseValve2.Location = New System.Drawing.Point(154, 124)
-        Me.btn_CloseValve2.Name = "btn_CloseValve2"
-        Me.btn_CloseValve2.Size = New System.Drawing.Size(145, 63)
-        Me.btn_CloseValve2.TabIndex = 10
-        Me.btn_CloseValve2.Text = "Close Valve 2"
-        Me.btn_CloseValve2.UseVisualStyleBackColor = True
-        '
-        'btn_CloseValve1
-        '
-        Me.btn_CloseValve1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!)
-        Me.btn_CloseValve1.Location = New System.Drawing.Point(6, 124)
-        Me.btn_CloseValve1.Name = "btn_CloseValve1"
-        Me.btn_CloseValve1.Size = New System.Drawing.Size(145, 63)
-        Me.btn_CloseValve1.TabIndex = 9
-        Me.btn_CloseValve1.Text = "Close Valve 1"
-        Me.btn_CloseValve1.UseVisualStyleBackColor = True
+        Me.lg_Data.ForeColor = System.Drawing.Color.Gray
+        Me.lg_Data.GaugeBaseColor = System.Drawing.Color.Red
+        Me.lg_Data.GaugelabelFont = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lg_Data.LinearFrameType = Syncfusion.Windows.Forms.Gauge.LinearFrameType.Horizontal
+        Me.lg_Data.Location = New System.Drawing.Point(650, 12)
+        Me.lg_Data.MajorDifference = 10
+        Me.lg_Data.MajorTickMarkColor = System.Drawing.Color.Black
+        Me.lg_Data.MajorTicksHeight = 15
+        Me.lg_Data.MaximumValue = 30.0!
+        Me.lg_Data.MinimumSize = New System.Drawing.Size(75, 125)
+        Me.lg_Data.MinimumValue = -30.0!
+        Me.lg_Data.MinorTickCount = 10
+        Me.lg_Data.MinorTickHeight = 10
+        Me.lg_Data.Name = "lg_Data"
+        Me.lg_Data.NeedleColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lg_Data.OuterFrameGradientEndColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.lg_Data.OuterFrameGradientStartColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lg_Data.PointerPlacement = Syncfusion.Windows.Forms.Gauge.Placement.Center
+        Me.lg_Data.Size = New System.Drawing.Size(300, 125)
+        Me.lg_Data.TabIndex = 8
+        Me.lg_Data.Text = "LinearGauge1"
+        Me.lg_Data.ValueIndicatorColor = System.Drawing.Color.Gray
         '
         'frmFCC
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1584, 861)
+        Me.Controls.Add(Me.lg_Data)
         Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.gb_NetworkConnections)
+        Me.DoubleBuffered = True
         Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "frmFCC"
-        Me.Text = "frmFCC"
+        Me.Text = " "
         Me.gb_NetworkConnections.ResumeLayout(False)
         Me.gb_NetworkConnections.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
@@ -310,6 +356,7 @@ Partial Class frmFCC
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox5.ResumeLayout(False)
         CType(Me.dgv_FCC, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Model1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -337,4 +384,6 @@ Partial Class frmFCC
     Friend WithEvents btn_CloseValve1 As Button
     Friend WithEvents btn_OpenValve2 As Button
     Friend WithEvents btn_OpenValve1 As Button
+    Friend WithEvents Model1 As Syncfusion.Windows.Forms.Diagram.Model
+    Friend WithEvents lg_Data As Syncfusion.Windows.Forms.Gauge.LinearGauge
 End Class

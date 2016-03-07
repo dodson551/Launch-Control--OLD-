@@ -13,6 +13,12 @@ Launch_Control
  <param name="sendThis"></param>
  <returns> the message received from the server </returns>
 </member>
+<member name="M:Launch_Control.frmFCC.Listen">
+ <summary>
+ Tries to receive live stream from server
+ </summary>
+ <returns></returns>
+</member>
 <member name="T:Launch_Control.My.Resources.Resources">
 <summary>
   A strongly-typed resource class, for looking up localized strings, etc.
