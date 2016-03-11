@@ -24,8 +24,8 @@ Public Class frmFCC
     End Sub
 
     Private Sub frmFCC_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        tb_IPAddress.Text = "192.168.2.2"
-        tb_Port.Text = "7777"
+        tb_IPAddress.Text = My.Settings.FCC_IP
+        tb_Port.Text = My.Settings.FCC_Port
         lb_ConnectionStatus.Items.Add("Waiting to connect to network...")
         'lb_ConnectionStatus.Enabled = False ' makes Connection status box read only
 
@@ -55,8 +55,6 @@ Public Class frmFCC
 
                 ' notify user of connection success
                 lb_ConnectionStatus.Items.Add("Connection Established. " & DateTime.Now.ToShortTimeString())
-
-
 
             End If
 
@@ -182,9 +180,10 @@ Public Class frmFCC
 
     Private Sub btn_X_Click(sender As Object, e As EventArgs) Handles btn_X.Click
         Dim sendThisMsg As String = "x_pattern"
-        Dim returnedMsg As String = Send_Receive(sendThisMsg)
+        Send(sendThisMsg)
+        Dim returnedMsg As String = Listen()
 
-        If returnedMsg = "X Pattern starting." Then
+        If returnedMsg = "X Function Started." Then
             AddRowsToDGV(returnedMsg)
         Else
             AddRowsToDGV("Error Receiving X Pattern return message.  Check X Pattern status on server.")
@@ -219,7 +218,7 @@ Public Class frmFCC
         Dim returnedMsg As String = Nothing
         Dim timeoutCounter As Int32 = 0
         Send(sendThisMsg) ' sends center command to server
-        returnedMsg = Listen() ' waits fore response
+        returnedMsg = Listen() ' waits for response
         AddRowsToDGV(returnedMsg) ' adds response to dgv
 
         ' if the returnedMsg is Center Pattern STring, then send "Clear To Send"
@@ -290,5 +289,9 @@ Public Class frmFCC
         dt.Rows.Add(dtRow)
         dgv_FCC.DataSource = dt
         AdjustDGV()
+    End Sub
+
+    Private Sub lg_Data_Click(sender As Object, e As EventArgs) Handles lg_Data.Click
+
     End Sub
 End Class

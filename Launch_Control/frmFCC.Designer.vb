@@ -315,7 +315,7 @@ Partial Class frmFCC
         Me.lg_Data.GaugeBaseColor = System.Drawing.Color.Red
         Me.lg_Data.GaugelabelFont = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lg_Data.LinearFrameType = Syncfusion.Windows.Forms.Gauge.LinearFrameType.Horizontal
-        Me.lg_Data.Location = New System.Drawing.Point(650, 12)
+        Me.lg_Data.Location = New System.Drawing.Point(644, 12)
         Me.lg_Data.MajorDifference = 10
         Me.lg_Data.MajorTickMarkColor = System.Drawing.Color.Black
         Me.lg_Data.MajorTicksHeight = 15
@@ -331,7 +331,6 @@ Partial Class frmFCC
         Me.lg_Data.PointerPlacement = Syncfusion.Windows.Forms.Gauge.Placement.Center
         Me.lg_Data.Size = New System.Drawing.Size(300, 125)
         Me.lg_Data.TabIndex = 8
-        Me.lg_Data.Text = "LinearGauge1"
         Me.lg_Data.ValueIndicatorColor = System.Drawing.Color.Gray
         '
         'frmFCC
